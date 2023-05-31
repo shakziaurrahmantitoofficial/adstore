@@ -66,6 +66,70 @@ class adsController extends Controller
  
     }
 
+    public function customerAdEdit(Request $req){
+        $packageId  = base64_decode(base64_decode($req->package));
+        $duration   = base64_decode(base64_decode($req->dr));
+        $AdsData = ads::where("id", $packageId)->where("duration",$duration)->first();
+
+        if (ads::where("id", $packageId)->count() > 0) {
+            return view("frontend.pages.adedit",compact('AdsData'));
+        }else{
+            return redirect("/dashboard");
+        }
+ 
+    }
+
+    public function customerAdUpdate(Request $req){
+
+        
+        $adId  = $req->adId;
+
+        $req->validate([
+            "title" => "required",
+            "link" => "required",
+            "description" => "required",
+            "adType" => "required",
+            "adservicetype" => "required",
+            // "image" => "required"
+        ]);
+
+        if($req->image != ''){
+            $myFile = $req->image;
+            $file = substr(md5(time()), 0, 10).".".$req->image->getClientOriginalExtension();
+            $myFile->move(public_path("ads"), $file);
+            unlink($myFile);
+
+            $update = ads::where("id",$adId)->update([
+                'title'=>$req->title,
+                'link'=>$req->link,
+                'adservicetype'=>$req->adservicetype,
+                'description'=>$req->description,
+                'adType'=>$req->adType,
+                'image'=>"ads/".$file,
+            ]);
+        }else {
+            $ads = ads::where("id",$adId)->first();
+            $file = $ads->image;
+
+            $update = ads::where("id",$adId)->update([
+                'title'=>$req->title,
+                'link'=>$req->link,
+                'adservicetype'=>$req->adservicetype,
+                'description'=>$req->description,
+                'adType'=>$req->adType,
+                'image'=>$file,
+            ]);
+        }
+
+        if($update){
+            return redirect("/adslist")->with("success","Thanks your! Update your ads.");
+        }else{
+            return redirect()->back()->with("failure","Something Wrong! Ads not Updated.");
+        }
+ 
+    }
+
+
     public function customerAdslist(){
 
         $ads = null;
