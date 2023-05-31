@@ -56,7 +56,9 @@
 
 
 
-
+    @if (session()->has('success'))
+        <p class="text-success text-center fs-4 mt-2 mb-0">{{ session()->get('success') }}</p>
+    @endif
 
 
     <div id="all_section_filter_enable">
@@ -136,7 +138,7 @@
                     @elseif($data->status == 1)
                         <span class="bg-success text-white">Approved</span>
                     @elseif($data->status == 2)
-                       <a href=""><span class="bg-danger text-white">Rejected</span></a>
+                       <a href="{{Route('adedit.customerAdEdit')}}?package={{base64_encode(base64_encode($data->id))}}&dr={{base64_encode(base64_encode($data->duration))}}"><span class="bg-danger text-white">Rejected</span></a>
                     @endif
                 </td>
             </tr>
