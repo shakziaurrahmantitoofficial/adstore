@@ -28,7 +28,7 @@ class adsController extends Controller
     }
 
     public function cusadinsert(Request $req){
-        
+
         $packageId  = base64_decode(base64_decode($req->packageId));
         $duration   = base64_decode(base64_decode($req->duration));
         $duration   = ($duration * 3600 * 24);
@@ -97,7 +97,7 @@ class adsController extends Controller
             $myFile = $req->image;
             $file = substr(md5(time()), 0, 10).".".$req->image->getClientOriginalExtension();
             $myFile->move(public_path("ads"), $file);
-            unlink($myFile);
+            @unlink($myFile);
 
             $update = ads::where("id",$adId)->update([
                 'title'=>$req->title,

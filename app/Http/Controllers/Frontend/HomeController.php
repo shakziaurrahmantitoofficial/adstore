@@ -8,6 +8,7 @@ use App\Models\RentAd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Sale;
+use App\Models\ads;
 use Illuminate\Pagination\Paginator;
 
 
@@ -62,7 +63,25 @@ class HomeController extends Controller
         $buy_ads = BuyAd::orderBy('id', 'desc')->paginate(4);
         $rent_ads = RentAd::orderBy('id', 'desc')->paginate(4);
 
-        return view('frontend.pages.index', compact('data', 'platinum_data', 'advertisement_data','ad_stores_data','sales','buy_ads','rent_ads'));
+
+        //For more code new developer
+
+        $platinum = null;
+        if(ads::where("packageName", "platinum")->count() > 0){
+            $platinum = ads::where("packageName", "platinum")->orderby("id","DESC")->get();
+        }
+
+
+        $gold = null;
+        if(ads::where("packageName", "gold")->count() > 0){
+            $gold = ads::where("packageName", "gold")->orderby("id","DESC")->get();
+        }
+
+        return view('frontend.pages.index', compact('data', 'platinum_data', 'advertisement_data','ad_stores_data','sales','buy_ads','rent_ads','platinum','gold'));
+
+
+
+
     }
     public function adstore()
     {

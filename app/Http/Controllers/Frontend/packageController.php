@@ -10,8 +10,8 @@ use Auth;
 class packageController extends Controller
 {
     public function customerPackagelist(){
+        
         $package = null;
-
         if(package::where("customerId", Auth::guard("customer")->id())->count() > 0){
             $package = package::where("customerId", Auth::guard("customer")->id())->orderby("id","DESC")->get();
         }
