@@ -251,9 +251,7 @@
                 <div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-10">
-                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All
-                            Sale
-                            Ad(Platinum)</h2>
+                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Sale Ad(Platinum)</h2>
                         <div id="saleCarousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div id="saleCarousel" class="carousel slide" data-ride="carousel">
@@ -315,9 +313,7 @@
                 <div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-10">
-                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All
-                            Buy
-                            Ad(Gold)</h2>
+                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Buy Ad(Gold)</h2>
                         <div id="buyCarousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div id="buyCarousel" class="carousel slide" data-ride="carousel">

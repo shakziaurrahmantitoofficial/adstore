@@ -20,6 +20,7 @@ class HomeController extends Controller
         $advertisement = Http::get('https://sobkisubazar.com/api/v2/advertisement');
         $ad_store = Http::get('https://sobkisubazar.com/api/v2/ad-store');
 
+
         $data = json_decode($response, true);
         $platinum = json_decode($platinum, true);
         $advertisement = json_decode($advertisement, true);
@@ -43,6 +44,7 @@ class HomeController extends Controller
                 'photo' => 'https://sobkisubazar.com/public/' . $pl['photo'],
             ];
         }
+
 
         //advertiesment package
         foreach ($advertisement['data'] as $ad) {
