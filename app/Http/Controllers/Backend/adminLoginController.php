@@ -12,7 +12,7 @@ class adminLoginController extends Controller
 {
     public function index(){
         if (Auth::check()) {
-            return "ok";
+            return redirect(Route('admin.dashboard'));
         }else{
             return view("auth.login");
         }
