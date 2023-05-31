@@ -51,7 +51,11 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{url('admin/adapprove', $data->id)}}">Details</a>
+                                                <a href="{{url('admin/adapprove', $data->id)}}">Details 
+                                                    @if($data->resubstatus == 1)
+                                                        <span class="badge badge-primary badge-pill">R</span>
+                                                    @endif
+                                                </a>
                                             </td>
                                             <td>N/A</td>
                                         </tr>

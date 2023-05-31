@@ -102,22 +102,26 @@ class adsController extends Controller
             $update = ads::where("id",$adId)->update([
                 'title'=>$req->title,
                 'link'=>$req->link,
-                'adservicetype'=>$req->adservicetype,
-                'description'=>$req->description,
-                'adType'=>$req->adType,
-                'image'=>"ads/".$file,
+                'adservicetype' =>   $req->adservicetype,
+                'description'   =>   $req->description,
+                'resubstatus'   =>   1,
+                'status'        =>   0,
+                'adType'        =>          $req->adType,
+                'image'         =>  "ads/".$file,
             ]);
         }else {
             $ads = ads::where("id",$adId)->first();
             $file = $ads->image;
 
             $update = ads::where("id",$adId)->update([
-                'title'=>$req->title,
-                'link'=>$req->link,
-                'adservicetype'=>$req->adservicetype,
-                'description'=>$req->description,
-                'adType'=>$req->adType,
-                'image'=>$file,
+                'title'         =>  $req->title,
+                'link'          =>  $req->link,
+                'adservicetype' =>  $req->adservicetype,
+                'resubstatus'   =>   1,
+                'status'        =>   0,
+                'description'   =>  $req->description,
+                'adType'        =>  $req->adType,
+                'image'         =>  $file,
             ]);
         }
 

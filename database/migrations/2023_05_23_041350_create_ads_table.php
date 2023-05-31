@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string("image")->nullable();
             $table->integer("packageId")->nullable();
             $table->integer("customerId")->nullable();
+            $table->integer("resubstatus")->default(0);
             $table->integer("status")->default(0);
             $table->timestamps();
         });

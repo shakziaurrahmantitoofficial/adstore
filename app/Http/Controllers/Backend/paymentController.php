@@ -59,6 +59,7 @@ class paymentController extends Controller
             $ads->adstartTime = time();
         }
         $ads->status          = $req->accept;
+        $ads->resubstatus     = 0;
         $ads->save();
 
         return redirect(Route('adlist.customerAdList'));
