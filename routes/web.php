@@ -146,10 +146,9 @@ Route::group(["middleware" => "auth:customer"], function(){
         Route::post('/customeradinsert',[adsController::class,"cusadinsert"])->name("customeradinsert.cusadinsert");
 
         Route::get('/adslist',[adsController::class,"customerAdslist"])->name("adslist.customerAdslist");
-
         Route::get('/adedit',[adsController::class,"customerAdEdit"])->name("adedit.customerAdEdit");
         Route::post('/adedit',[adsController::class,"customerAdUpdate"])->name("customeradUpdate.cusadupdate");
-
+        Route::get('/adslist-package',[adsController::class,"customerAdslistPackage"])->name("adslist.customerAdslistPackage");
         
 
         // Route::post('/checkoutComplete',[checkOutController::class,"customerCheckoutComplete"])->name("checkoutComplete.customerCheckoutComplete");

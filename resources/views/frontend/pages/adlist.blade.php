@@ -130,7 +130,7 @@
                     @endif
                 </td>
                 <td>
-                    <a href="" style="color:blue;">Upgrade</a>
+                    <a href="{{Route('adslist.customerAdslistPackage')}}?adid={{base64_encode(base64_encode($data->id))}}" style="color:blue;">Upgrade</a>
                 </td>
                 <td>
                     @if($data->status == 0)
