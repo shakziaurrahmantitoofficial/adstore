@@ -94,6 +94,7 @@
                                         @csrf
 
                                         <input type="hidden" name="packageId" value="{{$packageId}}">
+                                        <input type="hidden" name="packageName" value="{{$packageName}}">
                                         <input type="hidden" name="duration" value="{{$duration}}">
 
                                         <div class="form-group">
@@ -126,8 +127,6 @@
                                                 <option value="for_rent">For Rent</option>
                                                 <option value="to_rent">To Rent</option>
                                                 <option value="corporate_ads">Corporate Ads</option>
-
-
                                                 <option value="buy">Buy Ad</option>
                                                 <option value="sale">Sale Ad</option>
                                             </select>

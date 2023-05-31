@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("title")->nullable();
             $table->string("link")->nullable();
+            $table->string("packageName")->nullable();
             $table->text("description")->nullable();
             $table->string("adType")->nullable();
             $table->string("duration")->nullable();

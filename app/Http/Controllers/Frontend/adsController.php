@@ -19,17 +19,16 @@ class adsController extends Controller
 
         $packageId  = $req->package;
         $duration   = $req->dr;
-
+        $packageName = package::find($packId)->packageName;
         if (package::where("id", $packId)->count() > 0) {
-            return view("frontend.pages.adpublish", compact('packageId', 'duration'));
+            return view("frontend.pages.adpublish", compact('packageId', 'duration','packageName'));
         }else{
             return redirect("/dashboard");
         }
- 
     }
 
     public function cusadinsert(Request $req){
-
+        
         $packageId  = base64_decode(base64_decode($req->packageId));
         $duration   = base64_decode(base64_decode($req->duration));
         $duration   = ($duration * 3600 * 24);
@@ -52,6 +51,7 @@ class adsController extends Controller
         $ads->duration      = $duration;
         $ads->title         = $req->title;
         $ads->link          = $req->link;
+        $ads->packageName   = $req->packageName;
         $ads->adservicetype = $req->adservicetype;
         $ads->customerId    = Auth::guard("customer")->id();
         $ads->description   = $req->description;
