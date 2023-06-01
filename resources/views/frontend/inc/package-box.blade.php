@@ -32,7 +32,14 @@
                     </ul>
 
                     <form id="packageForm1" method="post"
-                        action="{{ Route('checkout.customerCheckout') }}">
+
+                        @if(isset($ads) && $ads != null)
+                            action=""
+                        @else
+                            action="{{ Route('checkout.customerCheckout') }}"
+                        @endif
+                        >
+
                         @csrf
                         <input type="hidden" name="packageName" value="platinum">
                         <div class="form-group">

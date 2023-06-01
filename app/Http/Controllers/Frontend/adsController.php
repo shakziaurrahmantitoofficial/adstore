@@ -147,10 +147,17 @@ class adsController extends Controller
 
 
     public function customerAdslistPackage(Request $req){
+
+
         $adId  = base64_decode(base64_decode($req->adid));
 
+        $ads = null;
+        if(ads::where("id", $adId)->count() > 0){
+            $ads = ads::where("id", $adId)->count();
+        }
+
         if (ads::where("id", $adId)->count() > 0) {
-            return view("frontend.pages.adlist-package");
+            return view("frontend.pages.adlist-package", compact("ads"));
         }else{
             return redirect("/dashboard");
         }

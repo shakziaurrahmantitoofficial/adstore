@@ -48,11 +48,11 @@ class HomeController extends Controller
 
 
         //advertiesment package
-        foreach ($advertisement['data'] as $ad) {
-            $advertisement_data[] = [
-                'photo' => 'https://sobkisubazar.com/public/' . $ad['photo'],
-            ];
-        }
+        // foreach ($advertisement['data'] as $ad) {
+        //     $advertisement_data[] = [
+        //         'photo' => 'https://sobkisubazar.com/public/' . $ad['photo'],
+        //     ];
+        // }
         //adstore package
         foreach ($ad_stores['data'] as $ad_store) {
             $ad_stores_data[] = [
