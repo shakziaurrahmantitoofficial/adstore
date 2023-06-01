@@ -234,7 +234,7 @@
                                             <div
                                                 class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                 <div class="bbb_viewed_image-2">
-                                                    <img src="{{ $item['photo'] }}" alt="">
+                                                    <img src="" alt="">
                                                 </div>
                                             </div>
                                         </div>

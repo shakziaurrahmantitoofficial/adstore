@@ -53,6 +53,7 @@ class HomeController extends Controller
         //         'photo' => 'https://sobkisubazar.com/public/' . $ad['photo'],
         //     ];
         // }
+        
         //adstore package
         foreach ($ad_stores['data'] as $ad_store) {
             $ad_stores_data[] = [
@@ -64,17 +65,20 @@ class HomeController extends Controller
         $rent_ads = RentAd::orderBy('id', 'desc')->paginate(4);
 
 
+
+
+
         //For more code new developer
 
         $platinum = null;
         if(ads::where("packageName", "platinum")->count() > 0){
-            $platinum = ads::where("packageName", "platinum")->orderby("id","DESC")->get();
+            $platinum = ads::where("packageName", "platinum")->where("status", 1)->orderby("id","DESC")->get();
         }
 
 
         $gold = null;
         if(ads::where("packageName", "gold")->count() > 0){
-            $gold = ads::where("packageName", "gold")->orderby("id","DESC")->get();
+            $gold = ads::where("packageName", "gold")->where("status", 1)->orderby("id","DESC")->get();
         }
 
         return view('frontend.pages.index', compact('data', 'platinum_data', 'advertisement_data','ad_stores_data','sales','buy_ads','rent_ads','platinum','gold'));
