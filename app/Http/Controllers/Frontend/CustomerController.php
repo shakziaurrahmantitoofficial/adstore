@@ -13,26 +13,23 @@ class CustomerController extends Controller
 {
     public function customerSettings(){
 
-        return view("frontend.pages.customerSettings");
-        // if (Auth::guard("customer")->check()) {
-        //     return redirect("/dashboard");
-        // }else{
-        //      return view("frontend.pages.customerSettings");
-        // }
+        if (!Auth::guard("customer")->check()) {
+            return redirect("/dashboard");
+        }else{
+             return view("frontend.pages.customerSettings");
+        }
     }
 
 
     public function customerUpdate(Request $req){
-
-        // if($req->method("POST")){
+      
+        if($req->method("POST")){
 
             $errors = Validator::make($req->all(),[
                 "name" => "required",
-                "mailPhone" => "required",
-                "nid" => "required",
+                "mailPhone" => "required|unique:customers,mailPhone,".$req->id,
+                "nid" => "required|unique:customers,nid,".$req->id,
                 "address" => "required",
-                // "password" => "required|min:8",
-                // "repassword" => "required|same:password",
             ]);
 
             if ($errors->fails()) {
@@ -98,7 +95,7 @@ class CustomerController extends Controller
                     "message" => "Customer Profile not updated!"
                 ]);
             }
-        // }
+        }
 
     }
 

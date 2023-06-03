@@ -96,13 +96,7 @@ Route::get('/register',[customerLoginController::class,'customerRegistraion'])->
 Route::post('/registerInsert',[customerLoginController::class,'customerRegisstationInsert'])->name("customerRegisstationInsert.registerInsert");
 Route::post('/registerInsertCompany',[customerLoginController::class,'customerCompanyReg'])->name("customerCompanyReg.registerInsertCompany");
 
-Route::get('/settings',[CustomerController::class,'customerSettings'])->name("customer.customerSettings");
-Route::post('/customer-update',[CustomerController::class,'customerUpdate'])->name("customer.customerUpdate");
-Route::post('/password-change',[CustomerController::class,'customerPasswordChange'])->name("customer.customerPasswordChange");
 
-
-Route::get('/my-membership',[MembershipController::class,'MyMembership'])->name("customer.MyMembership");
-Route::post('/my-membership',[MembershipController::class,'MyMembershipUpdate'])->name("customer.MyMembershipUpdate");
 
 
 
@@ -161,6 +155,15 @@ Route::group(["middleware" => "auth:customer"], function(){
         
 
         // Route::post('/checkoutComplete',[checkOutController::class,"customerCheckoutComplete"])->name("checkoutComplete.customerCheckoutComplete");
+
+
+        Route::get('/settings',[CustomerController::class,'customerSettings'])->name("customer.customerSettings");
+        Route::post('/customer-update',[CustomerController::class,'customerUpdate'])->name("customer.customerUpdate");
+        Route::post('/password-change',[CustomerController::class,'customerPasswordChange'])->name("customer.customerPasswordChange");
+
+
+        Route::get('/my-membership',[MembershipController::class,'MyMembership'])->name("customer.MyMembership");
+        Route::post('/my-membership',[MembershipController::class,'MyMembershipUpdate'])->name("customer.MyMembershipUpdate");
 
 
 });
