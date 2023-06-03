@@ -13,12 +13,11 @@ class CustomerController extends Controller
 {
     public function customerSettings(){
 
-        return view("frontend.pages.customerSettings");
-        // if (Auth::guard("customer")->check()) {
-        //     return redirect("/dashboard");
-        // }else{
-        //      return view("frontend.pages.customerSettings");
-        // }
+        if (!Auth::guard("customer")->check()) {
+            return redirect("/dashboard");
+        }else{
+             return view("frontend.pages.customerSettings");
+        }
     }
 
 
