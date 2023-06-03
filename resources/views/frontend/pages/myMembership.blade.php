@@ -82,7 +82,7 @@
 
                                     <div class="col-md-9">
                                         <div class="ownerName mt-2">
-                                            <h5 class="m-0 ml-4">Membership Information</h5>
+                                            <p class="m-0 ml-4">Membership Information</p>
                                         </div>
 
                                         <div class="my-3">

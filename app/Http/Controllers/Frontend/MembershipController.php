@@ -20,7 +20,7 @@ class MembershipController extends Controller
         // }
     }
 
-    public function customerUpdate(Request $req){
+    public function MyMembershipUpdate(Request $req){
 
         $this->validate($req, [
             "image" => "required",
@@ -28,18 +28,15 @@ class MembershipController extends Controller
 
             
 
+        $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
         if($req->image){
+            @unlink('membershipImage/'.$customer->profile_image);
             $path = $req->image;
             $paths = substr(md5(time()), 0, 10).".".$path->getClientOriginalExtension();
             $path->move(public_path("membershipImage"),$paths);
             $path_url = 'membershipImage/'.$paths;
-            // @unlink($path_url);
-        }else {
-            $path_url = NULL;
+            $customer->profile_image = $path_url;
         }
-
-        $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
-        $customer->profile_image = $path_url;
         $customer->save();
 
         if($customer){
