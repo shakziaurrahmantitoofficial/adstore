@@ -12,12 +12,11 @@ class MembershipController extends Controller
 {
     public function MyMembership(){
 
-        return view("frontend.pages.myMembership");
-        // if (Auth::guard("customer")->check()) {
-        //     return redirect("/dashboard");
-        // }else{
-        //      return view("frontend.pages.customerSettings");
-        // }
+        if (!Auth::guard("customer")->check()) {
+            return redirect("/dashboard");
+        }else{
+             return view("frontend.pages.myMembership");
+        }
     }
 
     public function MyMembershipUpdate(Request $req){
