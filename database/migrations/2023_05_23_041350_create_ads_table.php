@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string("adstartTime")->nullable();
             $table->string("adservicetype")->nullable();
             $table->string("image")->nullable();
+            $table->string("profile_image")->nullable();
+            $table->string("profile_status")->default(0);
             $table->integer("packageId")->nullable();
             $table->integer("customerId")->nullable();
             $table->integer("resubstatus")->default(0);
