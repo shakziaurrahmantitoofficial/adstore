@@ -33,7 +33,7 @@ class checkOutController extends Controller
                 $package->paymentMethod = $req->paymentMethod;
                 $package->paymentgetway = $req->paymentgetway;
                 $package->save();
-                return redirect("/packagelist");
+                return redirect("/packagelist")->with("success","Thanks your! Order created.");
 
             }elseif ($req->paymentMethod == "online") {
                 return "<h2 align='center' style='margin-top:40px;'>Coming soon</h2>";

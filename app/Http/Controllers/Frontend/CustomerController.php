@@ -68,22 +68,21 @@ class CustomerController extends Controller
                 ]);
             }
 
+            $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
+
             if($req->image){
-                $path = $req->image;
-                $paths = substr(md5(time()), 0, 10).".".$path->getClientOriginalExtension();
+                @unlink($customer->image);
+                $path   = $req->image;
+                $paths  = substr(md5(time()), 0, 10).".".$path->getClientOriginalExtension();
                 $path->move(public_path("customerImage"),$paths);
                 $path_url = 'customerImage/'.$paths;
-                // @unlink($path_url);
-            }else {
-                $path_url = NULL;
+                $customer->image        = $path_url;
             }
 
-            $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
-            $customer->name = $req->name;
-            $customer->mailPhone = $req->mailPhone;
-            $customer->nid = $req->nid;
-            $customer->address = $req->address;
-            $customer->image = $path_url;
+            $customer->name         = $req->name;
+            $customer->mailPhone    = $req->mailPhone;
+            $customer->nid          = $req->nid;
+            $customer->address      = $req->address;
             $customer->save();
 
             if($customer){
