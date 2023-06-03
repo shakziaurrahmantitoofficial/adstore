@@ -29,10 +29,8 @@ class CustomerController extends Controller
             $errors = Validator::make($req->all(),[
                 "name" => "required",
                 "mailPhone" => "required|unique:customers,mailPhone,".$req->id,
-                "nid" => "required|unique:customers,nid,".$req->nid,
+                "nid" => "required|unique:customers,nid,".$req->id,
                 "address" => "required",
-                // "password" => "required|min:8",
-                // "repassword" => "required|same:password",
             ]);
 
             if ($errors->fails()) {
