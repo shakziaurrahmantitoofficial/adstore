@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\checkOutController;
 use App\Http\Controllers\Frontend\packageController;
 use App\Http\Controllers\Frontend\adsController;
 use App\Http\Controllers\Frontend\CustomerController;
+use App\Http\Controllers\Frontend\MembershipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,6 +100,9 @@ Route::get('/settings',[CustomerController::class,'customerSettings'])->name("cu
 Route::post('/customer-update',[CustomerController::class,'customerUpdate'])->name("customer.customerUpdate");
 Route::post('/password-change',[CustomerController::class,'customerPasswordChange'])->name("customer.customerPasswordChange");
 
+
+Route::get('/my-membership',[MembershipController::class,'MyMembership'])->name("customer.MyMembership");
+Route::post('/my-membership',[MembershipController::class,'MyMembershipUpdate'])->name("customer.MyMembershipUpdate");
 
 
 

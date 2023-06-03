@@ -228,7 +228,7 @@
                             <div class="bbb_viewed_nav bbb_viewed_prev_2"><i class="fas fa-chevron-left"></i></div>
                             <div class="bbb_viewed_nav bbb_viewed_next_2"><i class="fas fa-chevron-right"></i></div>
                             <div class="bbb_viewed_slider_container">
-                                <div class="owl-carousel owl-theme bbb_viewed_slider_2 d-flex"> 
+                                <div class="owl-carousel owl-theme bbb_viewed_slider_2 d-flex">
                                     @foreach ($advertisement_data as $item)
                                         <div class="owl-item">
                                             <div
@@ -265,8 +265,8 @@
                                         @foreach ($gold as $key => $golddata)
                                             <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }} ">
                                                 <a href="{{ $golddata->link }}">
-                                                    <img src="{{ asset($golddata->image) }}"
-                                                        alt="{{ $golddata->title }}" class="banner1">
+                                                    <img src="{{ asset($golddata->image) }}" alt="{{ $golddata->title }}"
+                                                        class="banner1">
                                                 </a>
 
                                             </div>
@@ -299,8 +299,20 @@
                                 <div class="col-lg-2"></div>
                             @endif
                             <div class="col-lg-5 col-sm-6 col-xs-6">
-                                <div class="mt-4"><a href="{{ $sale->link }}">
-                                        <img src="{{ asset($sale->image) }}" alt="{{ $sale->title }}" class="saleimg">
+                                <div class="mt-4">
+                                    <a href="{{ $sale->link }}" class="border border-secondary d-block py-2 px-2">
+                                        <div class="row as-ad-card">
+                                            <div class="col-sm-5">
+                                                <img src="{{ asset($sale->image) }}" alt="{{ $sale->title }}" class="saleimg" style="height: 160px;">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="content">
+                                                    <h2 class="fw-bold" style="font-size:18px;color:#000">OPPO Reno 8T 5G (Used)</h2>
+                                                    <p class="text-secondary">ঢাকা বিভাগ, মোবাইল ফোন</p>
+                                                    <div class="price" style="font-size: 20px;color:tomato">৳ ৩৫,০০০</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </a>
                                 </div>
                             </div>
@@ -313,7 +325,6 @@
                 </div>
             </section>
         @endif
-
 
         <section id='buyAd' class="">
             <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Sale Ad</h2> -->

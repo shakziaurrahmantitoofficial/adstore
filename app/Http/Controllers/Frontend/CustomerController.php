@@ -73,7 +73,7 @@ class CustomerController extends Controller
                 $paths = substr(md5(time()), 0, 10).".".$path->getClientOriginalExtension();
                 $path->move(public_path("customerImage"),$paths);
                 $path_url = 'customerImage/'.$paths;
-                @unlink($path);
+                // @unlink($path_url);
             }else {
                 $path_url = NULL;
             }
