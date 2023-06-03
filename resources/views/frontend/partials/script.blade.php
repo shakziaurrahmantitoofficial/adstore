@@ -5,6 +5,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="{{ asset('frontend/assets/js/vendors.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
 <script src="js/main.js"></script>
@@ -669,4 +670,36 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     })
+</script>
+
+<script type="text/javascript">
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toast-bottom-right",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+
+    @if(Session::has('success'))
+        toastr.success('{{Session::get('success')}}', 'Success!')
+    @elseif(Session::has('info'))
+        toastr.info('{{Session::get('info')}}', 'Info!')
+    @elseif(Session::has('warning'))
+        toastr.warning('{{Session::get('warning')}}', 'Warning!')
+    @elseif(Session::has('error'))
+        toastr.error('{{Session::get('error')}}', 'Fail!')
+    @endif
+
+
 </script>

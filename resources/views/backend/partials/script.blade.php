@@ -32,7 +32,19 @@
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
 
     <!-- others plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="{{ asset('backend/assets/js/plugins.js') }}"></script>
     <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>
+
+    <script type="text/javascript">
+
+
+
+            /*toastr.error('I do not think that word means what you think it means.', 'Fail!')
+            toastr.success('We do have the Kapua suite available.', 'Successfully!')*/
+
+
+    </script>
+
 
      

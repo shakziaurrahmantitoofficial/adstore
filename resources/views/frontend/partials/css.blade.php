@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/vendors.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/aiz-core.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom_style.css') }}">
