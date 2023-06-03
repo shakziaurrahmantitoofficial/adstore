@@ -128,7 +128,7 @@ class adsController extends Controller
         if($update){
             return redirect("/adslist")->with("success","Thanks your! Update your ads.");
         }else{
-            return redirect()->back()->with("failure","Something Wrong! Ads not Updated.");
+            return redirect()->back()->with("fail","Something Wrong! Ads not Updated.");
         }
  
     }

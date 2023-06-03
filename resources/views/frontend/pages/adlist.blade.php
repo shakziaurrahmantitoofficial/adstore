@@ -55,12 +55,6 @@
     </style>
 
 
-
-    @if (session()->has('success'))
-        <p class="text-success text-center fs-4 mt-2 mb-0">{{ session()->get('success') }}</p>
-    @endif
-
-
     <div id="all_section_filter_enable">
 
         <section id='saleAd' class="">
