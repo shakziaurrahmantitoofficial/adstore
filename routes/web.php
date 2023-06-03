@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\customerLoginController;
 use App\Http\Controllers\Frontend\checkOutController;
 use App\Http\Controllers\Frontend\packageController;
 use App\Http\Controllers\Frontend\adsController;
+use App\Http\Controllers\Frontend\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +94,10 @@ Route::post('/customerLogin',[customerLoginController::class,'customer_login'])-
 Route::get('/register',[customerLoginController::class,'customerRegistraion'])->name("customerRegistraion.register");
 Route::post('/registerInsert',[customerLoginController::class,'customerRegisstationInsert'])->name("customerRegisstationInsert.registerInsert");
 Route::post('/registerInsertCompany',[customerLoginController::class,'customerCompanyReg'])->name("customerCompanyReg.registerInsertCompany");
+
+Route::get('/settings',[CustomerController::class,'customerSettings'])->name("customer.customerSettings");
+Route::post('/customer-update',[CustomerController::class,'customerUpdate'])->name("customer.customerUpdate");
+Route::post('/password-change',[CustomerController::class,'customerPasswordChange'])->name("customer.customerPasswordChange");
 
 
 

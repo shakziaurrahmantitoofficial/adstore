@@ -16,6 +16,8 @@ class HomeController extends Controller
 {
     public function index()
     {
+
+        
         $response = Http::get('https://sobkisubazar.com/api/v2/sliders');
         $platinum = Http::get('https://sobkisubazar.com/api/v2/platinum');
         $advertisement = Http::get('https://sobkisubazar.com/api/v2/advertisement');
@@ -53,7 +55,7 @@ class HomeController extends Controller
         //         'photo' => 'https://sobkisubazar.com/public/' . $ad['photo'],
         //     ];
         // }
-        
+
         //adstore package
         foreach ($ad_stores['data'] as $ad_store) {
             $ad_stores_data[] = [

@@ -13,7 +13,6 @@
 
 {{-- For product filtering --}}
 
-
 <script type="text/javascript">
 
 
@@ -654,4 +653,20 @@
         });
     }
     change();
+</script>
+
+{{-- Customer Profile Settings --}}
+<script>
+    $('body .as-pf-img .edit-btn').on('click',function(){
+        $('#fileinputSettings').trigger('click');
+    })
+    $('#fileinputSettings').on('change',function(event){
+
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('imageSettingsPreview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    })
 </script>
