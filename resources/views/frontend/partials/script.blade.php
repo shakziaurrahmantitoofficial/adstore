@@ -76,6 +76,69 @@
 
 
     
+    $("#custmerSettings").submit(function(){
+
+      var form = $("#custmerSettings").get(0);
+
+      $.ajax({
+        url : "{{ Route('customer.customerUpdate') }}",
+        method: "post",
+        data : new FormData(form),
+        contentType : false,
+        processData : false,
+        beforeSend : function(){
+          $(document).find(".form-text").text("");
+        },
+        success: function(data){
+
+            if(data.message == "error"){
+                $.each(data.data, function(key, value){
+                    $("#err"+key).text(value).css("color","red");
+                });
+            }
+
+
+            if(data.messageSend == true){
+
+                $("#sendMsg").css({
+                    "display": "none",
+                });
+                $("#sendMsgShow").css({
+                    "display": "block",
+                    "color": "green",
+                });
+                $("#showMg").text(data.message).css({
+                    "color": "green",
+                });
+            }
+
+
+            if(data.dataNotFound == false){
+
+                $("#errmailPhone").text(data.message).css({
+                    "color": "red",
+                });
+                
+            }
+
+            
+        }
+
+      });
+
+      return false;
+
+    }); 
+
+
+
+
+        
+
+
+
+
+
     $("#customerLoginForm4").submit(function(){
 
       var form = $("#customerLoginForm4").get(0);

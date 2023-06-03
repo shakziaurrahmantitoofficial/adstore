@@ -23,13 +23,13 @@ class CustomerController extends Controller
 
 
     public function customerUpdate(Request $req){
-
-        // if($req->method("POST")){
+      
+        if($req->method("POST")){
 
             $errors = Validator::make($req->all(),[
                 "name" => "required",
-                "mailPhone" => "required",
-                "nid" => "required",
+                "mailPhone" => "required|unique:customers,mailPhone,".$req->id,
+                "nid" => "required|unique:customers,nid,".$req->nid,
                 "address" => "required",
                 // "password" => "required|min:8",
                 // "repassword" => "required|same:password",
@@ -98,7 +98,7 @@ class CustomerController extends Controller
                     "message" => "Customer Profile not updated!"
                 ]);
             }
-        // }
+        }
 
     }
 
