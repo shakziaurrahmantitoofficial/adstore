@@ -104,10 +104,7 @@
                             <div class="form-group">
                                 <div class="as-pf-setup">
                                     <div class="as-pf-img">
-
-        <img src="{{ Auth::guard('customer')->user()->image ? asset(Auth::guard('customer')->user()->image) :'frontend/assets/images/author/avatar.png' }}" alt="Image" id="imageSettingsPreview">
-
-
+                                        <img src="{{ Auth::guard('customer')->user()->image ? asset(Auth::guard('customer')->user()->image) :'frontend/assets/images/author/avatar.png' }}" alt="Image" id="imageSettingsPreview">
                                         <input type="file" name="image" id="fileinputSettings" style="height: 0;padding:0;margin:0;">
                                         <div class="edit-btn"><i class="fa fa-edit"></i></div>
                                     </div>

@@ -16,7 +16,9 @@ class MembershipController extends Controller
         if (!Auth::guard("customer")->check()) {
             return redirect("/dashboard");
         }else{
-             return view("frontend.pages.myMembership");
+
+            $membershp = customer::find(Auth::guard("customer")->id());
+            return view("frontend.pages.myMembership", compact('membershp'));
         }
     }
 
