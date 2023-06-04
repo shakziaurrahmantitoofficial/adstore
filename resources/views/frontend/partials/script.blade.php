@@ -75,7 +75,7 @@
     });
 
 
-    
+    // Customer setting Form Update
     $("#custmerSettings").submit(function(){
 
       var form = $("#custmerSettings").get(0);
@@ -127,6 +127,41 @@
       });
 
       return false;
+
+    }); 
+
+    // Membership Info file upload
+    $("#MembershipInfo").submit(function(){
+
+        var form = $("#MembershipInfo").get(0);
+
+        $.ajax({
+        url : "{{ Route('customer.MyMembershipUpdate') }}",
+        method: "post",
+        data : new FormData(form),
+        contentType : false,
+        processData : false,
+        beforeSend : function(){
+            $(document).find(".form-text").text("");
+        },
+        success: function(data){
+
+            if(data.message == "error"){
+                $.each(data.data, function(key, value){
+                    $("#err"+key).text(value).css("color","red");
+                });
+            }
+
+
+            if(data.status == "success"){
+                
+                window.location.href = "/my-membership"
+            }
+        }
+
+        });
+
+        return false;
 
     }); 
 
