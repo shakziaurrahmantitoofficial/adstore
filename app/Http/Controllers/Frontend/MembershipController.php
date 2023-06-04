@@ -16,7 +16,9 @@ class MembershipController extends Controller
         if (!Auth::guard("customer")->check()) {
             return redirect("/dashboard");
         }else{
-             return view("frontend.pages.myMembership");
+
+            $membershp = customer::find(Auth::guard("customer")->id());
+            return view("frontend.pages.myMembership", compact('membershp'));
         }
     }
 
@@ -33,12 +35,9 @@ class MembershipController extends Controller
                 "data" => $errors->errors()
             ]);
         }
-
-            
-
-
-        $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
         
+        $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
+
         if($req->image){
             @unlink('membershipImage/'.$customer->profile_image);
             $path = $req->image;
@@ -51,16 +50,16 @@ class MembershipController extends Controller
         $customer->save();
 
         if($customer){
-            //return response()->with("success","Membership Profile updated!" );
-            
             Session::put("success","Membership profile updated!");
             return response()->json([
-                "status"=>"success"
+                "status"=>"reload"
             ]);
 
         }else{
-
-            //return response()->json()->with("fail", "Membership Profile not updated!" );
+            Session::put("error","Membership profile updated!");
+            return response()->json([
+                "status"=>"reload"
+            ]);
 
         }
 

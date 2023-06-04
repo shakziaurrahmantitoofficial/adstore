@@ -8,6 +8,7 @@ use App\Models\customer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Session;
 
 class CustomerController extends Controller
 {
@@ -82,21 +83,17 @@ class CustomerController extends Controller
             $customer->address      = $req->address;
             $customer->save();
 
-            return redirect("/settings")->with("success","Profile updated successfully.");
-
-            /*if($customer){
-                return redirect()->back()->with([
-                    "status" => true,
-                    "customerReglogin" => true,
-                    "message" => "Customer Profile updated!"
+            if($customer){
+                Session::put("success","Profile updated successfully!");
+                return response()->json([
+                    "status" => "reload"
                 ]);
             }else{
-                return redirect()->back()->with([
-                    "status" => false,
-                    "customerReglogin" => false,
-                    "message" => "Customer Profile not updated!"
-                ]);
-            }*/
+                Session::put("error","Profile updated unsuccessful!");
+                return response()->json([
+                    "status" => "reload"
+                ]);            
+            }
 
 
 
@@ -105,36 +102,42 @@ class CustomerController extends Controller
     }
 
     public function customerPasswordChange(Request $req){
-        $this->validate($req, [
+        $errors = Validator::make($req->all(), [
             "oldpassword" => "required",
             "password" => "required|min:8",
             "repassword" => "required|same:password",
         ]);
 
-        $check_data = customer::where('id',Auth::guard("customer")->user()->id)->first();
+        if ($errors->fails()) {
+            return response()->json([
+                "status" => false,
+                "message" => "error",
+                "data" => $errors->errors()
+            ]);
+        }
+
+
+        $check_data = customer::where('id', Auth::guard("customer")->user()->id)->first();
 
         if (Hash::check($req->oldpassword, $check_data->password)) {
             $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
             $customer->password = $req->password;
             $customer->save();
             if($customer){
-                return redirect()->back()->with([
-                    "status" => true,
-                    "customerReglogin" => true,
-                    "message" => 'Password Change Successfully'
+                Session::put("success","Password change successfully");
+                return response()->json([
+                    "status" => "reload"
                 ]);
             }else{
-                return redirect()->back()->with([
-                    "status" => false,
-                    "customerReglogin" => false,
-                    "message" => "Password not change!"
+                Session::put("error","Something Wrong!");
+                return response()->json([
+                    "status" => "reload"
                 ]);
             }
         }else{
-            return redirect()->back()->with([
-                "status" => false,
-                "customerReglogin" => false,
-                "message" => "Old password not match!"
+            Session::put("error","Old password not match!");
+            return response()->json([
+                "status" => "reload"
             ]);
         }
     }

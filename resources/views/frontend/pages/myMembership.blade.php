@@ -129,6 +129,49 @@
                                                 </div>
                                             </div>
                                         </div>
+
+
+
+
+<div class="my-3">
+
+@if(isset($membershp) && $membershp != null)
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Apply Date</th>
+            <th>Action</th>
+            <th>Status</th>
+        </tr>
+        @php
+            $i = 1;
+        @endphp
+
+            <tr>
+                <td>{{ucwords($membershp->name)}}</td>
+                <td>{{ucwords($membershp->created_at)}}</td>
+                <td><a href="">View</td>
+                <td>
+                    @if($membershp->profile_status == 0)
+                        <button class="btn btn-info btn-sm">Pending</button>
+                    @else
+                        <button class="btn btn-success btn-sm">Accepted</button>
+                    @endif
+                </td>
+            </tr>
+  
+
+    </table>
+@else
+    <p class="text-center" style="font-size: 20px;">Data not found!</p>
+@endif
+
+
+
+
+
+
+
                                     </div>
                                 </div>
                             </div>

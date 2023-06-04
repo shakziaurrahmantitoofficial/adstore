@@ -166,6 +166,8 @@ Route::group(["middleware" => "auth:customer"], function(){
 
         Route::get('/settings',[CustomerController::class,'customerSettings'])->name("customer.customerSettings");
         Route::post('/customer-update',[CustomerController::class,'customerUpdate'])->name("customer.customerUpdate");
+        
+
         Route::post('/password-change',[CustomerController::class,'customerPasswordChange'])->name("customer.customerPasswordChange");
 
 

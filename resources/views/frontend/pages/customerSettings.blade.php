@@ -104,7 +104,7 @@
                             <div class="form-group">
                                 <div class="as-pf-setup">
                                     <div class="as-pf-img">
-                                        <img src="{{ Auth::guard('customer')->user()->image ? asset(Auth::guard('customer')->user()->image) : '/frontend/assets/images/author/avatar.png' }}" alt="Image" id="imageSettingsPreview">
+                                        <img src="{{ Auth::guard('customer')->user()->image ? asset(Auth::guard('customer')->user()->image) :'frontend/assets/images/author/avatar.png' }}" alt="Image" id="imageSettingsPreview">
                                         <input type="file" name="image" id="fileinputSettings" style="height: 0;padding:0;margin:0;">
                                         <div class="edit-btn"><i class="fa fa-edit"></i></div>
                                     </div>
@@ -160,44 +160,40 @@
                                                         <div class="tab-pane fade show active" id="home" role="tabpanel"
                                                             aria-labelledby="home-tab">
 
-                                                            @if (Session::has('message'))
-                                                                <h5 class="form-text text-danger text-center">{{ Session::get('message') }}</h5>
-                                                            @endif
-                    
-                                                            <form class="my-4"  action="{{ Route('customer.customerPasswordChange') }}" method="POST">
-                                                                @csrf
-                    
-                                                                <div class="form-group">
-                                                                    <label>Old Password *</label>
-                                                                    <input type="password" name="oldpassword" class="form-control"
-                                                                        placeholder="Password">
-                                                                    {{-- <small id="errpassword" class="form-text"></small> --}}
-                                                                    @error('oldpassword')
-                                                                        <small id="errpassword" class="form-text text-danger">{{ $message }}</small>
-                                                                    @enderror
-                                                                </div>
+                 
 
-                                                                <div class="form-group">
-                                                                    <label>New Password *</label>
-                                                                    <input type="password" name="password" class="form-control"
-                                                                        placeholder="Password">
-                                                                        @error('password')
-                                                                            <small id="errpassword" class="form-text text-danger">{{ $message }}</small>
-                                                                        @enderror
-                                                                </div>
-                    
-                                                                <div class="form-group">
-                                                                    <label>Confirm Password *</label>
-                                                                    <input type="password" name="repassword" class="form-control"
-                                                                        placeholder="Confirm Password">
-                                                                        @error('repassword')
-                                                                            <small id="errpassword" class="form-text text-danger">{{ $message }}</small>
-                                                                        @enderror
-                                                                </div>
-                    
-                                                                <button type="submit" class="btn btn-primary"
-                                                                    style="background-color: #572c84!important;border-color: #572c84!important;">Save Change</button>
-                                                            </form>
+
+    <form class="my-4" id="cuspasschange" method="POST">
+        @csrf
+
+        <div class="form-group">
+            <label>Old Password *</label>
+            <input type="password" name="oldpassword" class="form-control"
+                placeholder="Password">
+                <small id="erroldpassword" class="form-text text-danger"></small>
+        </div>
+
+        <div class="form-group">
+            <label>New Password *</label>
+            <input type="password" name="password" class="form-control"
+                placeholder="Password">
+                <small id="errpassword" class="form-text text-danger"></small>
+
+        </div>
+
+        <div class="form-group">
+            <label>Confirm Password *</label>
+            <input type="password" name="repassword" class="form-control"
+                placeholder="Confirm Password">
+            <small id="errrepassword" class="form-text text-danger"></small>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary"
+            style="background-color: #572c84!important;border-color: #572c84!important;">Save Change</button>
+    </form>
+
+
                                                         </div>
                     
                                                     </div>
