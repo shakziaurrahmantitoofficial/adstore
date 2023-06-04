@@ -130,34 +130,34 @@
 
     }); 
 
+
+
+
+
     // Membership Info file upload
     $("#MembershipInfo").submit(function(){
 
         var form = $("#MembershipInfo").get(0);
-
         $.ajax({
-        url : "{{ Route('customer.MyMembershipUpdate') }}",
-        method: "post",
-        data : new FormData(form),
-        contentType : false,
-        processData : false,
-        beforeSend : function(){
-            $(document).find(".form-text").text("");
-        },
-        success: function(data){
+            url : "{{ Route('customer.MyMembershipUpdate') }}",
+            method: "post",
+            data : new FormData(form),
+            contentType : false,
+            processData : false,
+            beforeSend : function(){
+                $(document).find(".form-text").text("");
+            },
+            success: function(data){
+                if(data.message == "error"){
+                    $.each(data.data, function(key, value){
+                        $("#err"+key).text(value).css("color","red");
+                    });
+                }
 
-            if(data.message == "error"){
-                $.each(data.data, function(key, value){
-                    $("#err"+key).text(value).css("color","red");
-                });
+                if(data.status == "success"){
+                    window.location.href = "{{Route('customer.MyMembership')}}"
+                }
             }
-
-
-            if(data.status == "success"){
-                
-                window.location.href = "/my-membership"
-            }
-        }
 
         });
 
@@ -790,13 +790,25 @@
     }
 
     @if(Session::has('success'))
-        toastr.success('{{Session::get('success')}}', 'Success!')
+        toastr.success('{{Session::get('success')}}', 'Success!');
+        @php
+            Session::forget("success");
+        @endphp
     @elseif(Session::has('info'))
         toastr.info('{{Session::get('info')}}', 'Info!')
+        @php
+            Session::forget("info");
+        @endphp
     @elseif(Session::has('warning'))
         toastr.warning('{{Session::get('warning')}}', 'Warning!')
+        @php
+            Session::forget("warning");
+        @endphp
     @elseif(Session::has('error'))
         toastr.error('{{Session::get('error')}}', 'Fail!')
+        @php
+            Session::forget("error");
+        @endphp
     @endif
 
 

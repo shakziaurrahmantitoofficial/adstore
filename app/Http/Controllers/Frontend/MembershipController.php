@@ -38,6 +38,7 @@ class MembershipController extends Controller
 
 
         $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
+        
         if($req->image){
             @unlink('membershipImage/'.$customer->profile_image);
             $path = $req->image;
@@ -46,17 +47,21 @@ class MembershipController extends Controller
             $path_url = 'membershipImage/'.$paths;
             $customer->profile_image = $path_url;
         }
+
         $customer->save();
 
         if($customer){
-            return response()->with("success","Membership Profile updated!" );
+            //return response()->with("success","Membership Profile updated!" );
             
-            // Session::put("success","Membership Profile updated!");
-            // return response()->json([
-            //     "status"=>"success"
-            // ]);
+            Session::put("success","Membership profile updated!");
+            return response()->json([
+                "status"=>"success"
+            ]);
+
         }else{
-            return response()->json()->with("fail", "Membership Profile not updated!" );
+
+            //return response()->json()->with("fail", "Membership Profile not updated!" );
+
         }
 
     }
