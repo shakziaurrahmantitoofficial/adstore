@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class MembershipController extends Controller
@@ -21,11 +22,20 @@ class MembershipController extends Controller
 
     public function MyMembershipUpdate(Request $req){
 
-        $this->validate($req, [
+        $errors = Validator::make($req->all(),[
             "image" => "required",
         ]);
 
+        if ($errors->fails()) {
+            return response()->json([
+                "status" => false,
+                "message" => "error",
+                "data" => $errors->errors()
+            ]);
+        }
+
             
+
 
         $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
         if($req->image){
@@ -39,9 +49,17 @@ class MembershipController extends Controller
         $customer->save();
 
         if($customer){
-            return redirect()->back()->with(["success" => "Membership Profile updated!" ]);
+            return response()->json([
+                'status','Success',
+                "success","Membership Profile updated!"
+            ]);
+            
+            // Session::put("success","Membership Profile updated!");
+            // return response()->json([
+            //     "status"=>"success"
+            // ]);
         }else{
-            return redirect()->back()->with(["fail" => "Membership Profile not updated!" ]);
+            return response()->json()->with("fail", "Membership Profile not updated!" );
         }
 
     }

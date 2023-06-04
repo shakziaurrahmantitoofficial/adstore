@@ -106,8 +106,7 @@
                                                             @if (Session::has('message'))
                                                                 <h5 class="form-text text-danger text-center">{{ Session::get('message') }}</h5>
                                                             @endif
-                                                            {{-- <form class="my-4" id="customerLoginForm1" action="{{ Route('customer.customerUpdate') }}" method="POST"> --}}
-                                                            <form class="my-4" action="{{ Route('customer.MyMembershipUpdate') }}" method="POST" enctype="multipart/form-data">
+                                                            <form class="my-4" id="MembershipInfo" method="POST" enctype="multipart/form-data">
                                                                 @csrf
                                                                 <div class="form-group">
                                                                     <label>Profile *</label>
@@ -115,6 +114,7 @@
                                                                         <div class="as-pf-img">
                                                                             <input type="file" name="image" class="form-control mb-3" id="fileinputSettings" accept=".jpg,.jpeg,.png,.pdf">
                                                                             {{-- <img src="{{ Auth::guard("customer")->user()->image?asset(Auth::guard("customer")->user()->image):'/frontend/assets/images/author/avatar.png' }}" alt="Image" id="imageSettingsPreview"> --}}
+                                                                            <small id="errimage" class="form-text"></small>
                                                                         </div>
                                                                     </div>
                                                                 </div>
