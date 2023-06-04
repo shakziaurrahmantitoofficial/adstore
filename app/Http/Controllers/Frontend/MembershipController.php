@@ -39,7 +39,9 @@ class MembershipController extends Controller
         $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
 
         if($req->image){
-            @unlink('membershipImage/'.$customer->profile_image);
+
+            unlink('membershipImage/'.$customer->profile_image);
+
             $path = $req->image;
             $paths = substr(md5(time()), 0, 10).".".$path->getClientOriginalExtension();
             $path->move(public_path("membershipImage"),$paths);

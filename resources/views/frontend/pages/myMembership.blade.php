@@ -135,7 +135,7 @@
 
 <div class="my-3">
 
-@if(isset($membershp) && $membershp != null)
+@if(isset($membershp) && $membershp->profile_status != null)
     <table class="table">
         <tr>
             <th>Name</th>
@@ -149,8 +149,8 @@
 
             <tr>
                 <td>{{ucwords($membershp->name)}}</td>
-                <td>{{ucwords($membershp->created_at)}}</td>
-                <td><a href="">View</td>
+                <td>{{date("d-M-Y", strtotime($membershp->created_at))}}</td>
+                <td><a href="{{asset($membershp->profile_image)}}" target="_blank" class="btn btn-link btn-sm">View</td>
                 <td>
                     @if($membershp->profile_status == 0)
                         <button class="btn btn-info btn-sm">Pending</button>
@@ -162,8 +162,6 @@
   
 
     </table>
-@else
-    <p class="text-center" style="font-size: 20px;">Data not found!</p>
 @endif
 
 
