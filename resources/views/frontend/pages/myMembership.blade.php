@@ -57,15 +57,7 @@
         }
     </style>
 
-
-
-    @if (session()->has('failure'))
-        <p class="text-danger text-center fs-4 mt-2 mb-0">{{ session()->get('failure') }}</p>
-    @endif
-
-
     <div id="all_section_filter_enable">
-
         <section id='saleAd' class="">
             <div class="container py-4">
 
@@ -85,17 +77,8 @@
                                             <p class="m-0 ml-4">Membership Information</p>
                                         </div>
 
+        @if(isset($membershp) && $membershp->profile_status != 1)
                                         <div class="my-3">
-                                            {{--  
-                                            @if ($errors->any())
-                                                <ul class="list-unstyled alert alert-danger">
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            @endif
-                                            --}}
-
                                             <div class="card">
                                                 <div class="card-body">
                     
@@ -128,9 +111,11 @@
                     
                                                 </div>
                                             </div>
+
+
                                         </div>
 
-
+    @endif
 
 
 <div class="my-3">
@@ -140,6 +125,7 @@
         <tr>
             <th>Name</th>
             <th>Apply Date</th>
+            <th>Accept Date</th>
             <th>Action</th>
             <th>Status</th>
         </tr>
@@ -150,6 +136,7 @@
             <tr>
                 <td>{{ucwords($membershp->name)}}</td>
                 <td>{{date("d-M-Y", strtotime($membershp->created_at))}}</td>
+                <td>{{date("d-M-Y", strtotime($membershp->updated_at))}}</td>
                 <td><a href="{{asset($membershp->profile_image)}}" target="_blank" class="btn btn-link btn-sm">View</td>
                 <td>
                     @if($membershp->profile_status == 0)
