@@ -49,10 +49,7 @@ class MembershipController extends Controller
         $customer->save();
 
         if($customer){
-            return response()->json([
-                'status','Success',
-                "success","Membership Profile updated!"
-            ]);
+            return response()->with("success","Membership Profile updated!" );
             
             // Session::put("success","Membership Profile updated!");
             // return response()->json([

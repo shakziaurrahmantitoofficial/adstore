@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string("password")->nullable();
             $table->string("companyName")->nullable();
             $table->string("image")->nullable();
+            $table->string("profile_image")->nullable();
+            $table->string("profile_status")->nullable();
             $table->string("businessType")->nullable();
             $table->string("tradelince")->nullable();
             $table->integer("status")->default(1);            
