@@ -82,7 +82,9 @@ class CustomerController extends Controller
             $customer->address      = $req->address;
             $customer->save();
 
-            if($customer){
+            return redirect("/settings")->with("success","Profile updated successfully.");
+
+            /*if($customer){
                 return redirect()->back()->with([
                     "status" => true,
                     "customerReglogin" => true,
@@ -94,7 +96,10 @@ class CustomerController extends Controller
                     "customerReglogin" => false,
                     "message" => "Customer Profile not updated!"
                 ]);
-            }
+            }*/
+
+
+
         }
 
     }
