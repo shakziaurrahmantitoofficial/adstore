@@ -36,14 +36,49 @@
     <script src="{{ asset('backend/assets/js/plugins.js') }}"></script>
     <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>
 
+
     <script type="text/javascript">
-
-
-
-            /*toastr.error('I do not think that word means what you think it means.', 'Fail!')
-            toastr.success('We do have the Kapua suite available.', 'Successfully!')*/
-
-
+        toastr.options = {
+          "closeButton": true,
+          "debug": false,
+          "newestOnTop": false,
+          "progressBar": false,
+          "positionClass": "toast-bottom-right",
+          "preventDuplicates": false,
+          "onclick": null,
+          "showDuration": "300",
+          "hideDuration": "1000",
+          "timeOut": "5000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        }
+    
+        @if(Session::has('success'))
+            toastr.success('{{Session::get('success')}}', 'Success!');
+            @php
+                Session::forget("success");
+            @endphp
+        @elseif(Session::has('info'))
+            toastr.info('{{Session::get('info')}}', 'Info!')
+            @php
+                Session::forget("info");
+            @endphp
+        @elseif(Session::has('warning'))
+            toastr.warning('{{Session::get('warning')}}', 'Warning!')
+            @php
+                Session::forget("warning");
+            @endphp
+        @elseif(Session::has('error'))
+            toastr.error('{{Session::get('error')}}', 'Fail!')
+            @php
+                Session::forget("error");
+            @endphp
+        @endif
+    
+    
     </script>
 
 

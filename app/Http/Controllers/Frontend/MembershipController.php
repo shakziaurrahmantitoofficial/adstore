@@ -20,7 +20,7 @@ class MembershipController extends Controller
         }
     }
 
-    public function MyMembershipUpdate(Request $req){
+    public function MyMembershipCreate(Request $req){
 
         $errors = Validator::make($req->all(),[
             "image" => "required",
@@ -47,7 +47,7 @@ class MembershipController extends Controller
             $path_url = 'membershipImage/'.$paths;
             $customer->profile_image = $path_url;
         }
-
+        $customer->profile_status = 0;
         $customer->save();
 
         if($customer){

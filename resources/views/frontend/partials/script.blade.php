@@ -139,7 +139,7 @@
 
         var form = $("#MembershipInfo").get(0);
         $.ajax({
-            url : "{{ Route('customer.MyMembershipUpdate') }}",
+            url : "{{ Route('customer.MyMembershipCreate') }}",
             method: "post",
             data : new FormData(form),
             contentType : false,

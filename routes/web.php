@@ -1,14 +1,16 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\display;
 use App\Http\Controllers\Backend\BuyAdController;
 use App\Http\Controllers\Backend\RentAdController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\SaleController;
 use App\Http\Controllers\Backend\paymentController;
-use Illuminate\Support\Facades\Route;
-use App\display;
 use App\Http\Controllers\Backend\adminLoginController;
+use App\Http\Controllers\Backend\MemberController;
+
 use App\Http\Controllers\Frontend\customerLoginController;
 use App\Http\Controllers\Frontend\checkOutController;
 use App\Http\Controllers\Frontend\packageController;
@@ -57,6 +59,11 @@ Route::group(["prefix" => "admin"], function(){
    Route::get('/adapprove/{id}', [paymentController::class,'customeradapprove'])->middleware(['auth', 'verified'])->name('adapprove.customeradapprove');
 
    Route::post('/adaccept', [paymentController::class,'customeradaccept'])->middleware(['auth', 'verified'])->name('adaccept.customeradaccept');
+
+    //Membership Route
+    Route::get('/membership-list', [MemberController::class,'MembershipList'])->middleware(['auth', 'verified'])->name('membership.List');
+    Route::get('/membership-view/{id}', [MemberController::class,'MembershipView'])->middleware(['auth', 'verified'])->name('membership.view');
+    Route::get('/membership-confirm/{id}', [MemberController::class,'MembershipConfirm'])->middleware(['auth', 'verified'])->name('membership.confirm');
 
 
 
@@ -163,7 +170,7 @@ Route::group(["middleware" => "auth:customer"], function(){
 
 
         Route::get('/my-membership',[MembershipController::class,'MyMembership'])->name("customer.MyMembership");
-        Route::post('/my-membership',[MembershipController::class,'MyMembershipUpdate'])->name("customer.MyMembershipUpdate");
+        Route::post('/my-membership',[MembershipController::class,'MyMembershipCreate'])->name("customer.MyMembershipCreate");
 
 
 });

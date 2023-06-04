@@ -30,6 +30,13 @@
                     </li>
 
                     <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-money"></i><span>Membership</span></a>
+                        <ul class="collapse">
+                            <li><a href="{{ route('membership.List') }}">Request List</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-money"></i><span>Ad Request</span></a>
                         <ul class="collapse">
                             <li><a href="{{ route('adlist.customerAdList') }}">Request List</a></li>
