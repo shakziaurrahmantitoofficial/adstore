@@ -170,7 +170,7 @@ Route::group(["middleware" => "auth:customer"], function(){
 
         Route::post('/password-change',[CustomerController::class,'customerPasswordChange'])->name("customer.customerPasswordChange");
 
-
+        // 
         Route::get('/my-membership',[MembershipController::class,'MyMembership'])->name("customer.MyMembership");
         Route::post('/my-membership',[MembershipController::class,'MyMembershipCreate'])->name("customer.MyMembershipCreate");
 
