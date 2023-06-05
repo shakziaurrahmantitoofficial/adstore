@@ -97,19 +97,12 @@ class paymentController extends Controller
         $package->price = (int) $package->price + (int) $renew->price;
         $package->save();
 
-        return redirect("/admin/renewlist");
 
-
-
-        // if($id != null){
-        //     $package = package::find($id);
-        //     $package->payment   = 1;
-        //     $package->prepareby = Auth::id();
-        //     $package->save();
-        //     return redirect(Route('renewlist.customerRenewList'));
-        // }else{
-        //     return redirect("/");
-        // }
+        if($package != null){
+            return redirect()->back()->with('success','Payment paid successfully!');
+        }else{
+            return redirect()->back()->with('error','Something Wrong!');
+        }
 
 
     } 
