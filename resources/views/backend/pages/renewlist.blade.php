@@ -57,7 +57,7 @@
                                             <td>
                                                 
                                                 @if($data->payment == 0)
-                                                    <a onclick="return confirm('Are you sure?')" href="{{Route('payconfirm.PayConfirm').'/'.$data->id}}">Pay</a>
+                                                    <a onclick="return confirm('Are you sure?')" href="{{Route('renewPay.renewPayConfirm').'/'.$data->id}}">Pay</a>
                                                 @else
                                                     N/A
                                                 @endif
