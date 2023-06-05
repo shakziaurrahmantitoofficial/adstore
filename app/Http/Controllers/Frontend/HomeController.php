@@ -73,13 +73,13 @@ class HomeController extends Controller
         //For more code new developer
 
         $platinum = null;
-        if(ads::where("packageName", "platinum")->count() > 0){
+        if(ads::where("packageName", "platinum")->where("status", 1)->count() > 0){
             $platinum = ads::where("packageName", "platinum")->where("status", 1)->orderby("id","DESC")->get();
         }
 
 
         $gold = null;
-        if(ads::where("packageName", "gold")->count() > 0){
+        if(ads::where("packageName", "gold")->where("status", 1)->count() > 0){
             $gold = ads::where("packageName", "gold")->where("status", 1)->orderby("id","DESC")->get();
         }
 
@@ -89,6 +89,11 @@ class HomeController extends Controller
 
 
     }
+
+
+
+
+    
     public function adstore()
     {
         return view('frontend.pages.adstore');
