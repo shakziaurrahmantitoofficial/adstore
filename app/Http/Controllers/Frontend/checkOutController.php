@@ -48,11 +48,15 @@ class checkOutController extends Controller
 
     // Ad Package List Update
     public function customerAdslistPackageCheckout(Request $req){
-        return $ads  = $req->adid;
+
+        return $ads  = $req->all();
+
         
         $packName =  $req->packageName;
         $packdata =  explode(",", $req->packDetails);
         return view("frontend.pages.checkout", compact('ads','packdata','packName'));
+
+
     }
 
 }

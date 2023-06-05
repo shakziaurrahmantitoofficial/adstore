@@ -96,8 +96,6 @@ Route::post('/customerforgotpassword',[customerLoginController::class,'customerf
 
 
 
-
-
 Route::post('/customerLogin',[customerLoginController::class,'customer_login'])->name("customerLogin.customer_login");
 Route::get('/register',[customerLoginController::class,'customerRegistraion'])->name("customerRegistraion.register");
 Route::post('/registerInsert',[customerLoginController::class,'customerRegisstationInsert'])->name("customerRegisstationInsert.registerInsert");
@@ -141,7 +139,7 @@ Route::group(["middleware" => "auth:customer"], function(){
     //checkOutController controller
         Route::post('/checkout',[checkOutController::class,"customerCheckout"])->name("checkout.customerCheckout");
         Route::post('/checkoutComplete',[checkOutController::class,"customerCheckoutComplete"])->name("checkoutComplete.customerCheckoutComplete");
-        Route::post('/checkout?adid={adid}',[checkOutController::class,"customerAdslistPackageCheckout"])->name("checkout.customerAdPackageCheckout");
+        Route::post('/checkout',[checkOutController::class,"customerAdslistPackageCheckout"])->name("checkout.customerAdPackageCheckout");
 
 
 
