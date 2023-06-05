@@ -8,22 +8,24 @@
     <div class="row">
 
         @if(isset($ads) && $ads != null)
+
         @php
-            $Package = App\Models\package::findOrFail(base64_decode(base64_decode($ads)));
+            $ads = App\Models\ads::findOrFail(base64_decode(base64_decode($ads)));
         @endphp
             
-        
-        @if($Package->packageName == 'platinum')
+        {{$ads->packageName}}
+
+        @if($ads->packageName == 'platinum')
         platinum
         <div class="col-md-6">
             @include('frontend.inc.platinum-package');
         </div>
-        @elseif ($Package->packageName == 'gold')
+        @elseif ($ads->packageName == 'gold')
         gold
         <div class="col-md-6">
             @include('frontend.inc.gold-package');
         </div>
-        @elseif ($Package->packageName == 'silver')
+        @elseif ($ads->packageName == 'silver')
         silver
         <div class="col-md-6">
             @include('frontend.inc.silver-package');
