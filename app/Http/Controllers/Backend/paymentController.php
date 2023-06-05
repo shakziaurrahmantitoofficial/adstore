@@ -72,9 +72,9 @@ class paymentController extends Controller
     // Renew
     public function customerRenewList(){
 
-        $package = null;
+        $renews = null;
         if(Renew::orderBy("id","DESC")->count() > 0){
-            $package = Renew::orderBy("id","DESC")->get();
+            $renews = Renew::orderBy("id","DESC")->get();
         }
         return view("backend.pages.renewlist", compact('renews'));
     }
