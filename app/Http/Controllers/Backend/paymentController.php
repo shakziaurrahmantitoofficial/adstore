@@ -94,7 +94,7 @@ class paymentController extends Controller
         $renew->delete();
 
         $package = package::find($ads->packageId);
-        $package->price = $package->price + $renew->price;
+        $package->price = (int) $package->price + (int) $renew->price;
         $package->save();
 
         return redirect("/admin/renewlist");
