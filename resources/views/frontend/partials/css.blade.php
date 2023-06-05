@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/aiz-core.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom_style.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/custom_style1.css') }}">
 <!-- <link rel="stylesheet" href="css/design.css"> -->
 
 

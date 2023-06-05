@@ -1,12 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    <style>
-        #paginations nav .small {
-            visibility: hidden;
-            /* display: none; */
-        }
-    </style>
+
     <div class="under-header-bg">
         <div class="container">
             <div class="row">

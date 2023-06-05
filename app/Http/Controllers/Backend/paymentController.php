@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\package;
 use App\Models\ads;
+use App\Models\Renew;
 use Auth;
 
 class paymentController extends Controller
@@ -64,6 +65,18 @@ class paymentController extends Controller
 
         return redirect(Route('adlist.customerAdList'));
 
+    }
+
+
+
+    // Renew
+    public function customerRenewList(){
+
+        $package = null;
+        if(Renew::orderBy("id","DESC")->count() > 0){
+            $package = Renew::orderBy("id","DESC")->get();
+        }
+        return view("backend.pages.renewlist", compact('renews'));
     }
 
 

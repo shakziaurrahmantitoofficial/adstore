@@ -1,24 +1,6 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    <style>
-        #paginations nav .small {
-            visibility: hidden;
-            /* display: none; */
-        }
-
-        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-            color: #ffffff;
-            border-color: #dee2e6 #dee2e6 #fff;
-            background-color: #572c84!important;
-            border-color: #572c84!important;
-        }
-        .navTitle{
-            font-size: 18px;
-        }
-
-    </style>
-
 
     <div id="all_section_filter_enable">
 
@@ -27,7 +9,7 @@
 
         <div class="row my-5">
             
-            <div class="col-4 m-auto">
+            <div class="col-lg-4 col-md-10 m-auto">
 
             <div class="card">
             <div class="card-body py-5" id="sendMsg">

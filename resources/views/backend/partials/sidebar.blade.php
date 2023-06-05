@@ -26,6 +26,7 @@
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-money"></i><span>Payment</span></a>
                         <ul class="collapse">
                             <li><a href="{{ route('paymentlist.customerPaymentList') }}">Payment List</a></li>
+                            <li><a href="{{ route('renewlist.customerRenewList') }}">Renew List</a></li>
                         </ul>
                     </li>
 
