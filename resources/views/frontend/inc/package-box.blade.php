@@ -34,16 +34,16 @@
                     <form id="packageForm1" method="post"
 
                         @if(isset($ads) && $ads != null)
-                            action="{{ Route('checkout.customerAdPackageCheckout',$ads) }}"
+                            action="{{ Route('checkout.customerAdPackageCheckout') }}"
                         @else
                             action="{{ Route('checkout.customerCheckout') }}"
                         @endif
                         >
 
                         @csrf
-                        <input type="hidden" name="packageName" value="platinum">
+                            <input type="hidden" name="packageName" value="platinum">
                         @if(isset($ads) && $ads != null)
-                        <input type="hidden" name="adid" value="{{base64_encode(base64_encode($ads))}}">
+                            <input type="hidden" name="adid" value="{{ $ads }}">
                         @endif
 
                         <div class="form-group">
@@ -177,7 +177,7 @@
 
                     <form id="packageForm1" method="post"
                         @if(isset($ads) && $ads != null)
-                            action="{{ Route('checkout.customerAdPackageCheckout',$ads) }}"
+                            action="{{ Route('checkout.customerAdPackageCheckout') }}"
                         @else
                             action="{{ Route('checkout.customerCheckout') }}"
                         @endif
@@ -306,7 +306,7 @@
 
                     <form id="packageForm1" method="post"
                         @if(isset($ads) && $ads != null)
-                            action="{{ Route('checkout.customerAdPackageCheckout',$ads) }}"
+                            action="{{ Route('checkout.customerAdPackageCheckout') }}"
                         @else
                             action="{{ Route('checkout.customerCheckout') }}"
                         @endif
@@ -433,10 +433,9 @@
                         <li class="list-group-item py-2">1 Product Upload</li>
                     </ul>
 
-                    {{ $ads }}
                     <form id="packageForm1" method="post"
                         @if(isset($ads) && $ads != null)
-                            action="{{ Route('checkout.customerAdPackageCheckout',$ads) }}"
+                            action="{{ Route('checkout.customerAdPackageCheckout') }}"
                         @else
                             action="{{ Route('checkout.customerCheckout') }}"
                         @endif
