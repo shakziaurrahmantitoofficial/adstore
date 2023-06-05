@@ -438,7 +438,7 @@
                         @if(isset($ads) && $ads != null)
                             action="{{ Route('checkout.customerAdPackageCheckout',$ads) }}"
                         @else
-                            
+                            action="{{ Route('checkout.customerCheckout') }}"
                         @endif
                         >
                         @csrf
