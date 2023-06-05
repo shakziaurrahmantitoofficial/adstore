@@ -12,7 +12,6 @@ class checkOutController extends Controller
 
 
     public function customerCheckout(Request $req){
-
         $packName =  $req->packageName;
         $packdata =  explode(",", $req->packDetails);
         return view("frontend.pages.checkout", compact('packdata','packName'));
@@ -46,5 +45,14 @@ class checkOutController extends Controller
 
     }
 
+
+    // Ad Package List Update
+    public function customerAdslistPackageCheckout(Request $req){
+        return $ads  = $req->adid;
+        
+        $packName =  $req->packageName;
+        $packdata =  explode(",", $req->packDetails);
+        return view("frontend.pages.checkout", compact('ads','packdata','packName'));
+    }
 
 }

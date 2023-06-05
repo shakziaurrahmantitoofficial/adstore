@@ -34,7 +34,7 @@
                     <form id="packageForm1" method="post"
 
                         @if(isset($ads) && $ads != null)
-                            action=""
+                            action="{{ Route('checkout.customerAdPackageCheckout',$ads) }}"
                         @else
                             action="{{ Route('checkout.customerCheckout') }}"
                         @endif
@@ -42,7 +42,12 @@
 
                         @csrf
                         <input type="hidden" name="packageName" value="platinum">
+                        @if(isset($ads) && $ads != null)
+                        <input type="hidden" name="adid" value="{{base64_encode(base64_encode($ads))}}">
+                        @endif
+
                         <div class="form-group">
+                        @if(Auth::guard("customer")->user()->profile_status != 1)
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -114,7 +119,30 @@
                                 <label class="form-check-label form-control"
                                     for="platinum6">Days : 365 , Price: 54000 Tk</label>
                             </div>
-
+                        @else
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" name="packDetails"
+                                            id="platinum1" aria-label=""
+                                            value="30, Free" required>
+                                    </div>
+                                </div>
+                                <label class="form-check-label form-control"
+                                    for="platinum1">Days : 30 , Price: Free</label>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" name="packDetails"
+                                            id="platinum1" aria-label=""
+                                            value="60, 1000" required>
+                                    </div>
+                                </div>
+                                <label class="form-check-label form-control"
+                                    for="platinum1">Days : 60 , Price: 1000</label>
+                            </div>
+                        @endif
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-block">Purchase
@@ -148,10 +176,16 @@
                     </ul>
 
                     <form id="packageForm1" method="post"
-                        action="{{ Route('checkout.customerCheckout') }}">
+                        @if(isset($ads) && $ads != null)
+                            action="{{ Route('checkout.customerAdPackageCheckout',$ads) }}"
+                        @else
+                            action="{{ Route('checkout.customerCheckout') }}"
+                        @endif
+                        >
                         @csrf
                         <input type="hidden" name="packageName" value="gold">
                         <div class="form-group">
+                            @if(Auth::guard("customer")->user()->profile_status != 1)
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -224,6 +258,20 @@
                                     for="gold6">Days : 365 , Price: 54000 Tk</label>
                             </div>
 
+                            @else
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="radio" name="packDetails"
+                                                id="platinum1" aria-label=""
+                                                value="30, Free" required>
+                                        </div>
+                                    </div>
+                                    <label class="form-check-label form-control"
+                                        for="platinum1">Days : 30 , Price: Free</label>
+                                </div>
+                            @endif
+
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-block">Purchase
@@ -257,10 +305,16 @@
                     </ul>
 
                     <form id="packageForm1" method="post"
-                        action="{{ Route('checkout.customerCheckout') }}">
+                        @if(isset($ads) && $ads != null)
+                            action="{{ Route('checkout.customerAdPackageCheckout',$ads) }}"
+                        @else
+                            action="{{ Route('checkout.customerCheckout') }}"
+                        @endif
+                        >
                         @csrf
                         <input type="hidden" name="packageName" value="silver">
                         <div class="form-group">
+                            @if(Auth::guard("customer")->user()->profile_status != 1)
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -333,6 +387,20 @@
                                     for="silver6">Days : 365 , Price: 36500 Tk</label>
                             </div>
 
+                            @else
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="radio" name="packDetails"
+                                                id="platinum1" aria-label=""
+                                                value="30, Free" required>
+                                        </div>
+                                    </div>
+                                    <label class="form-check-label form-control"
+                                        for="platinum1">Days : 30 , Price: Free</label>
+                                </div>
+                            @endif
+
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary btn-block">Purchase
@@ -365,11 +433,18 @@
                         <li class="list-group-item py-2">1 Product Upload</li>
                     </ul>
 
+                    {{ $ads }}
                     <form id="packageForm1" method="post"
-                        action="{{ Route('checkout.customerCheckout') }}">
+                        @if(isset($ads) && $ads != null)
+                            action="{{ Route('checkout.customerAdPackageCheckout',$ads) }}"
+                        @else
+                            action="{{ Route('checkout.customerCheckout') }}"
+                        @endif
+                        >
                         @csrf
                         <input type="hidden" name="packageName" value="regular">
                         <div class="form-group">
+                            @if(Auth::guard("customer")->user()->profile_status != 1)
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -441,6 +516,20 @@
                                 <label class="form-check-label form-control"
                                     for="regular6">Days : 365 , Price: 18250 Tk</label>
                             </div>
+
+                            @else
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="radio" name="packDetails"
+                                                id="platinum1" aria-label=""
+                                                value="30, Free" required>
+                                        </div>
+                                    </div>
+                                    <label class="form-check-label form-control"
+                                        for="platinum1">Days : 30 , Price: Free</label>
+                                </div>
+                            @endif
 
                         </div>
                         <div class="form-group">
