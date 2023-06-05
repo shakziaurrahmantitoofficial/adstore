@@ -79,17 +79,36 @@ class paymentController extends Controller
         return view("backend.pages.renewlist", compact('renews'));
     }
 
+
+
     public function renewPayConfirm($id = null){
 
-        if($id != null){
-            $package = package::find($id);
-            $package->payment   = 1;
-            $package->prepareby = Auth::id();
-            $package->save();
-            return redirect(Route('renewlist.customerRenewList'));
-        }else{
-            return redirect("/");
-        }
+        $renew = Renew::findOrFail($id);
+
+        $ads                = ads::find($renew->adsid);
+        $exipreDate         = $ads->adstartTime + $ads->duration;
+        $getoldDate         = $exipreDate - time();
+        $ads->duration      = $renew->duration * 86400 + $getoldDate;
+        $ads->price         = $renew->duration * 86400 + $getoldDate;
+        $ads->renewstatus   = 0;
+        $ads->save();
+        $renew->delete();
+
+        return redirect("/admin/renewlist");
+
+
+
+        // if($id != null){
+        //     $package = package::find($id);
+        //     $package->payment   = 1;
+        //     $package->prepareby = Auth::id();
+        //     $package->save();
+        //     return redirect(Route('renewlist.customerRenewList'));
+        // }else{
+        //     return redirect("/");
+        // }
+
+
     } 
 
 
