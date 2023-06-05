@@ -89,10 +89,13 @@ class paymentController extends Controller
         $exipreDate         = $ads->adstartTime + $ads->duration;
         $getoldDate         = $exipreDate - time();
         $ads->duration      = $renew->duration * 86400 + $getoldDate;
-        $ads->price         = $renew->duration * 86400 + $getoldDate;
         $ads->renewstatus   = 0;
         $ads->save();
         $renew->delete();
+
+        $package = package::find($ads->packageId);
+        $package->price = $package->price + $renew->price;
+        $package->save();
 
         return redirect("/admin/renewlist");
 
