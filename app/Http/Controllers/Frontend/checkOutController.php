@@ -84,8 +84,8 @@ class checkOutController extends Controller
                 $ads = ads::find(base64_decode(base64_decode($req->adid)));
                 $ads->renewstatus = 1;
                 $ads->save();
-                
-                return redirect("/packagelist")->with("success","Thanks! Your update request send.");
+
+                return redirect(Route('adslist.customerAdslist'))->with("success","Thanks! Your update request send.");
             }elseif ($req->paymentMethod == "online") {
                 return "<h2 align='center' style='margin-top:40px;'>Coming soon</h2>";
             }
