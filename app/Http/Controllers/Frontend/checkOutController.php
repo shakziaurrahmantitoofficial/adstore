@@ -64,8 +64,6 @@ class checkOutController extends Controller
 
     public function customerRenewCheckoutComplete(Request $req){
 
-        return $req->all();
-
         if(Auth::guard('customer')->check()){
 
             if($req->paymentMethod == "cash"){
