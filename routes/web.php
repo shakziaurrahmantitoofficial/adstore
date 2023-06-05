@@ -141,6 +141,7 @@ Route::group(["middleware" => "auth:customer"], function(){
     //checkOutController controller
         Route::post('/checkout',[checkOutController::class,"customerCheckout"])->name("checkout.customerCheckout");
         Route::post('/checkoutComplete',[checkOutController::class,"customerCheckoutComplete"])->name("checkoutComplete.customerCheckoutComplete");
+        Route::post('/checkout?adid={adid}',[checkOutController::class,"customerAdslistPackageCheckout"])->name("checkout.customerAdPackageCheckout");
 
 
 
