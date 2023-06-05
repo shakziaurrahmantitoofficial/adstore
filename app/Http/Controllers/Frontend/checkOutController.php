@@ -50,6 +50,7 @@ class checkOutController extends Controller
 
     // Ad Package List Update
     public function customerAdslistPackageCheckout(Request $req){
+        return $req->all();
         $packName   =  $req->packageName;
         $adid       =  $req->adid;
         $packdata   =  explode(",", $req->packDetails);
@@ -63,6 +64,7 @@ class checkOutController extends Controller
 
     public function customerRenewCheckoutComplete(Request $req){
 
+        return $req->all();
 
         if(Auth::guard('customer')->check()){
 
