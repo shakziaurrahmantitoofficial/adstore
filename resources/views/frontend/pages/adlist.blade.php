@@ -46,7 +46,7 @@
 
                 <td>{{ucfirst($data->package->packageName)}}</td>
                 <td>TK.{{ucfirst($data->package->price)}}</td>
-                <td>{{$data->duration/(3600 * 24)}} days</td>
+                <td>{{Round($data->duration/(3600 * 24))}} days</td>
                 <td>
                     @if($data->status == 2)
                         <span class="bg-danger text-white">Invalid</span>
