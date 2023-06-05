@@ -21,8 +21,20 @@
 
                             <div class="col-md-9">
 
-                                <form method="post" action="{{Route('checkoutComplete.customerCheckoutComplete')}}">
+                                <form 
+                                    method="post"
+                                @if(isset($adid) && $adid != null)
+                                    action="{{Route('checkoutRenewComplete.customerRenewCheckoutComplete')}}"
+                                @else
+                                    action="{{Route('checkoutComplete.customerCheckoutComplete')}}"
+                                @endif
+                                >
+
                                     @csrf
+
+                                    @if(isset($adid) && $adid != null)
+                                        <input type="hidden" name="adid" value="{{$adid}}">
+                                    @endif
 
                                     <input type="hidden" name="paymentMethod" value="cash">
                                     <input type="hidden" name="packageName" value="{{$packName}}">
