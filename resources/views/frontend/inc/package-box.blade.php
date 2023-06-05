@@ -433,7 +433,7 @@
                         <li class="list-group-item py-2">1 Product Upload</li>
                     </ul>
 
-                    {{ $ads }}
+                    
                     <form id="packageForm1" method="post"
                         @if(isset($ads) && $ads != null)
                             action="{{ Route('checkout.customerAdPackageCheckout',$ads) }}"
