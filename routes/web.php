@@ -96,8 +96,6 @@ Route::post('/customerforgotpassword',[customerLoginController::class,'customerf
 
 
 
-
-
 Route::post('/customerLogin',[customerLoginController::class,'customer_login'])->name("customerLogin.customer_login");
 Route::get('/register',[customerLoginController::class,'customerRegistraion'])->name("customerRegistraion.register");
 Route::post('/registerInsert',[customerLoginController::class,'customerRegisstationInsert'])->name("customerRegisstationInsert.registerInsert");
