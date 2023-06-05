@@ -9,27 +9,23 @@
 
         @if(isset($ads) && $ads != null)
         @php
-            $Package = App\Models\package::findOrFail(base64_decode(base64_decode($ads)));
+            $Package = App\Models\ads::findOrFail(base64_decode(base64_decode($ads)));
         @endphp
             
         
         @if($Package->packageName == 'platinum')
-        platinum
         <div class="col-md-6">
             @include('frontend.inc.platinum-package');
         </div>
         @elseif ($Package->packageName == 'gold')
-        gold
         <div class="col-md-6">
             @include('frontend.inc.gold-package');
         </div>
         @elseif ($Package->packageName == 'silver')
-        silver
         <div class="col-md-6">
             @include('frontend.inc.silver-package');
         </div>
         @else
-        regular
         <div class="col-md-6">
             @include('frontend.inc.regular-package');
         </div>
