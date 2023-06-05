@@ -60,7 +60,9 @@ Route::group(["prefix" => "admin"], function(){
 
    Route::post('/adaccept', [paymentController::class,'customeradaccept'])->middleware(['auth', 'verified'])->name('adaccept.customeradaccept');
 
+   // Renew route
    Route::get('/renewlist', [paymentController::class,'customerRenewList'])->middleware(['auth', 'verified'])->name('renewlist.customerRenewList');
+   Route::get('/renew/payconfirm/{id?}', [paymentController::class,'renewPayConfirm'])->middleware(['auth', 'verified'])->name('renewPay.renewPayConfirm');
 
     //Membership Route
     Route::get('/membership-list', [MemberController::class,'MembershipList'])->middleware(['auth', 'verified'])->name('membership.List');

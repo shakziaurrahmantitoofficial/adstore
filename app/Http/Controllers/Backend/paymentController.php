@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\package;
 use App\Models\ads;
 use App\Models\Renew;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class paymentController extends Controller
 {
@@ -78,6 +78,19 @@ class paymentController extends Controller
         }
         return view("backend.pages.renewlist", compact('renews'));
     }
+
+    public function renewPayConfirm($id = null){
+
+        if($id != null){
+            $package = package::find($id);
+            $package->payment   = 1;
+            $package->prepareby = Auth::id();
+            $package->save();
+            return redirect(Route('renewlist.customerRenewList'));
+        }else{
+            return redirect("/");
+        }
+    } 
 
 
 }
