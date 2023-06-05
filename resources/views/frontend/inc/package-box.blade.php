@@ -10,22 +10,22 @@
         @if(isset($ads) && $ads != null)
 
         @php
-            $ads = App\Models\ads::findOrFail(base64_decode(base64_decode($ads)));
+            $adsData = App\Models\ads::findOrFail(base64_decode(base64_decode($ads)));
         @endphp
             
 
 
-        @if($ads->packageName == 'platinum')
+        @if($adsData->packageName == 'platinum')
 
             <div class="col-md-6">
                 @include('frontend.inc.platinum-package');
             </div>
-        @elseif ($ads->packageName == 'gold')
+        @elseif ($adsData->packageName == 'gold')
 
             <div class="col-md-6">
                 @include('frontend.inc.gold-package');
             </div>
-        @elseif ($ads->packageName == 'silver')
+        @elseif ($adsData->packageName == 'silver')
             <div class="col-md-6">
                 @include('frontend.inc.silver-package');
             </div>
