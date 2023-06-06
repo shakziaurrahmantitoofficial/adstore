@@ -218,12 +218,20 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="bbb_main_container">
                             <div class="bbb_viewed_nav bbb_viewed_prev_2"><i class="fas fa-chevron-left"></i></div>
                             <div class="bbb_viewed_nav bbb_viewed_next_2"><i class="fas fa-chevron-right"></i></div>
                             <div class="bbb_viewed_slider_container">
                                 <div class="owl-carousel owl-theme bbb_viewed_slider_2 d-flex">
+                                    <div class="owl-item">
+                                        <div
+                                            class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="bbb_viewed_image-2">
+                                                <img src="frontend/assets/images/bg/singin-bg.jpg" alt="Advertisment">
+                                            </div>
+                                        </div>
+                                    </div>
                                     @foreach ($advertisement_data as $item)
                                         <div class="owl-item">
                                             <div
@@ -243,8 +251,6 @@
             </div>
 
         </section>
-
-
         @if ($gold != null)
             <section id='saleAd' class="">
                 <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Sale Ad</h2> -->
