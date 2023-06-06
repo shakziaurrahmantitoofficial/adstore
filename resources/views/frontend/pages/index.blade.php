@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section("title", "Adstore")
 
 @section('content')
 
@@ -350,6 +351,9 @@
         </section>
         @endif
 
+
+
+        @if ($regular != null)
         <!-- Rent Ads Section -->
         <section id='rentAd' class="">
             <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Rent Ad</h2> -->
@@ -368,10 +372,6 @@
 
 
                         @foreach ($regular as $key => $regularData)
-                            @php
-                                $key = $key + 1;
-                            @endphp
-                            
 
                             <div class="col-lg-6 col-sm-6 col-xs-6">
                                 <div class="mt-4">
@@ -417,6 +417,8 @@
 
             </div>
         </section>
+
+        @endif
 
         <!-- Footer -->
     </div>
