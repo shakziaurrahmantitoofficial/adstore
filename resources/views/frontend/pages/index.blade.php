@@ -281,46 +281,11 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="row">
-                        <div class="col-lg-2"></div>
-                        @foreach ($gold as $key => $sale)
-                            @php
-                                $key = $key + 1;
-                            @endphp
-                            @if ($key % 3 == 0)
-                                {{-- @dump($key) --}}
-                                <div class="col-lg-2"></div>
-                            @endif
-                            <div class="col-lg-5 col-sm-6 col-xs-6">
-                                <div class="mt-4">
-                                    <a href="{{ $sale->link }}" class="border border-secondary d-block py-2 px-2">
-                                        <div class="row as-ad-card">
-                                            <div class="col-sm-5">
-                                                <img src="{{ asset($sale->image) }}" alt="{{ $sale->title }}" class="saleimg" style="height: 160px;">
-                                            </div>
-                                            <div class="col-sm-7">
-                                                <div class="content">
-                                                    <h2 class="fw-bold" style="font-size:18px;color:#000">OPPO Reno 8T 5G (Used)</h2>
-                                                    <p class="text-secondary">ঢাকা বিভাগ, মোবাইল ফোন</p>
-                                                    <div class="price" style="font-size: 20px;color:tomato">৳ ৩৫,০০০</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        @endforeach
-                        <div class="" id="paginations" style="margin: 20px auto!important;">
-                            {{ $sales->links() }}
-                        </div>
-                    </div>
-
                 </div>
             </section>
         @endif
 
+        @if ($silver != null)
         <section id='buyAd' class="">
             <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Sale Ad</h2> -->
             <div class="container pt-1">
@@ -328,16 +293,15 @@
                     <div class="col-lg-2"></div>
                     <div class="col-lg-10">
                         <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All
-                            Buy
-                            Ad(Gold)</h2>
+                            Buy Ad(Silver)</h2>
                         <div id="buyCarousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div id="buyCarousel" class="carousel slide" data-ride="carousel">
-                                    @foreach ($buy_ads as $key => $buy_ad)
+                                    @foreach ($silver as $key => $silverData)
                                         <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }} ">
-                                            <a href="https://sobkisubazar.com/">
-                                                <img src="{{ asset('images/buy_ad/' . $buy_ad->banner) }}"
-                                                    alt="{{ $sale->name ?? '' }}" class="banner1">
+                                            <a href="{{$silverData->link}}">
+                                                <img src="{{ asset($silverData->image) }}"
+                                                    alt="{{ $silverData->title ?? '' }}" class="banner1">
                                             </a>
 
                                         </div>
@@ -378,124 +342,79 @@
                 </div>
             </div>
         </section>
+        @endif
 
         <!-- Rent Ads Section -->
         <section id='rentAd' class="">
             <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Rent Ad</h2> -->
             <div class="container pt-1 pb-2">
-                <div class="row">
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-10">
-                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All
-                            Rent
-                            Ad(Silver)</h2>
-                        <div id="rentCarousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div id="rentCarousel" class="carousel slide" data-ride="carousel">
-                                    @foreach ($rent_ads as $key => $rent_ad)
-                                        <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }} ">
-                                            <a href="https://sobkisubazar.com/">
-                                                <img src="{{ asset('images/rent_ad/' . $rent_ad->banner) }}"
-                                                    alt="{{ $rent_ad->name ?? '' }}" class="banner1">
-                                            </a>
 
+
+            <div class="row">
+
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg-10">
+
+
+
+                    <div class="row">
+
+
+                        @foreach ($regular as $key => $regularData)
+                            @php
+                                $key = $key + 1;
+                            @endphp
+                            @if ($key % 3 == 0)
+                                {{-- @dump($key) --}}
+                                <div class="col-lg-2"></div>
+                            @endif
+
+                            <div class="col-lg-6 col-sm-6 col-xs-6">
+                                <div class="mt-4">
+
+                                    <a href="{{ $regularData->link }}" class="border border-secondary d-block py-2 px-2">
+
+                                        <div class="row as-ad-card">
+                                            <div class="col-sm-5">
+                                                <img src="{{ asset($regularData->image) }}" alt="{{ $regularData->name }}" class="saleimg" style="height: 160px;">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="content">
+
+                                                    <h2 class="fw-bold" style="font-size:18px;color:#000">{{ $regularData->title }}</h2>
+
+                                                    <p class="text-secondary">{{ $regularData->description }}</p>
+                                                    <!-- <div class="price" style="font-size: 20px;color:tomato">৳ ৩৫,০০০</div> -->
+                                                </div>
+                                            </div>
                                         </div>
-                                    @endforeach
+
+                                    </a>
                                 </div>
-                                <a class="carousel-control-prev" href="#rentCarousel" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#rentCarousel" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
                             </div>
+
+                        @endforeach
+                        <div class="" id="paginations" style="margin: 20px auto!important;">
+                            {{ $sales->links() }}
                         </div>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-2"></div>
-                    @foreach ($rent_ads as $key => $rent_ad)
-                        @php
-                            $key = $key + 1;
-                        @endphp
-                        @if ($key % 3 == 0)
-                            <div class="col-lg-2"></div>
-                        @endif
-                        <div class="col-lg-5 col-sm-6">
-                            <div class="mt-4"><a href="{{ route('show-rent', $rent_ad->id) }}">
-                                    <img src="{{ asset('images/rent_ad/' . $rent_ad->image) }}"
-                                        alt="{{ $rent_ad->name }}" class="saleimg">
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-                    <div class="" id="paginations" style="margin: 20px auto!important;">
-                        {{ $rent_ads->links() }}
-                    </div>
+
+
+
+
+
+
                 </div>
+            </div>
+                
+
+
+
+
             </div>
         </section>
 
-        <!-- Regular Ads Section -->
-        <section id='rentAd' class="">
-            <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Rent Ad</h2> -->
-            <div class="container pt-1 pb-2">
-                <div class="row">
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-10">
-                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All
-                            Regular
-                            Ads(Regular)</h2>
-                        <div id="rentCarousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div id="rentCarousel" class="carousel slide" data-ride="carousel">
-                                    @foreach ($rent_ads as $key => $rent_ad)
-                                        <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }} ">
-                                            <a href="https://sobkisubazar.com/">
-                                                <img src="{{ asset('images/rent_ad/' . $rent_ad->banner) }}"
-                                                    alt="{{ $rent_ad->name ?? '' }}" class="banner1">
-                                            </a>
-
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <a class="carousel-control-prev" href="#rentCarousel" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#rentCarousel" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2"></div>
-                    @foreach ($rent_ads as $key => $rent_ad)
-                        @php
-                            $key = $key + 1;
-                        @endphp
-                        @if ($key % 3 == 0)
-                            <div class="col-lg-2"></div>
-                        @endif
-                        <div class="col-lg-5 col-sm-6">
-                            <div class="mt-4"><a href="{{ route('show-rent', $rent_ad->id) }}">
-                                    <img src="{{ asset('images/rent_ad/' . $rent_ad->image) }}"
-                                        alt="{{ $rent_ad->name }}" class="saleimg">
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-                    <div class="" id="paginations" style="margin: 20px auto!important;">
-                        {{ $rent_ads->links() }}
-                    </div>
-                </div>
-            </div>
-        </section>
         <!-- Footer -->
     </div>
 
