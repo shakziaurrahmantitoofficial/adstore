@@ -34,27 +34,18 @@ use App\Models\ads;
 
 
 
-Route::get('/test', function () {
+// Route::get('/test', function () {
 
-    $adsData    = ads::get();
-    $detetation = 120;
+//     $adsData    = ads::get();
+//     $detetation = 120;
 
-    foreach($adsData as $data){
-        if((strtotime($data->created_at) + $detetation) <= time()){
-           ads::find($data->id)->delete();
-        }
-    }
+//     foreach($adsData as $data){
+//         if((strtotime($data->created_at) + $detetation) <= time()){
+//            ads::find($data->id)->delete();
+//         }
+//     }
 
-
-
-
-        // $delete = $date("Y-m-d h:i:s", time()+60);
-
-        // $adsData = ads::get();
-
-        // 2023-05-24 06:04:10
-
-});
+// });
 
 
 Route::group(["prefix" => "admin"], function(){
