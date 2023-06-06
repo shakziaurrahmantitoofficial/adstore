@@ -359,7 +359,7 @@
             <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Rent Ad</h2> -->
             <div class="container pt-1 pb-2">
 
-
+            
             <div class="row">
 
                 <div class="col-lg-2"></div>
