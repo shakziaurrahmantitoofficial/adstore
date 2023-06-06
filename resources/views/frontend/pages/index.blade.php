@@ -218,12 +218,13 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        {{--
                         <div class="bbb_main_container">
                             <div class="bbb_viewed_nav bbb_viewed_prev_2"><i class="fas fa-chevron-left"></i></div>
                             <div class="bbb_viewed_nav bbb_viewed_next_2"><i class="fas fa-chevron-right"></i></div>
                             <div class="bbb_viewed_slider_container">
                                 <div class="owl-carousel owl-theme bbb_viewed_slider_2 d-flex">
+                                     
                                     <div class="owl-item">
                                         <div
                                             class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
@@ -242,9 +243,11 @@
                                             </div>
                                         </div>
                                     @endforeach
+                                    
                                 </div>
                             </div>
                         </div>
+                        --}}
                     </div>
 
                 </div>
@@ -331,10 +334,7 @@
                         @php
                             $key = $key + 1;
                         @endphp
-                        @if ($key % 3 == 0)
-                            <div class="col-lg-2"></div>
-                        @endif
-                        <div class="col-lg-5 col-sm-6">
+                        <div class="col-lg-6 col-sm-6">
                             <div class="mt-4"><a href="{{ route('show-buy', $buy_ad->id) }}">
                                     <img src="{{ asset('images/buy_ad/' . $buy_ad->image) }}"
                                         alt="{{ $buy_ad->name ?? '' }}" class="saleimg">
@@ -371,10 +371,7 @@
                             @php
                                 $key = $key + 1;
                             @endphp
-                            @if ($key % 3 == 0)
-                                {{-- @dump($key) --}}
-                                <div class="col-lg-2"></div>
-                            @endif
+                            
 
                             <div class="col-lg-6 col-sm-6 col-xs-6">
                                 <div class="mt-4">
