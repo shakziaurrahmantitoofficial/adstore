@@ -83,7 +83,23 @@ class HomeController extends Controller
             $gold = ads::where("packageName", "gold")->where("status", 1)->orderby("id","DESC")->get();
         }
 
-        return view('frontend.pages.index', compact('data', 'platinum_data', 'advertisement_data','ad_stores_data','sales','buy_ads','rent_ads','platinum','gold'));
+
+
+        $silver = null;
+        if(ads::where("packageName", "silver")->where("status", 1)->count() > 0){
+            $silver = ads::where("packageName", "silver")->where("status", 1)->orderby("id","DESC")->get();
+        }
+
+
+
+        $regular = null;
+        if(ads::where("packageName", "regular")->where("status", 1)->count() > 0){
+            $regular = ads::where("packageName", "regular")->where("status", 1)->orderby("id","DESC")->get();
+        }
+
+
+
+        return view('frontend.pages.index', compact('data', 'platinum_data', 'advertisement_data','ad_stores_data','sales','buy_ads','rent_ads','platinum','gold', "silver", "regular"));
 
 
 
