@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\packageController;
 use App\Http\Controllers\Frontend\adsController;
 use App\Http\Controllers\Frontend\CustomerController;
 use App\Http\Controllers\Frontend\MembershipController;
+use App\Models\ads;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,30 @@ use App\Http\Controllers\Frontend\MembershipController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+
+
+Route::get('/test', function () {
+
+    $adsData    = ads::get();
+    $detetation = 120;
+
+    foreach($adsData as $data){
+        if((strtotime($data->created_at) + $detetation) <= time()){
+           ads::find($data->id)->delete();
+        }
+    }
+
+
+
+
+        // $delete = $date("Y-m-d h:i:s", time()+60);
+
+        // $adsData = ads::get();
+
+        // 2023-05-24 06:04:10
+
+});
 
 
 Route::group(["prefix" => "admin"], function(){
