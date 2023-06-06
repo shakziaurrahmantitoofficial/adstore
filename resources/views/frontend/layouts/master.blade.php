@@ -4,7 +4,8 @@
 <head>
     <!-- CSS Files -->
    @include('frontend.partials.css')
-   
+   <title>@yield('title')</title>
+   <link rel="icon" type="image/x-icon" href="http://localhost/adstore/public/frontend/assets/images/logo.png">
 </head>
 
 <body>
