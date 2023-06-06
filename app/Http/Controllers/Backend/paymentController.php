@@ -97,7 +97,6 @@ class paymentController extends Controller
         $package->price = (int) $package->price + (int) $renew->price;
         $package->save();
 
-
         if($package != null){
             return redirect()->back()->with('success','Payment paid successfully!');
         }else{
