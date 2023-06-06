@@ -102,9 +102,6 @@ class paymentController extends Controller
         }else{
             return redirect()->back()->with('error','Something Wrong!');
         }
-
-
     } 
-
 
 }
