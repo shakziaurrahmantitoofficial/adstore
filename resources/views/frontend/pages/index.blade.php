@@ -262,8 +262,7 @@
                     <div class="row">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-10">
-                            <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">
-                                All Sale Ad(Gold)</h2>
+                            <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Sale Ad</h2>
                             <div id="saleCarousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div id="saleCarousel" class="carousel slide" data-ride="carousel">
@@ -302,8 +301,7 @@
                 <div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-10">
-                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All
-                            Buy Ad(Silver)</h2>
+                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Buy Ad</h2>
                         <div id="buyCarousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div id="buyCarousel" class="carousel slide" data-ride="carousel">
@@ -379,10 +377,10 @@
                                     <a href="{{ $regularData->link }}" class="border border-secondary d-block py-2 px-2">
 
                                         <div class="row as-ad-card">
-                                            <div class="col-sm-5">
+                                            <div class="col-5">
                                                 <img src="{{ asset($regularData->image) }}" alt="{{ $regularData->name }}" class="saleimg" style="height: 160px;">
                                             </div>
-                                            <div class="col-sm-7">
+                                            <div class="col-7">
                                                 <div class="content">
 
                                                     <h2 class="fw-bold" style="font-size:18px;color:#000">{{ $regularData->title }}</h2>
