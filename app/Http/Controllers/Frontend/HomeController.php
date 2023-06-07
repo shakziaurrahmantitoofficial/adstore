@@ -99,12 +99,7 @@ class HomeController extends Controller
 
 
 
-        return view('frontend.pages.index', compact('data', 'platinum_data', 'advertisement_data','ad_stores_data','sales','buy_ads','rent_ads','platinum','gold', "silver", "regular"));
-
-
-
-
-    }
+        return view('frontend.pages.index', compact('data', 'platinum_data', 'advertisement_data','ad_stores_data','sales','buy_ads','rent_ads','platinum','gold', "silver", "regular"));}
 
 
 
@@ -153,18 +148,18 @@ class HomeController extends Controller
 
 
         if($request->saleData != "" && count($request->saleData)){
-            $saleData = Sale::whereIn('type', $request->saleData)->get();
+            $saleData = ads::where("adType", "sale")->whereIn('adservicetype', $request->saleData)->get();
             $saleType = true;
         }
 
         if($request->buyData != "" && count($request->buyData)){
-            $buy_ads = BuyAd::whereIn('type', $request->buyData)->get();
+            $buy_ads = ads::where("adType", "buy")->whereIn('adservicetype', $request->buyData)->get();
             $buyType = true;
         }
 
 
         if($request->rentData != "" && count($request->rentData)){
-            $rent_ads = RentAd::whereIn('type', $request->rentData)->get();
+            $rent_ads = ads::where("adType", "rent")->whereIn('adservicetype', $request->rentData)->get();
             $rentType = true;
         }
 

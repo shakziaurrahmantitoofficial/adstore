@@ -163,13 +163,6 @@
 
 
 
-
-        
-
-
-
-
-
     $("#customerLoginForm4").submit(function(){
 
       var form = $("#customerLoginForm4").get(0);
@@ -345,15 +338,17 @@
 
     });
 
-
 </script>
 
+
+
 <script>
+
     $(".chbox").click(function() {
 
-        var saleData = [];
-        var buyData = [];
-        var rentData = [];
+        var saleData    = [];
+        var buyData     = [];
+        var rentData    = [];
 
         $("input:checkbox[name=mycheckbox]:checked").each(function() {
 
@@ -366,6 +361,7 @@
             }
         });
 
+
         $.ajax({
             url: "{{ route('allFiltering.allfiltering') }}",
             method: "get",
@@ -375,6 +371,9 @@
                 "rentData": rentData
             },
             success: function(data) {
+
+
+
 
                 if (data.saleType == true || data.buyType == true || data.rentType == true) {
 
@@ -388,7 +387,7 @@
 
                             htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
                             <div class="mt-4"><a href="">
-                                    <img src="{{ asset('images/sales/${value.image}') }}" alt=""
+                                    <img src="{{ asset('${value.image}') }}" alt=""
                                         class="saleimg">
                                 </a>
                             </div>
@@ -400,7 +399,7 @@
                         $.each(data.buy_ads, function(key, value) {
                             htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
                             <div class="mt-4"><a href="">
-                                    <img src="{{ asset('images/buy_ad/${value.image}') }}" alt=""
+                                    <img src="{{ asset('${value.image}') }}" alt=""
                                         class="saleimg">
                                 </a>
                             </div>
@@ -411,13 +410,15 @@
 
                     if (data.rentType == true) {
                         $.each(data.rent_ads, function(key, value) {
+
                             htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
                             <div class="mt-4"><a href="">
-                                    <img src="{{ asset('images/rent_ad/${value.image}') }}" alt=""
+                                    <img src="{{ asset( '${value.image}') }}" alt=""
                                         class="saleimg">
                                 </a>
                             </div>
                             </div>`;
+
                         });
                     }
 
@@ -432,6 +433,7 @@
         });
 
     });
+
 </script>
 
 <script>

@@ -90,6 +90,7 @@ class paymentController extends Controller
         $getoldDate         = $exipreDate - time();
         $ads->duration      = $renew->duration * 86400 + $getoldDate;
         $ads->renewstatus   = 0;
+        $ads->status        = 1;
         $ads->save();
         $renew->delete();
 
