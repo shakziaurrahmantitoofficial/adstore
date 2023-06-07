@@ -84,6 +84,8 @@
                         <span class="bg-success text-white">Approved</span>
                     @elseif($data->status == 2)
                        <a href="{{Route('adedit.customerAdEdit')}}?package={{base64_encode(base64_encode($data->id))}}&dr={{base64_encode(base64_encode($data->duration))}}"><span class="bg-danger text-white">Rejected</span></a>
+                    @elseif($data->status == 3)
+                        <span class="bg-danger text-white">Expired</span>
                     @endif
                 </td>
             </tr>

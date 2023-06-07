@@ -45,7 +45,11 @@
                                             </td>
                                             <td>
                                                @if(isset($data->adstartTime))
-                                                    {{date("d.m.Y", $data->adstartTime + $data->duration)}}
+                                                    @if($data->status == 3)
+                                                        <span class="bg-danger text-white">{{date("d.m.Y", $data->adstartTime + $data->duration)}}</span>
+                                                    @else
+                                                        {{date("d.m.Y", $data->adstartTime + $data->duration)}}
+                                                    @endif
                                                 @else
                                                     Not set
                                                 @endif

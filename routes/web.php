@@ -36,14 +36,15 @@ use App\Models\ads;
 
 // Route::get('/test', function () {
 
-//     $adsData    = ads::get();
-//     $detetation = 120;
-
-//     foreach($adsData as $data){
-//         if((strtotime($data->created_at) + $detetation) <= time()){
-//            ads::find($data->id)->delete();
+//         $adsData    = ads::get();
+//         foreach($adsData as $data){
+//            $expire  = $data->adstartTime + $data->duration;
+//             if($expire <= time()){
+//               $ads  = ads::find($data->id);
+//               $ads->status = 3;
+//               $ads->save();
+//             }
 //         }
-//     }
 
 // });
 
