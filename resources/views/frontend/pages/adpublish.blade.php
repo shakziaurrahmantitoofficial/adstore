@@ -53,8 +53,9 @@
                                            <textarea cols="8" name="description" class="form-control" placeholder="Ad Description" required></textarea>
                                         </div>
 
+
                                         <div class="form-group">
-                                            <select class="form-control" name="adType" required>
+                                            <select class="form-control" name="adType" id="adType" required>
                                                 <option value="">Select Ads Type </option>
                                                 <option value="rent">Rent Ad</option>
                                                 <option value="buy">Buy Ad</option>
@@ -63,18 +64,13 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <select class="form-control" name="adservicetype" required>
+                                            <select class="form-control" name="adservicetype" id="adservicetype" required>
                                                 <option value="">Select Service</option>
-                                                <option value="product">Product</option>
-                                                <option value="property">Property</option>
-                                                <option value="service">Service</option>
-                                                <option value="for_rent">For Rent</option>
-                                                <option value="to_rent">To Rent</option>
-                                                <option value="corporate_ads">Corporate Ads</option>
-                                                <option value="buy">Buy Ad</option>
-                                                <option value="sale">Sale Ad</option>
                                             </select>
                                         </div>
+
+
+
 
                                         <div class="form-group">
                                             <input type="file" name="image" class="form-control-file" required>

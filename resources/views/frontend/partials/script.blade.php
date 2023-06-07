@@ -14,6 +14,56 @@
 
 {{-- For product filtering --}}
 
+
+{{-- For ads combox--}}
+<script type="text/javascript">
+    
+    $("#adType").change(function(){
+
+        var adType = $("#adType").val();
+        $("#adservicetype").html("");
+
+        if(adType == "rent"){
+
+            var rent = `<option value="">Select</option>
+                        <option value="for_rent">For Rent</option>
+                        <option value="to_rent">To Rent</option>
+                        <option value="promotional">Corporate Ads</option>`
+            $("#adservicetype").html(rent);
+
+        }else if(adType == "buy"){
+
+            var buy = `<option value="">Select</option>
+                        <option value="product">Product</option>
+                        <option value="property">Property</option>
+                        <option value="service">Service</option>`
+            $("#adservicetype").html(buy);
+
+        }else if(adType == "sale"){
+
+            var sale = `<option value="">Select</option>
+                        <option value="product">Product</option>
+                        <option value="property">Property</option>
+                        <option value="service">Service</option>`
+            $("#adservicetype").html(sale);
+
+        }else{
+            var others = `<option value="">Select</option>`
+            $("#adservicetype").html(others);
+        }
+
+
+
+
+    });
+
+</script>
+
+
+
+
+
+
 <script type="text/javascript">
 
 
