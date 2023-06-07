@@ -10,7 +10,7 @@ use App\Http\Controllers\Backend\SaleController;
 use App\Http\Controllers\Backend\paymentController;
 use App\Http\Controllers\Backend\adminLoginController;
 use App\Http\Controllers\Backend\MemberController;
-
+use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Frontend\customerLoginController;
 use App\Http\Controllers\Frontend\checkOutController;
 use App\Http\Controllers\Frontend\packageController;
@@ -84,7 +84,8 @@ Route::group(["prefix" => "admin"], function(){
     Route::get('/membership-confirm/{id}', [MemberController::class,'MembershipConfirm'])->middleware(['auth', 'verified'])->name('membership.confirm');
 
 
-
+    // Site Setting Route
+    Route::get('/settings', [SettingController::class,'SettingPage'])->middleware(['auth', 'verified'])->name('settings.page');
 });
 
 

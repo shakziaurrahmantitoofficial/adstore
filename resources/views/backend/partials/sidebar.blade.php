@@ -59,6 +59,10 @@
                             <li><a href="{{ route('rent-add.index') }}">All Rent Ads</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="{{ route('settings.page') }}" aria-expanded="true"><i class="ti-settings"></i><span>Settings</span></a>
+                       
+                    </li>
                     {{-- <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>
                         <ul class="collapse">
