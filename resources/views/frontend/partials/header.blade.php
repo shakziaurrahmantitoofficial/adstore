@@ -11,7 +11,7 @@
                         <a href="tel:+8801325-319106" class="text-reset d-inline-block py-2">
                            
                             <i class="fa-solid fa-phone header-icon"></i>
-                            <span class="header-icon-text">{{ $setting->phone }}</span>
+                            <span class="header-icon-text">{{ isset($setting->phone) }}</span>
                         </a>
                     </li>
                             
@@ -20,7 +20,7 @@
                            
                             <i class="fa-regular fa-envelope header-icon"></i>
 
-                            <span class="header-icon-text">{{ $setting->email }}</span>
+                            <span class="header-icon-text">{{ isset($setting->email) }}</span>
                         </a>
                     </li>
 
@@ -40,26 +40,26 @@
                             <p style="font-size: 16px;">Follow Us</p>
                          </li>
                         <li class="list-inline-item icon-hover">
-                            <a href="{{ $setting->facebook }}" target="_blank"
+                            <a href="{{ isset($setting->facebook) }}" target="_blank"
                                 class="facebook"><i style=""
                                     class="fa-brands fa-facebook-f icon-social-style-f"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="{{ $setting->instagram }}" target="_blank"
+                            <a href="{{ isset($setting->instagram) }}" target="_blank"
                                 class="instagram"><i class="fa-brands fa-instagram icon-social-style-in"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="{{ $setting->twitter }}" target="_blank" class="twitter">
+                            <a href="{{ isset($setting->twitter) }}" target="_blank" class="twitter">
                                 <i class="fa-brands fa-twitter icon-social-style-t"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="{{ $setting->linkedin }}"
+                            <a href="{{ isset($setting->linkedin) }}"
                                 target="_blank" class="linkedin"><i class="fa-brands fa-linkedin-in icon-social-style-link"></i></a>
                         </li>
 
                         <li class="list-inline-item">
-                            <a href="{{ $setting->youtube }}"
+                            <a href="{{ isset($setting->youtube) }}"
                                 target="_blank" class="youtube"><i class="fa-brands fa-youtube icon-social-style-y"></i></a>
                         </li>
                     </ul>
