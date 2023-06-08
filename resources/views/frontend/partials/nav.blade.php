@@ -207,7 +207,7 @@
                      <div class="d-lg-block ml-3 mr-0">
                          <ul class="list-inline mb-0 mobile-hor-swipe text-center">
                              <li class="list-inline-item mr-0">
-                                 <a href="{{ route('adstore') }}" target="_blank">
+                                 <a href="{{ route('packagelist.customerPackagelist') }}">
                                      <button type="button" class="btn btn-post btn-rounded">Post Your Ad</button>
                                  </a>
                              </li>
