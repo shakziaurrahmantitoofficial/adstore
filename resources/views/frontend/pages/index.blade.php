@@ -106,12 +106,36 @@
                                 <div class="shadow-sm rounded categoryAccordionShow" style="background-color: #f5f7fa;margin-top: -2px;">
                                     <div class="px-4 ac-show">
                                         <div class="aiz-checkbox-list">
+
+                                            <label class="aiz-checkbox">
+                                                <input type="checkbox" name="downup" class="downup"
+                                                    value="updown">
+                                                <span class="aiz-square-check"></span>
+                                                <span class="fs-13 fs-md-13">Up-Down</span>
+                                            </label>
+
+
+                                            <label class="aiz-checkbox">
+                                                <input type="checkbox" name="downup" class="downup"
+                                                    value="downup">
+                                                <span class="aiz-square-check"></span>
+                                                <span class="fs-13 fs-md-13">Down Up</span>
+                                            </label>
+
+
+
+
+
+
+                                            
+
                                             <label class="aiz-checkbox">
                                                 <input type="checkbox" name="mycheckbox" class="chbox" data-type="rent"
                                                     value="for_rent">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Up-Down</span>
                                             </label>
+
                                             <label class="aiz-checkbox">
                                                 <input type="checkbox" name="mycheckbox" value="to_rent" class="chbox"
                                                     data-type="rent">
