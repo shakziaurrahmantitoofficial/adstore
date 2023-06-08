@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
              <div class="col-lg-9 mx-auto">
-                 <h5 class="h5 text-left text-font text-dark text-center footer-text-info">&copy {{ isset($setting->copyright_text) }}</h5>
+                 <h5 class="h5 text-left text-font text-dark text-center footer-text-info">&copy {{ isset($setting->copyright_text) ? $setting->copyright_text : ''}}</h5>
              </div>
         </div>
     </div>
