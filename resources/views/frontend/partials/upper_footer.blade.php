@@ -11,7 +11,7 @@
                     <ul class="list-unstyled">
                         
                        <li class="mb-4">
-                           <a href="" class="d-block mt-2">
+                           <a href="{{url('/')}}" class="d-block mt-2">
                             @if(isset($setting->footer_logo))
                              <img class="custom_logo ls-is-cached lazyloaded" src="{{ asset($setting->footer_logo) }}" alt="">
                             @endif

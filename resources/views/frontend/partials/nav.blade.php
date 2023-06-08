@@ -12,7 +12,7 @@
 
                     <nav class="navbar navbar-expand-lg navbar-light">
                      <div class="col-auto col-xl-3 pl-0 pr-3 d-flex align-items-center">
-                         <a class="d-block py-2 mr-3 ml-0" href="https://sobkisubazar.com">
+                         <a class="d-block py-2 mr-3 ml-0" href="{{url('/')}}">
                              @if(isset($setting->header_logo))
                              <img src="{{ asset($setting->header_logo) }}" 
                                 alt="Sobkisubazar" class="mw-120 h-30px h-md-60px">
