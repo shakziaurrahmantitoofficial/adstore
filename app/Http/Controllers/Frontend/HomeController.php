@@ -111,12 +111,26 @@ class HomeController extends Controller
     }
 
     public function search(Request $request){
+
         $search = $request->search;
-        $searchItem = Sale::orWhere('name','like','%'.$search.'%')
-        ->orWhere('description','like','%'.$search.'%')
-        ->orderBy('id','desc')
-        ->paginate(4);
-        return view('frontend.pages.search', compact('searchItem'));
+        $searchItem = null;
+
+        if(ads::orWhere('title','like','%'.$search.'%')->where('link','like','%'.$search.'%')->orWhere('description','like','%'.$search.'%')->orderBy('id','desc')->where("status", 1)->limit(30)->count() > 0){
+            
+            $searchItem = ads::where('title','like','%'.$search.'%')
+            ->orWhere('link','like','%'.$search.'%')
+            ->orWhere('description','like','%'.$search.'%')
+            ->orderBy('id','desc')
+            ->limit(30)
+            ->where("status", 1)
+            ->get();
+
+        }
+
+        return view('frontend.pages.search', compact('searchItem', 'search')); 
+
+
+
     }
 
     public function showSale($id){

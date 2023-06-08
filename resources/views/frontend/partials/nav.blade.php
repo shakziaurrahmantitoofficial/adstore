@@ -120,10 +120,10 @@
                                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                               </form> -->
-                             <form action="{{ route('search') }}" method="get" class="mb-0 mobile-hor-swipe text-center">
+                             <form action="{{ route('search') }}" id="searchForm" method="get" class="mb-0 mobile-hor-swipe text-center">
                                  <div class="d-lg-block d-flex position-relative align-items-center">
                                      <div class="input-group">
-                                         <input type="text" class="form-control" name="search" style="font-size: 18px;"
+                                         <input type="text" class="form-control" name="search" id="search" style="font-size: 18px;"
                                               placeholder="Search Your Product">
                                          <div class="d-lg-block">
                                              <button class="btn btn-primary" type="submit"

@@ -68,10 +68,6 @@
                                                 <option value="">Select Service</option>
                                             </select>
                                         </div>
-
-
-
-
                                         <div class="form-group">
                                             <input type="file" name="image" class="form-control-file" required>
                                         </div>

@@ -16,6 +16,23 @@
 
 
 {{-- For ads combox--}}
+
+
+/*-----For search------*/
+<script type="text/javascript">
+    
+    $("#searchForm").submit(function(){
+        var search = $("#search").val();
+        if(search == ""){
+            return false;
+        }else{
+            return true;
+        }
+    });
+
+</script>
+
+
 <script type="text/javascript">
     
     $("#adType").change(function(){
@@ -51,9 +68,6 @@
             var others = `<option value="">Select</option>`
             $("#adservicetype").html(others);
         }
-
-
-
 
     });
 
