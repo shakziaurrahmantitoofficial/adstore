@@ -26,7 +26,7 @@
                             <input type="file" name="header_logo" class="form-control mb-3 headerSettings">
                             <small id="errheader_logo" class="form-text mb-2"></small>
                             <div class="as-pf-img border rounded" style="width: 120px; height:100px;overflow: hidden;">
-                                <img class="headerSettingsPreview" src="{{ asset($setting->header_logo)?asset($setting->header_logo):'' }}" alt="Image" style="max-width:100%;object-fit:contain;display: flex;align-items: center;justify-content: center;height: 100%;margin:auto;">
+                                <img class="headerSettingsPreview" src="{{ !empty(asset($setting->header_logo))?asset($setting->header_logo):'' }}" alt="Image" style="max-width:100%;object-fit:contain;display: flex;align-items: center;justify-content: center;height: 100%;margin:auto;">
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
                             <input type="file" name="copyright_image" class="form-control mb-3 copyrightSettings">
                             <small id="errcopyright_image" class="form-text mb-2"></small>
                             <div class="as-pf-img border rounded" style="width: 120px; height:100px;overflow: hidden;">
-                                <img class="copyrightSettingsPreview" src="{{ asset($setting->copyright_image)?asset($setting->copyright_image):'' }}" alt="Image" style="max-width:100%;object-fit:contain;display: flex;align-items: center;justify-content: center;height: 100%;margin:auto;">
+                                <img class="copyrightSettingsPreview" src="{{ asset($setting->copyright_image))?asset($setting->copyright_image):'' }}" alt="Image" style="max-width:100%;object-fit:contain;display: flex;align-items: center;justify-content: center;height: 100%;margin:auto;">
                             </div>
                         </div>
                     </div>
