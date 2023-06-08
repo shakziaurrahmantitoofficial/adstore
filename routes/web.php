@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\checkOutController;
 use App\Http\Controllers\Frontend\packageController;
 use App\Http\Controllers\Frontend\adsController;
 use App\Http\Controllers\Frontend\CustomerController;
+use App\Http\Controllers\Frontend\FilteringController;
 use App\Http\Controllers\Frontend\MembershipController;
 use App\Models\ads;
 
@@ -211,25 +212,20 @@ Route::group(["middleware" => "auth:customer"], function(){
 
 
 
-
-
-
-
-
 //Frontent Section
 Route::get('/',[HomeController::class,'index']);
 Route::get('show-sale/{id}',[HomeController::class,'showSale'])->name('show-sale');
 Route::get('show-buy/{id}',[HomeController::class,'showBuy'])->name('show-buy');
 Route::get('show-rent/{id}',[HomeController::class,'showRent'])->name('show-rent');
 
-
 // For Filtering
 Route::get('allfiltering',[HomeController::class,'allFiltering'])->name('allFiltering.allfiltering');
 
-
-
 Route::get('/search',[HomeController::class,'search'])->name('search');
 Route::get('/adstore',[HomeController::class,'adstore'])->name('adstore');
+
+// Category Filltering
+Route::get('/filter/up-down',[FilteringController::class,'filterUpDown'])->name('filter.up-down');
 
 
 
