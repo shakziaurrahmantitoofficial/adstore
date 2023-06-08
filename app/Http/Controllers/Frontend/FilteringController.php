@@ -25,4 +25,12 @@ class FilteringController extends Controller
         // ]);
 
     }
+
+    public function filterHighLow(){
+        return 'Ok';
+    }
+
+    public function filterMember(){
+        return 'Ok';
+    }
 }

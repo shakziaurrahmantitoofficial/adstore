@@ -233,6 +233,8 @@ Route::get('/adstore',[HomeController::class,'adstore'])->name('adstore');
 
 // Category Filltering
 Route::get('/filter/up-down',[FilteringController::class,'filterUpDown'])->name('filter.up-down');
+Route::get('/filter/high-low',[FilteringController::class,'filterHighLow'])->name('filter.high-low');
+Route::get('/filter/member',[FilteringController::class,'filterMember'])->name('filter.member');
 
 
 
