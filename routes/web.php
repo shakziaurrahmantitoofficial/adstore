@@ -86,6 +86,11 @@ Route::group(["prefix" => "admin"], function(){
 
     // Site Setting Route
     Route::get('/settings', [SettingController::class,'SettingPage'])->middleware(['auth', 'verified'])->name('settings.page');
+    Route::post('/settings-update/header', [SettingController::class,'SettingHeaderUpdate'])->middleware(['auth', 'verified'])->name('settings.update.header');
+    Route::post('/settings-update/information', [SettingController::class,'SettingInformationUpdate'])->middleware(['auth', 'verified'])->name('settings.update.information');
+    Route::post('/settings-update/social', [SettingController::class,'SettingSocialUpdate'])->middleware(['auth', 'verified'])->name('settings.update.social');
+    Route::post('/settings-update/footer', [SettingController::class,'SettingFooterUpdate'])->middleware(['auth', 'verified'])->name('settings.update.footer');
+    Route::post('/settings-update/copyright', [SettingController::class,'SettingCopyrightUpdate'])->middleware(['auth', 'verified'])->name('settings.update.copyright');
 });
 
 

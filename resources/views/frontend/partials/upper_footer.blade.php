@@ -1,3 +1,6 @@
+@php
+    $setting = App\Models\Setting::where('id',1)->first();
+@endphp
 <section class="mt-auto" style="background-color:#e9e9e9 !important;">
     <div class="container">
        <div class="row no-gutters">
@@ -9,11 +12,11 @@
                         
                        <li class="mb-4">
                            <a href="" class="d-block mt-2">
-                             <img class="custom_logo ls-is-cached lazyloaded" src="{{ asset('frontend/assets/images/logo.png') }}" alt="">
+                             <img class="custom_logo ls-is-cached lazyloaded" src="{{ asset($setting->footer_logo) }}" alt="">
                          </a>
                        </li>
                        <li class="mb-2">
-                          <p class="footer-logo-text">Sobkisubazar is the fastest online marketplace in Bangladesh. SKB Ad store is a concern of Sobkisubazar. Promote your Business with our audience on our ad store, get your targeted audience and generate more revenue.  </p>
+                          <p class="footer-logo-text">{{ $setting->footer_content }}</p>
                        </li>
                     </ul>
              </div>
@@ -26,13 +29,13 @@
                     <ul class="list-unstyled">
                        <li class="mb-2">
                           <!--<span><strong  style="color:#000;" class="d-block float-lg-end text-center ">+8809678800843</strong></span>-->
-                          <p class="footer-text-p"><span class="w-400" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-solid fa-phone"></i></span> +8809678800843 </p>
+                          <p class="footer-text-p"><span class="w-400" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-solid fa-phone"></i></span> {{ $setting->phone }} </p>
                        </li>
                        <li class="mb-2">
-                          <p class="footer-text-p"><span class="" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-regular fa-envelope"></i></span> info@sobkisubazar.com </p>
+                          <p class="footer-text-p"><span class="" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-regular fa-envelope"></i></span> {{ $setting->email }} </p>
                        </li>
                        <li class="mb-2">
-                          <p class="footer-text-p"><span class="" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-solid fa-house-chimney"></i></span> 65, Rasul View, Suite-8/A, Mymensingh Lane, Banglamotor, Dhaka-1000. </p>
+                          <p class="footer-text-p"><span class="" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-solid fa-house-chimney"></i></span> {{ $setting->address }} </p>
                        </li>
                         
                     </ul>
