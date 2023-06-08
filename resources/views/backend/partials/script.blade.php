@@ -37,6 +37,158 @@
     <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>
 
 
+    {{-- Site Setting --}}
+    <script>
+        $('body .headerSettings').on('change',function(event){
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.querySelector('.headerSettingsPreview');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        })
+        $('body .footerSettings').on('change',function(event){
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.querySelector('.footerSettingsPreview');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        })
+        $('body .copyrightSettings').on('change',function(event){
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.querySelector('.copyrightSettingsPreview');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        })
+
+
+        // Setting form submit
+        $(".SettingFormSubmit1").submit(function(){
+            var form = $(".SettingFormSubmit1").get(0);
+            $.ajax({
+                url : "{{route('settings.update.header')}}",
+                method: "post",
+                data : new FormData(form),
+                contentType : false,
+                processData : false,
+                beforeSend : function(){
+                    $(document).find(".form-text").text("");
+                },
+                success: function(data){
+                    if(data.message == "error"){
+                        $.each(data.data, function(key, value){
+                            $("#err"+key).text(value).css("color","red");
+                        });
+                    }
+                    if(data.status == "reload"){
+                        window.location.href = "{{Route('settings.page')}}";
+                    }
+                }
+            });
+            return false;
+        });
+        $(".SettingFormSubmit2").submit(function(){
+            var form = $(".SettingFormSubmit2").get(0);
+            $.ajax({
+                url : "{{route('settings.update.information')}}",
+                method: "post",
+                data : new FormData(form),
+                contentType : false,
+                processData : false,
+                beforeSend : function(){
+                    $(document).find(".form-text").text("");
+                },
+                success: function(data){
+                    if(data.message == "error"){
+                        $.each(data.data, function(key, value){
+                            $("#err"+key).text(value).css("color","red");
+                        });
+                    }
+                    if(data.status == "reload"){
+                        window.location.href = "{{Route('settings.page')}}";
+                    }
+                }
+            });
+            return false;
+        });
+        $(".SettingFormSubmit3").submit(function(){
+            var form = $(".SettingFormSubmit3").get(0);
+            $.ajax({
+                url : "{{route('settings.update.social')}}",
+                method: "post",
+                data : new FormData(form),
+                contentType : false,
+                processData : false,
+                beforeSend : function(){
+                    $(document).find(".form-text").text("");
+                },
+                success: function(data){
+                    if(data.message == "error"){
+                        $.each(data.data, function(key, value){
+                            $("#err"+key).text(value).css("color","red");
+                        });
+                    }
+                    if(data.status == "reload"){
+                        window.location.href = "{{Route('settings.page')}}";
+                    }
+                }
+            });
+            return false;
+        });
+        $(".SettingFormSubmit4").submit(function(){
+            var form = $(".SettingFormSubmit4").get(0);
+            $.ajax({
+                url : "{{route('settings.update.footer')}}",
+                method: "post",
+                data : new FormData(form),
+                contentType : false,
+                processData : false,
+                beforeSend : function(){
+                    $(document).find(".form-text").text("");
+                },
+                success: function(data){
+                    if(data.message == "error"){
+                        $.each(data.data, function(key, value){
+                            $("#err"+key).text(value).css("color","red");
+                        });
+                    }
+                    if(data.status == "reload"){
+                        window.location.href = "{{Route('settings.page')}}";
+                    }
+                }
+            });
+            return false;
+        });
+        $(".SettingFormSubmit5").submit(function(){
+            var form = $(".SettingFormSubmit5").get(0);
+            $.ajax({
+                url : "{{route('settings.update.copyright')}}",
+                method: "post",
+                data : new FormData(form),
+                contentType : false,
+                processData : false,
+                beforeSend : function(){
+                    $(document).find(".form-text").text("");
+                },
+                success: function(data){
+                    if(data.message == "error"){
+                        $.each(data.data, function(key, value){
+                            $("#err"+key).text(value).css("color","red");
+                        });
+                    }
+                    if(data.status == "reload"){
+                        window.location.href = "{{Route('settings.page')}}";
+                    }
+                }
+            });
+            return false;
+        });
+    </script>
+
+
     <script type="text/javascript">
         toastr.options = {
           "closeButton": true,
@@ -80,6 +232,7 @@
     
     
     </script>
+
 
 
      

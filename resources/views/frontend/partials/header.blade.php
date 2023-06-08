@@ -1,3 +1,6 @@
+@php
+    $setting = App\Models\Setting::where('id',1)->first();
+@endphp
 <div class="top-navbar border-soft-secondary z-1035 header-top-bg">
     <div class="container">
         <div class="row">
@@ -8,7 +11,7 @@
                         <a href="tel:+8801325-319106" class="text-reset d-inline-block py-2">
                            
                             <i class="fa-solid fa-phone header-icon"></i>
-                            <span class="header-icon-text">+880 9678-800843</span>
+                            <span class="header-icon-text">{{ $setting->phone }}</span>
                         </a>
                     </li>
                             
@@ -17,7 +20,7 @@
                            
                             <i class="fa-regular fa-envelope header-icon"></i>
 
-                            <span class="header-icon-text">info@sobkisubazar.com</span>
+                            <span class="header-icon-text">{{ $setting->email }}</span>
                         </a>
                     </li>
 
@@ -37,26 +40,26 @@
                             <p style="font-size: 16px;">Follow Us</p>
                          </li>
                         <li class="list-inline-item icon-hover">
-                            <a href="https://www.facebook.com/sobkisubazar" target="_blank"
+                            <a href="{{ $setting->facebook }}" target="_blank"
                                 class="facebook"><i style=""
                                     class="fa-brands fa-facebook-f icon-social-style-f"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://www.instagram.com/sobkisubazar/" target="_blank"
+                            <a href="{{ $setting->instagram }}" target="_blank"
                                 class="instagram"><i class="fa-brands fa-instagram icon-social-style-in"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://twitter.com/SobkisuBazar" target="_blank" class="twitter">
+                            <a href="{{ $setting->twitter }}" target="_blank" class="twitter">
                                 <i class="fa-brands fa-twitter icon-social-style-t"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://www.linkedin.com/company/sobkisubazar/"
+                            <a href="{{ $setting->linkedin }}"
                                 target="_blank" class="linkedin"><i class="fa-brands fa-linkedin-in icon-social-style-link"></i></a>
                         </li>
 
                         <li class="list-inline-item">
-                            <a href="https://www.youtube.com/@sobkisubazar"
+                            <a href="{{ $setting->youtube }}"
                                 target="_blank" class="youtube"><i class="fa-brands fa-youtube icon-social-style-y"></i></a>
                         </li>
                     </ul>
