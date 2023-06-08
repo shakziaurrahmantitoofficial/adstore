@@ -44,7 +44,7 @@
                         </ul>
                     </li>
 
-                    <li>
+                    {{-- <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>Buy</span></a>
                         <ul class="collapse">
                             <li><a href="{{ route('buy-add.create') }}">Add New Buy Ad</a></li>
@@ -58,7 +58,7 @@
                             <li><a href="{{ route('rent-add.create') }}">Add New Rent Ad</a></li>
                             <li><a href="{{ route('rent-add.index') }}">All Rent Ads</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="{{ route('settings.page') }}" aria-expanded="true"><i class="ti-settings"></i><span>Settings</span></a>
                        

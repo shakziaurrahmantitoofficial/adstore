@@ -17,19 +17,19 @@ class SettingController extends Controller
     
 
     public function SettingHeaderUpdate(Request $req) {
-        $errors = Validator::make($req->all(),[
-            "header_logo" => "required",
-        ]);
-
-        if ($errors->fails()) {
-            return response()->json([
-                "status" => false,
-                "message" => "error",
-                "data" => $errors->errors()
-            ]);
-        }
 
         if(count(Setting::get()) == 0){
+            $errors = Validator::make($req->all(),[
+                "header_logo" => "required",
+            ]);
+    
+            if ($errors->fails()) {
+                return response()->json([
+                    "status" => false,
+                    "message" => "error",
+                    "data" => $errors->errors()
+                ]);
+            }
             $setting = new Setting;
             if($req->header_logo){
                 $path = $req->header_logo;
@@ -66,21 +66,22 @@ class SettingController extends Controller
         }
     }
     public function SettingInformationUpdate(Request $req) {
-        $errors = Validator::make($req->all(),[
-            "phone" => "required",
-            "email" => "required",
-            "address" => "required",
-        ]);
-
-        if ($errors->fails()) {
-            return response()->json([
-                "status" => false,
-                "message" => "error",
-                "data" => $errors->errors()
-            ]);
-        }
+        
         
         if(count(Setting::get()) == 0){
+            $errors = Validator::make($req->all(),[
+                "phone" => "required",
+                "email" => "required",
+                "address" => "required",
+            ]);
+    
+            if ($errors->fails()) {
+                return response()->json([
+                    "status" => false,
+                    "message" => "error",
+                    "data" => $errors->errors()
+                ]);
+            }
             $setting = new Setting;
             $setting->phone = $req->phone;
             $setting->email = $req->email;
@@ -109,23 +110,23 @@ class SettingController extends Controller
         };
     }
     public function SettingSocialUpdate(Request $req) {
-        $errors = Validator::make($req->all(),[
-            "facebook" => "required",
-            "instagram" => "required",
-            "twitter" => "required",
-            "linkedin" => "required",
-            "youtube" => "required",
-        ]);
-
-        if ($errors->fails()) {
-            return response()->json([
-                "status" => false,
-                "message" => "error",
-                "data" => $errors->errors()
-            ]);
-        }
         
         if(count(Setting::get()) == 0){
+            $errors = Validator::make($req->all(),[
+                "facebook" => "required",
+                "instagram" => "required",
+                "twitter" => "required",
+                "linkedin" => "required",
+                "youtube" => "required",
+            ]);
+    
+            if ($errors->fails()) {
+                return response()->json([
+                    "status" => false,
+                    "message" => "error",
+                    "data" => $errors->errors()
+                ]);
+            }
             $setting = new Setting;
             $setting->facebook = $req->facebook;
             $setting->instagram = $req->instagram;
@@ -158,20 +159,20 @@ class SettingController extends Controller
         };
     }
     public function SettingFooterUpdate(Request $req) {
-        $errors = Validator::make($req->all(),[
-            "footer_logo" => "required",
-            "footer_content" => "required",
-        ]);
-
-        if ($errors->fails()) {
-            return response()->json([
-                "status" => false,
-                "message" => "error",
-                "data" => $errors->errors()
-            ]);
-        }
         
         if(count(Setting::get()) == 0){
+            $errors = Validator::make($req->all(),[
+                "footer_logo" => "required",
+                "footer_content" => "required",
+            ]);
+    
+            if ($errors->fails()) {
+                return response()->json([
+                    "status" => false,
+                    "message" => "error",
+                    "data" => $errors->errors()
+                ]);
+            }
             $setting = new Setting;
             if($req->footer_logo){
                 @unlink($setting->footer_logo);
@@ -212,20 +213,20 @@ class SettingController extends Controller
         };
     }
     public function SettingCopyrightUpdate(Request $req) {
-        $errors = Validator::make($req->all(),[
-            "copyright_image" => "required",
-            "copyright_text" => "required",
-        ]);
-
-        if ($errors->fails()) {
-            return response()->json([
-                "status" => false,
-                "message" => "error",
-                "data" => $errors->errors()
-            ]);
-        }
         
         if(count(Setting::get()) == 0){
+            $errors = Validator::make($req->all(),[
+                "copyright_image" => "required",
+                "copyright_text" => "required",
+            ]);
+    
+            if ($errors->fails()) {
+                return response()->json([
+                    "status" => false,
+                    "message" => "error",
+                    "data" => $errors->errors()
+                ]);
+            }
             $setting = new Setting;
             if($req->copyright_image){
                 $path = $req->copyright_image;
