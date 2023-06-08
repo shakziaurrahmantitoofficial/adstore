@@ -12,14 +12,14 @@
                         <div class="col-lg-2 d-none d-lg-block p-0">
 
                             <div class="sidebar z-1020 cat-hover category-shadow-sm pt-0" style="background-color: #f5f7fa;">
-                                <div class="pr-3 pl-3 pt-2 pb-1 d-none d-lg-block all-category position-relative text-left">
+                                <div class="pr-3 pl-3 pb-1 d-none d-lg-block all-category position-relative text-left" style="padding-top: 5px">
                                     <a href="https://sobkisubazar.com/categories" class="text-reset">
                                         <span class="fw-700 mr-3 sidebar-title">Category Filter</span>
                                     </a>
                                 </div>
 
 
-                                <div class="shadow-sm rounded" style="background-color: #f5f7fa;">
+                                <div class="shadow-sm rounded" style="background-color: #f5f7fa;margin-top: -2px;">
                                     <div class="fw-600 px-3 sidebar-subtitle">
                                         <a class="text-dark" href="#saleAd">Sale Ad</a>
                                     </div>
@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
 
-                                <div class="shadow-sm rounded" style="background-color: #f5f7fa;">
+                                <div class="shadow-sm rounded" style="background-color: #f5f7fa;margin-top: -2px;">
                                     <div class="fw-600 px-3 sidebar-subtitle">
                                         <a class="text-dark" href="#buyAd">Buy Ad</a>
                                     </div>
@@ -75,7 +75,7 @@
                                     </div>
                                 </div>
 
-                                <div class="shadow-sm rounded" style="background-color: #f5f7fa;">
+                                <div class="shadow-sm rounded" style="background-color: #f5f7fa;margin-top: -2px;">
                                     <div class="fw-600 px-3 sidebar-subtitle">
                                         <a class="text-dark" href="#rentAd">Rent Ad</a>
                                     </div>
@@ -103,11 +103,55 @@
                                     </div>
                                 </div>
 
-                                <div class="shadow-sm rounded" style="background-color: #f5f7fa;">
-                                    <div class="fw-600 px-3 pb-1 sidebar-subtitle">
-                                        <a class="text-dark" href="#allOffer">All Offer</a>
+                                <div class="shadow-sm rounded categoryAccordionShow" style="background-color: #f5f7fa;margin-top: -2px;">
+                                    <div class="px-4 ac-show">
+                                        <div class="aiz-checkbox-list">
+                                            <label class="aiz-checkbox">
+                                                <input type="checkbox" name="mycheckbox" class="chbox" data-type="rent"
+                                                    value="for_rent">
+                                                <span class="aiz-square-check"></span>
+                                                <span class="fs-13 fs-md-13">Up-Down</span>
+                                            </label>
+                                            <label class="aiz-checkbox">
+                                                <input type="checkbox" name="mycheckbox" value="to_rent" class="chbox"
+                                                    data-type="rent">
+                                                <span class="aiz-square-check"></span>
+                                                <span class="fs-13 fs-md-13">High to Low</span>
+                                            </label>
+                                            <label class="aiz-checkbox">
+                                                <input type="checkbox" name="mycheckbox" value="promotional"
+                                                    class="chbox" data-type="rent">
+                                                <span class="aiz-square-check"></span>
+                                                <span class="fs-13 fs-md-13">Low to High</span>
+                                            </label>
+                                            <label class="aiz-checkbox">
+                                                <input type="checkbox" name="mycheckbox" value="promotional"
+                                                    class="chbox" data-type="rent">
+                                                <span class="aiz-square-check"></span>
+                                                <span class="fs-13 fs-md-13">Low to High</span>
+                                            </label>
+                                            <label class="aiz-checkbox">
+                                                <input type="checkbox" name="mycheckbox" value="promotional"
+                                                    class="chbox" data-type="rent">
+                                                <span class="aiz-square-check"></span>
+                                                <span class="fs-13 fs-md-13">Member</span>
+                                            </label>
+                                            <label class="aiz-checkbox">
+                                                <input type="checkbox" name="mycheckbox" value="promotional"
+                                                    class="chbox" data-type="rent">
+                                                <span class="aiz-square-check"></span>
+                                                <span class="fs-13 fs-md-13">Agent</span>
+                                            </label>
+                                            <label class="aiz-checkbox">
+                                                <input type="checkbox" name="mycheckbox" value="promotional"
+                                                    class="chbox" data-type="rent">
+                                                <span class="aiz-square-check"></span>
+                                                <span class="fs-13 fs-md-13">Non Member</span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
+                                <p class="text-primary my-0 pl-3 py-1 categoryAccordion" style="cursor:pointer">See More</p>
                             </div>
                         </div>
 
@@ -443,5 +487,18 @@
 
 
     </div>
+
+
+    <style>
+        .sidebar-subtitle {
+            margin-bottom: 3px;
+        }
+        .categoryAccordionShow .ac-show {
+            background-color: #f5f7fa;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+    </style>
 
 @endsection
