@@ -514,6 +514,58 @@
             }
         });
 
+    });    
+
+
+
+    //-------For updown filtering
+
+    $(".downup").click(function() {
+
+        var updowndata = "";
+
+        if($(this).val() == "updown"){
+            updowndata = $(this).val();
+        }else if($(this).val() == "downup"){
+            updowndata = $(this).val();
+        }
+
+        $.ajax({
+            url: "{{ route('allFiltering.allfiltering') }}",
+            method: "get",
+            data: {
+                "updowndata" : updowndata
+            },
+            success: function(data) {
+                alert(data);
+            }
+        });
+
+
+
+        // $("input:checkbox[name=mycheckbox]:checked").each(function() {
+
+        //     if ($(this).attr("data-type") == "sale") {
+        //         saleData.push($(this).val())
+        //     } else if ($(this).attr("data-type") == "buy") {
+        //         buyData.push($(this).val())
+        //     } else if ($(this).attr("data-type") == "rent") {
+        //         rentData.push($(this).val())
+        //     }
+        // });
+
+
+        // $.ajax({
+        //     url: "{{ route('allFiltering.allfiltering') }}",
+        //     method: "get",
+        //     data: {
+        //     },
+        //     success: function(data) {
+                
+
+        //     }
+        // });
+
     });
 
 </script>
