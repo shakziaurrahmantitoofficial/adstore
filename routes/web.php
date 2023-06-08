@@ -224,6 +224,13 @@ Route::get('allfiltering',[HomeController::class,'allFiltering'])->name('allFilt
 Route::get('/search',[HomeController::class,'search'])->name('search');
 Route::get('/adstore',[HomeController::class,'adstore'])->name('adstore');
 
+
+
+
+
+
+
+
 // Category Filltering
 Route::get('/filter/up-down',[FilteringController::class,'filterUpDown'])->name('filter.up-down');
 
