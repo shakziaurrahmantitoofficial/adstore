@@ -108,7 +108,7 @@
                                         <div class="aiz-checkbox-list">
 
                                             <label class="aiz-checkbox">
-                                                <input type="checkbox" name="downup" class="downup"
+                                                <input type="checkbox" name="downup" class="downup" data-type="updown"
                                                     value="updown">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Up-Down</span>
@@ -117,7 +117,7 @@
 
                                             <label class="aiz-checkbox">
                                                 <input type="checkbox" name="downup" class="downup"
-                                                    value="downup">
+                                                    value="downup" data-type="downup">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Down Up</span>
                                             </label>
@@ -127,7 +127,7 @@
 
 
 
-                                            
+
 
                                             <label class="aiz-checkbox">
                                                 <input type="checkbox" name="mycheckbox" class="chbox" data-type="rent"

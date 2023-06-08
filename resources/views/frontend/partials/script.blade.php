@@ -522,65 +522,72 @@
 
     $(".downup").click(function() {
 
-        var updowndata = "";
+        // var updowndata = "";
 
-        if($(this).val() == "updown"){
+        // if($(this).val() == "updown"){
 
-            updowndata = $(this).val();
+        //     updowndata = $("input:checkbox[name=downup]:checked").val();
 
-        }else if($(this).val() == "downup"){
-            updowndata = $(this).val();
-        }
-
-        alert(updowndata);
-
-        // $.ajax({
-        //     url: "{{ route('filter.up-down') }}",
-        //     method: "get",
-        //     data: {
-        //         "updowndata" : updowndata
-        //     },
-
-        //     success: function(data) {
-
-        //         alert()
-
-        // if (data.filtering == "updown") {
-
-
-        //         $("#all_section_filter_disable").css("display", "none");
-        //         $("#all_section_filter_enable").css("display","block");
-
-        //         var htmlData = "";
-        //         $("#allAdd").html("");
-
-        //        $.each(data.data, function(key, value) {
-
-
-        //             htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
-        //             <div class="mt-4"><a href="">
-        //                     <img src="{{ asset( '${value.image}') }}" alt=""
-        //                         class="saleimg">
-        //                 </a>
-        //             </div>
-        //             </div>`;
-
-        //         });
-
-        //        $("#allAdd").append(htmlData);
-
-        // }else{
-
-        //     $("#all_section_filter_disable").css("display", "block");
-        //     $("#all_section_filter_enable").css("display","none");
+        // }else if($(this).val() == "downup"){
+        //     updowndata = $("input:checkbox[name=downup]:checked").val();
         // }
 
+        // alert(updowndata);
 
 
+        var updowndata    = "";
 
-        //     }
+        $("input:checkbox[name=downup]:checked").each(function() {
 
-        // });
+            if ($(this).attr("data-type") == "updown") {
+                updowndata = $(this).val();
+            } else if ($(this).attr("data-type") == "downup") {
+                updowndata = $(this).val();
+            }
+
+        });
+
+
+        $.ajax({
+            url: "{{ route('filter.up-down') }}",
+            method: "get",
+            data: {
+                "updowndata" : updowndata
+            },
+
+            success: function(data) {
+
+
+                    if (data.status == true && data.filtering == "updown") {
+
+                            $("#all_section_filter_disable").css("display", "none");
+                            $("#all_section_filter_enable").css("display","block");
+
+                            var htmlData = "";
+                            $("#allAdd").html("");
+
+                           $.each(data.data, function(key, value) {
+
+                                htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
+                                <div class="mt-4"><a href="">
+                                        <img src="{{ asset( '${value.image}') }}" alt=""
+                                            class="saleimg">
+                                    </a>
+                                </div>
+                                </div>`;
+
+                            });
+
+                           $("#allAdd").append(htmlData);
+
+                    }else{
+                        $("#all_section_filter_disable").css("display", "block");
+                        $("#all_section_filter_enable").css("display","none");
+                    }
+
+            }
+
+        });
 
 
 

@@ -10,19 +10,28 @@ class FilteringController extends Controller
 {
     public function filterUpDown(Request $req){
 
-        return $req->updowndata;
+        if(isset($req->updowndata)){
 
-        // if($req->updowndata == "updown"){
-        //     $ads = ads::orderBy("id","ASC")->get();
-        // }else{
-        //     $ads = ads::orderBy("id","DESC")->get();
-        // }
+            if($req->updowndata == "updown"){
+                $ads = ads::orderBy("id","ASC")->get();
+            }elseif($req->updowndata == "downup"){
+                $ads = ads::orderBy("id","DESC")->get();
+            }
+
+            return response()->json([
+                "status"    => true,
+                "filtering" => "updown",
+                "data"      => $ads
+            ]);
+
+        }else{
+            return response()->json([
+                "status"    => false,
+                "filtering" => false
+            ]);
+        }
     
-        // return response()->json([
-        //     "status"    => true,
-        //     "filtering" => "updown",
-        //     "data"      => $ads
-        // ]);
+        
 
     }
 
