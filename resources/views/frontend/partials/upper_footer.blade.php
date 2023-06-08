@@ -12,11 +12,13 @@
                         
                        <li class="mb-4">
                            <a href="" class="d-block mt-2">
+                            @if(isset($setting->footer_logo))
                              <img class="custom_logo ls-is-cached lazyloaded" src="{{ asset($setting->footer_logo) }}" alt="">
+                            @endif
                          </a>
                        </li>
                        <li class="mb-2">
-                          <p class="footer-logo-text">{{ $setting->footer_content }}</p>
+                          <p class="footer-logo-text">{{ isset($setting->footer_content) }}</p>
                        </li>
                     </ul>
              </div>
@@ -29,13 +31,13 @@
                     <ul class="list-unstyled">
                        <li class="mb-2">
                           <!--<span><strong  style="color:#000;" class="d-block float-lg-end text-center ">+8809678800843</strong></span>-->
-                          <p class="footer-text-p"><span class="w-400" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-solid fa-phone"></i></span> {{ $setting->phone }} </p>
+                          <p class="footer-text-p"><span class="w-400" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-solid fa-phone"></i></span> {{ isset($setting->phone) }} </p>
                        </li>
                        <li class="mb-2">
-                          <p class="footer-text-p"><span class="" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-regular fa-envelope"></i></span> {{ $setting->email }} </p>
+                          <p class="footer-text-p"><span class="" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-regular fa-envelope"></i></span> {{ isset($setting->email) }} </p>
                        </li>
                        <li class="mb-2">
-                          <p class="footer-text-p"><span class="" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-solid fa-house-chimney"></i></span> {{ $setting->address }} </p>
+                          <p class="footer-text-p"><span class="" style="background: #1c1c1c;color: #fff;border-radius: 50%;padding: 2px 5px;font-family: 'Roboto', sans-serif;"><i class="fa-solid fa-house-chimney"></i></span> {{ isset($setting->address) }} </p>
                        </li>
                         
                     </ul>
