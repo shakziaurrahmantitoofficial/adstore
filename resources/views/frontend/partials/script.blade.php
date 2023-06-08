@@ -521,19 +521,8 @@
     //-------For updown filtering
 
     $(".downup").click(function() {
-
-        // var updowndata = "";
-
-        // if($(this).val() == "updown"){
-
-        //     updowndata = $("input:checkbox[name=downup]:checked").val();
-
-        // }else if($(this).val() == "downup"){
-        //     updowndata = $("input:checkbox[name=downup]:checked").val();
-        // }
-
-        // alert(updowndata);
-
+        if($('input[name="downup"]').prop("checked"))
+        {
 
         var updowndata    = "";
 
@@ -589,33 +578,34 @@
 
         });
 
-
-
-
-
-        // $("input:checkbox[name=mycheckbox]:checked").each(function() {
-
-        //     if ($(this).attr("data-type") == "sale") {
-        //         saleData.push($(this).val())
-        //     } else if ($(this).attr("data-type") == "buy") {
-        //         buyData.push($(this).val())
-        //     } else if ($(this).attr("data-type") == "rent") {
-        //         rentData.push($(this).val())
-        //     }
-        // });
-
-
-        // $.ajax({
-        //     url: "{{ route('allFiltering.allfiltering') }}",
-        //     method: "get",
-        //     data: {
-        //     },
-        //     success: function(data) {
-                
-
-        //     }
-        // });
-
+        $.ajax({
+            url: "{{ route('filter.up-down') }}",
+            method: "get",
+            data: {
+                "updowndata" : updowndata
+            },
+            success: function(data) {
+                $("#all_section_filter_disable").css("display", "none");
+                $("#all_section_filter_enable").css("display","block");
+                var htmlData = "";
+                $("#allAdd").html("");
+                $.each(data.data, function(key, value) {
+                        htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
+                        <div class="mt-4"><a href="">
+                                <img src="{{ asset( '${value.image}') }}" alt=""
+                                    class="saleimg">
+                            </a>
+                        </div>
+                        </div>`;
+                    });
+                $("#allAdd").append(htmlData);
+            }
+        });
+    }else{
+        $("#all_section_filter_disable").css("display", "block");
+        $("#all_section_filter_enable").css("display","none");
+    }
+        
     });
 
 </script>
