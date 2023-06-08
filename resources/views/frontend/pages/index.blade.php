@@ -108,6 +108,7 @@
                                         <a class="text-dark" href="#allOffer">All Offer</a>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -169,92 +170,43 @@
                 <div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-10">
-                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All
-                            Offer
+                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">Ad store offer
                         </h2>
-
-                        <div id="secondCarousel" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div id="secondCarousel" class="carousel slide" data-ride="carousel">
-                                    @foreach ($data as $item)
-                                        <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
-                                            <a href="">
-                                                <img src="{{ $item['photo'] }}" alt="" class="banner1">
-                                            </a>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <a class="carousel-control-prev" href="#secondCarousel" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#secondCarousel" role="button"
-                                    data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-10">
+
                         <div class="bbb_main_container">
                             <div class="bbb_viewed_nav bbb_viewed_prev"><i class="fas fa-chevron-left"></i></div>
                             <div class="bbb_viewed_nav bbb_viewed_next"><i class="fas fa-chevron-right"></i></div>
                             <div class="bbb_viewed_slider_container">
                                 <div class="owl-carousel owl-theme bbb_viewed_slider d-flex">
-                                    @foreach ($platinum_data as $item)
+
                                         <div class="owl-item" style="margin-right: 10px !important">
                                             <div
                                                 class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                 <div class="bbb_viewed_image">
-                                                    <img src="{{ $item['photo'] }}" alt="">
+                                                    <img src="https://sobkisubazar.com/public/uploads/all/FwStWqyBTrrlh8Fw84iY1iqVbg44UhrJQmXWL4qz.jpg" alt="">
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                        {{--
-                        <div class="bbb_main_container">
-                            <div class="bbb_viewed_nav bbb_viewed_prev_2"><i class="fas fa-chevron-left"></i></div>
-                            <div class="bbb_viewed_nav bbb_viewed_next_2"><i class="fas fa-chevron-right"></i></div>
-                            <div class="bbb_viewed_slider_container">
-                                <div class="owl-carousel owl-theme bbb_viewed_slider_2 d-flex">
-                                     
-                                    <div class="owl-item">
-                                        <div
-                                            class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                            <div class="bbb_viewed_image-2">
-                                                <img src="frontend/assets/images/bg/singin-bg.jpg" alt="Advertisment">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @foreach ($advertisement_data as $item)
-                                        <div class="owl-item">
-                                            <div
-                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                                <div class="bbb_viewed_image-2">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        --}}
-                    </div>
 
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
+
+
+
             </div>
 
         </section>
+
         @if ($gold != null)
             <section id='saleAd' class="">
                 <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Sale Ad</h2> -->
@@ -294,6 +246,116 @@
             </section>
         @endif
 
+
+
+
+        <section id='allOffer' class="">
+            <div class="container pt-3 pb-2">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-10">
+                        <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Offer
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-10">
+
+                        <div class="bbb_main_container">
+                            <div class="bbb_viewed_nav bbb_viewed_prev"><i class="fas fa-chevron-left"></i></div>
+                            <div class="bbb_viewed_nav bbb_viewed_next"><i class="fas fa-chevron-right"></i></div>
+                            <div class="bbb_viewed_slider_container">
+                                <div class="owl-carousel owl-theme bbb_viewed_slider d-flex">
+                                        
+                                        <div class="owl-item" style="margin-right: 10px !important">
+                                            <div
+                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                <div class="bbb_viewed_image">
+                                                    <a href="{{url('/')}}">
+                                                        <img src="{{asset('allOffer/offer-banner1.jpg')}}" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="owl-item" style="margin-right: 10px !important">
+                                            <div
+                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                <div class="bbb_viewed_image">
+                                                    <a href="{{url('/')}}">
+                                                        <img src="{{asset('allOffer/offer-banner2.jpg')}}" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="owl-item" style="margin-right: 10px !important">
+                                            <div
+                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                <div class="bbb_viewed_image">
+                                                    <a href="{{url('/')}}">
+                                                        <img src="{{asset('allOffer/offer-banner3.jpg')}}" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="owl-item" style="margin-right: 10px !important">
+                                            <div
+                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                <div class="bbb_viewed_image">
+                                                    <a href="{{url('/')}}">
+                                                        <img src="{{asset('allOffer/offer-banner4.jpg')}}" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="owl-item" style="margin-right: 10px !important">
+                                            <div
+                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                <div class="bbb_viewed_image">
+                                                    <a href="https://sobkisubazar.com/buy-one-get-one">
+                                                        <img src="{{asset('allOffer/offer-banner5.jpg')}}" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="owl-item" style="margin-right: 10px !important">
+                                            <div
+                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                <div class="bbb_viewed_image">
+                                                    <a href="{{url('/')}}">
+                                                        <img src="{{asset('allOffer/offer-banner6.jpg')}}" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+
+
         @if ($silver != null)
         <section id='buyAd' class="">
             <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Sale Ad</h2> -->
@@ -327,24 +389,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-2"></div>
-                    @foreach ($buy_ads as $key => $buy_ad)
-                        @php
-                            $key = $key + 1;
-                        @endphp
-                        <div class="col-lg-6 col-sm-6">
-                            <div class="mt-4"><a href="{{ route('show-buy', $buy_ad->id) }}">
-                                    <img src="{{ asset('images/buy_ad/' . $buy_ad->image) }}"
-                                        alt="{{ $buy_ad->name ?? '' }}" class="saleimg">
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
-                    <div class="" id="paginations" style="margin: 20px auto!important;">
-                        {{ $buy_ads->links() }}
-                    </div>
-                </div>
             </div>
         </section>
         @endif
@@ -354,17 +398,18 @@
         @if ($regular != null)
         <!-- Rent Ads Section -->
         <section id='rentAd' class="">
-            <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Rent Ad</h2> -->
+
+            <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;"></h2> -->
+
             <div class="container pt-1 pb-2">
 
-            
             <div class="row">
 
                 <div class="col-lg-2"></div>
 
                 <div class="col-lg-10">
 
-
+                    <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All regular ad</h2>
 
                     <div class="row">
 
@@ -394,11 +439,7 @@
                                     </a>
                                 </div>
                             </div>
-
                         @endforeach
-                        <div class="" id="paginations" style="margin: 20px auto!important;">
-                            {{ $sales->links() }}
-                        </div>
                 </div>
 
 
@@ -423,25 +464,15 @@
 
 
 
-
-
-
-
     <div id="all_section_filter_enable">
-
-        <section id='saleAd' class="">
-            <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Sale Ad</h2> -->
-            <div class="container pt-2 pb-2">
-
-                <div class="row" id="allAdd">
-
+            <section id='saleAd' class="">
+                <!-- <h2 class="py-3 text-center w-700 border-bottom border-top" style="font-size:24px; font-family: 'Roboto', sans-serif;">All Sale Ad</h2> -->
+                <div class="container pt-2 pb-2">
+                    <div class="row" id="allAdd">
+                    </div>
                 </div>
-
-            </div>
-        </section>
-    </div>
-
-
+            </section>
+        </div>
     </div>
 
 @endsection
