@@ -10,4 +10,12 @@ class FilteringController extends Controller
     public function filterUpDown(){
         return 'Ok';
     }
+
+    public function filterHighLow(){
+        return 'Ok';
+    }
+
+    public function filterMember(){
+        return 'Ok';
+    }
 }
