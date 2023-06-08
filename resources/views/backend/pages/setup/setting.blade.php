@@ -26,7 +26,9 @@
                             <input type="file" name="header_logo" class="form-control mb-3 headerSettings">
                             <small id="errheader_logo" class="form-text mb-2"></small>
                             <div class="as-pf-img border rounded" style="width: 120px; height:100px;overflow: hidden;">
-                                <img class="headerSettingsPreview" src="{{ !empty(asset($setting->header_logo))?asset($setting->header_logo):'' }}" alt="Image" style="max-width:100%;object-fit:contain;display: flex;align-items: center;justify-content: center;height: 100%;margin:auto;">
+                                @if(isset($setting->header_logo))
+                                  <img class="headerSettingsPreview" src="{{ !empty(asset($setting->header_logo))?asset($setting->header_logo):'' }}" alt="Image" style="max-width:100%;object-fit:contain;display: flex;align-items: center;justify-content: center;height: 100%;margin:auto;">
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -44,19 +46,19 @@
                     @csrf
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" name="phone" class="form-control" value="{{ $setting->phone }}"
+                        <input type="text" name="phone" class="form-control" value="{{ isset($setting->phone) ? $setting->phone : '' }}"
                             placeholder="phone number">
                         <small id="errphone" class="form-text mb-2"></small>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" name="email" class="form-control" value="{{ $setting->email }}"
+                        <input type="text" name="email" class="form-control" value="{{ isset($setting->email) ? $setting->phone : ''}}"
                             placeholder="email address">
                         <small id="erremail" class="form-text mb-2"></small>
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <textarea name="address" class="form-control" id="" rows="6" placeholder="address">{{ $setting->address }}</textarea>
+                        <textarea name="address" class="form-control" id="" rows="6" placeholder="address">{{ isset($setting->address) ? $setting->address : ''}}</textarea>
                         <small id="erraddress" class="form-text mb-2"></small>
                     </div>
                     <button type="submit" class="btn btn-success fs-4">Save Change</button>
@@ -74,35 +76,35 @@
                     <div class="form-group row">
                       <label for="facebook" class="col-sm-2 col-form-label">Facebook</label>
                       <div class="col-sm-10">
-                        <input type="text" name="facebook" class="form-control" id="facebook" value="{{ $setting->facebook }}" placeholder="https://facebook.com">
+                        <input type="text" name="facebook" class="form-control" id="facebook" value="{{ isset($setting->facebook) ? $setting->facebook : '' }}" placeholder="https://facebook.com">
                         <small id="errfacebook" class="form-text mb-2"></small>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="instagram" class="col-sm-2 col-form-label">Instagram</label>
                       <div class="col-sm-10">
-                        <input type="text" name="instagram" class="form-control" id="instagram" value="{{ $setting->instagram }}" placeholder="https://instagram.com">
+                        <input type="text" name="instagram" class="form-control" id="instagram" value="{{ isset($setting->instagram) ? $setting->instagram : '' }}" placeholder="https://instagram.com">
                         <small id="errinstagram" class="form-text mb-2"></small>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="twitter" class="col-sm-2 col-form-label">Twitter</label>
                       <div class="col-sm-10">
-                        <input type="text" name="twitter" class="form-control" id="twitter" value="{{ $setting->twitter }}" placeholder="https://twitter.com">
+                        <input type="text" name="twitter" class="form-control" id="twitter" value="{{ isset($setting->twitter) ? $setting->twitter : '' }}" placeholder="https://twitter.com">
                         <small id="errtwitter" class="form-text mb-2"></small>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="linkedin" class="col-sm-2 col-form-label">Linkedin</label>
                       <div class="col-sm-10">
-                        <input type="text" name="linkedin" class="form-control" id="linkedin" value="{{ $setting->linkedin }}" placeholder="https://linkedin.com">
+                        <input type="text" name="linkedin" class="form-control" id="linkedin" value="{{ isset($setting->linkedin) ? $setting->linkedin : '' }}" placeholder="https://linkedin.com">
                         <small id="errlinkedin" class="form-text mb-2"></small>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="youtube" class="col-sm-2 col-form-label">Youtube</label>
                       <div class="col-sm-10">
-                        <input type="text" name="youtube" class="form-control" id="youtube" value="{{ $setting->youtube }}" placeholder="https://youtube.com">
+                        <input type="text" name="youtube" class="form-control" id="youtube" value="{{ isset($setting->youtube) ? $setting->youtube : '' }}" placeholder="https://youtube.com">
                         <small id="erryoutube" class="form-text mb-2"></small>
                       </div>
                     </div>
@@ -123,13 +125,15 @@
                             <input type="file" name="footer_logo" class="form-control mb-3 footerSettings">
                             <small id="errfooter_logo" class="form-text mb-2"></small>
                             <div class="as-pf-img border rounded" style="width: 120px; height:100px;overflow: hidden;">
+                              @if(isset($setting->footer_logo))
                                 <img class="footerSettingsPreview" src="{{ !empty(asset($setting->footer_logo))?asset($setting->footer_logo):'' }}" alt="Image" style="max-width:100%;object-fit:contain;display: flex;align-items: center;justify-content: center;height: 100%;margin:auto;">
+                              @endif
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Content</label>
-                        <textarea name="footer_content" class="form-control" id="" rows="6" placeholder="content">{{ $setting->footer_content }}</textarea>
+                        <textarea name="footer_content" class="form-control" id="" rows="6" placeholder="content">{{ isset($setting->footer_content) ? $setting->footer_content : '' }}</textarea>
                         <small id="errfooter_content" class="form-text mb-2"></small>
                     </div>
                     <button type="submit" class="btn btn-success fs-4">Save Change</button>
@@ -149,13 +153,15 @@
                             <input type="file" name="copyright_image" class="form-control mb-3 copyrightSettings">
                             <small id="errcopyright_image" class="form-text mb-2"></small>
                             <div class="as-pf-img border rounded" style="width: 120px; height:100px;overflow: hidden;">
+                                @if(isset($setting->copyright_image))
                                 <img class="copyrightSettingsPreview" src="{{ !empty(asset($setting->copyright_image))?asset($setting->copyright_image):'' }}" alt="Image" style="max-width:100%;object-fit:contain;display: flex;align-items: center;justify-content: center;height: 100%;margin:auto;">
+                                @endif
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Copyright Text</label>
-                        <input type="text" name="copyright_text" class="form-control" value="{{ $setting->copyright_text }}" placeholder="Copyright by @">
+                        <input type="text" name="copyright_text" class="form-control" value="{{ isset($setting->copyright_text) ? $setting->copyright_text : '' }}" placeholder="Copyright by @">
                         <small id="errcopyright_text" class="form-text mb-2"></small>
                     </div>
                     <button type="submit" class="btn btn-success fs-4">Save Change</button>

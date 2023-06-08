@@ -18,7 +18,6 @@
 {{-- For ads combox--}}
 
 
-/*-----For search------*/
 <script type="text/javascript">
     
     $("#searchForm").submit(function(){
