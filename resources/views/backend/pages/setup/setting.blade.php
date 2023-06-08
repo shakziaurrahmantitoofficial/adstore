@@ -26,9 +26,7 @@
                             <input type="file" name="header_logo" class="form-control mb-3 headerSettings">
                             <small id="errheader_logo" class="form-text mb-2"></small>
                             <div class="as-pf-img border rounded" style="width: 120px; height:100px;overflow: hidden;">
-                                @if(isset($setting->header_logo))
                                   <img class="headerSettingsPreview" src="{{ !empty(asset($setting->header_logo))?asset($setting->header_logo):'' }}" alt="Image" style="max-width:100%;object-fit:contain;display: flex;align-items: center;justify-content: center;height: 100%;margin:auto;">
-                                @endif
                             </div>
                         </div>
                     </div>
