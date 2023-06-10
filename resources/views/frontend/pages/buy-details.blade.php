@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section("title", "Buy Details")
 @section('content')
    
         <div class="container">

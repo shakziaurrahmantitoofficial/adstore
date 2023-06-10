@@ -1,6 +1,5 @@
 @extends('frontend.layouts.master')
-@section("title", "Adstore")
-
+@section("title", "Home")
 @section('content')
 
     <div class="under-header-bg">
@@ -112,15 +111,12 @@
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Up Down</span>
                                             </label>
-
-
                                             <label class="aiz-checkbox">
                                                 <input type="checkbox" name="downup" id="downup" class="downup" value="downup" data-type="downup">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Down Up</span>
                                             </label>
-
-
+                                            <hr style="border-color: #e4e6ef !important;">
                                             <label class="aiz-checkbox">
                                                 <input type="checkbox" name="highlow" id="highlow" value="highlow" class="highlow" data-type="highlow">
                                                 <span class="aiz-square-check"></span>
@@ -132,7 +128,7 @@
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Low to High</span>
                                             </label>
-
+                                            <hr style="border-color: #e4e6ef !important;">
                                             <label class="aiz-checkbox">
                                                 <input type="checkbox" name="member" value="member"
                                                     class="member" id="member" data-type="member">

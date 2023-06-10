@@ -1,6 +1,5 @@
 @extends('frontend.layouts.master')
-@section("title", "Adstore")
-
+@section("title", "Search")
 @section('content')
 
         @if (isset($searchItem) && $searchItem != null)
