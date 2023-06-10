@@ -519,21 +519,18 @@
 
 
     //-------For updown filtering
-
     $(".downup").click(function() {
-
         
         var updowndata    = "";
 
-        $("input:checkbox[name=downup]:checked").each(function() {
-
-            if ($(this).attr("data-type") == "updown") {
+        if($(this).prop("checked") == true){
+            updowndata = $(this).val();
+        }else{
+            $("input:checkbox[name=downup]:checked").each(function() {
                 updowndata = $(this).val();
-            } else if ($(this).attr("data-type") == "downup") {
-                updowndata = $(this).val();
-            }
+            });
+        }
 
-        });
 
 
         $.ajax({
@@ -586,15 +583,14 @@
                 
         var highlowdata    = "";
 
-        $("input:checkbox[name=highlow]:checked").each(function() {
-
-            if ($(this).attr("data-type") == "highlow") {
+        if($(this).prop("checked") == true){
+            highlowdata = $(this).val();
+        }else{
+            $("input:checkbox[name=highlow]:checked").each(function() {
                 highlowdata = $(this).val();
-            } else if ($(this).attr("data-type") == "lowhigh") {
-                highlowdata = $(this).val();
-            }
+            });
+        }
 
-        });
 
 
         $.ajax({
