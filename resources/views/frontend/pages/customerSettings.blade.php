@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section("title", "User Settings")
 @section('content')
 
     @if (session()->has('failure'))

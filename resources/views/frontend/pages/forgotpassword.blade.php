@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section("title", "Forgot Password")
 @section('content')
 
     <div id="all_section_filter_enable">

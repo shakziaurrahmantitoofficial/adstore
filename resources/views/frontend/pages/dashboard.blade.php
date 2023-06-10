@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section("title", "Dashboard")
 @section('content')
 @php
     $joinCustomer = App\Models\ads::where('id',Auth::user()->id)->first()->duration;

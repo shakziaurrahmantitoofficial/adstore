@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section("title", "Adstore")
 @section('content')
     <div class="mt-4">
         <div class="container">
