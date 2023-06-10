@@ -156,8 +156,6 @@
                         </ul>
                      </div>
 
-                <ul class="list-inline mb-0 mobile-hor-swipe text-center">
-                    
                      @if(Auth::guard('customer')->check())
                          <li class="list-inline-item mr-0 py-1">
                             <a
@@ -177,7 +175,7 @@
                     @endif
  
                     @if (Route::has('login'))
-                        
+                        <ul class="list-inline mb-0 mobile-hor-swipe text-center">
                             @auth
                             <li class="list-inline-item mr-0 py-1">
                                 <a
