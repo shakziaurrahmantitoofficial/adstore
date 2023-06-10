@@ -30,6 +30,7 @@ return new class extends Migration
             $table->integer("customerId")->nullable();
             $table->integer("resubstatus")->default(0);
             $table->integer("renewstatus")->default(0);
+            $table->integer("member_status")->default(0);
             $table->integer("status")->default(0);
             $table->timestamps();
         });

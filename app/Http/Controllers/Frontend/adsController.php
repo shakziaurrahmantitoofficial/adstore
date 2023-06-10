@@ -55,6 +55,9 @@ class adsController extends Controller
         $ads->adservicetype = $req->adservicetype;
         $ads->customerId    = Auth::guard("customer")->id();
         $ads->description   = $req->description;
+        if(Auth::guard("customer")->user()->profile_status == 1){
+            $ads->member_status   = 1;
+        }
         $ads->adType        = $req->adType;
         $ads->image         = "ads/".$file;
         $ads->save();

@@ -18,6 +18,7 @@ class FilteringController extends Controller
             return response()->json([
                 "status"    => true,
                 "filtering" => "updown",
+                "updowndata" => $req->updowndata,
                 "data"      => $ads
             ]);
         }else{
@@ -54,17 +55,38 @@ class FilteringController extends Controller
 
         }
 
+    }  
+
+
+
+    public function filterMember(Request $req){
+
+        if(isset($req->memberdata)){
+
+            if($req->memberdata == "member"){
+                $ads = ads::where("member_status", 1)->orderBy("duration","ASC")->get();
+            }elseif($req->memberdata == "non-member"){
+                $ads = ads::where("member_status", 0)->orderBy("duration","DESC")->get();
+            }
+            return response()->json([
+                "status"    => true,
+                "filtering" => "member",
+                "data"      => $ads
+            ]);
+
+        }else{
+
+            return response()->json([
+                "status"    => false,
+                "filtering" => false
+            ]);
+
+        }
+
     }
 
 
 
-
-
-
-
-    public function filterMember(){
-        return 'OK';
-    }
 
 
 }
