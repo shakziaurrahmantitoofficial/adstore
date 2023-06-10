@@ -1,16 +1,22 @@
 @extends('frontend.layouts.master')
 @section("title", "Dashboard")
 @section('content')
+
 @php
-    $joinCustomer = App\Models\ads::where('id',Auth::user()->id)->first()->duration;
+
+    
+    $joinCustomer = App\Models\ads::where('id', Auth::user()->id)->first();
+
+    $adsPadding = App\Models\ads::where('id',Auth::user()->id)->where('status',0)->count();
     $adsRuning = App\Models\ads::where('id',Auth::user()->id)->where('status',1)->count();
     
     $duration   = ($joinCustomer);
     $duration   = ($duration * 3600 * 24);
     $duration   = Round($duration/(3600 * 24));
 
-    $adsPadding = App\Models\ads::where('id',Auth::user()->id)->where('status',0)->count();
+    
     $packageOrder = App\Models\package::where('customerId',Auth::user()->id)->count();
+
 @endphp
 
     <div id="all_section_filter_enable">
@@ -37,30 +43,35 @@
                                     <p class="m-0 ml-4">{{Auth::guard("customer")->user()->name}}</p>
                                 </div>
                                 <div class="row dash-overview mt-2">
-                                    <div class="col-lg-6 col-md-6 col-12">
+
+                                    <div class="col-lg-6 my-2 col-md-6 col-12">
+                                        <div class="grid three mt-3">
+                                            <p>Ads Running</p>
+                                            <h2>{{ isset($adsRuning) ? $adsRuning : 0 }}</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 my-2 col-md-6 col-12">
+                                        <div class="grid four mt-3">
+                                            <p>Ads Pending</p>
+                                            <h2>{{ isset($adsPadding) ? $adsPadding : 0 }}</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 my-2 col-md-6 col-12">
                                         <div class="grid one">
                                             <p>Ads Duration</p>
                                             <h2>{{ $duration }} Days</h2>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="col-lg-6 my-2 col-md-6 col-12">
                                         <div class="grid two">
                                             <p>Total Package</p>
                                             <h2>{{ $packageOrder }}</h2>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="grid three mt-3">
-                                            <p>Ads Runing</p>
-                                            <h2>{{ $adsRuning }}</h2>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="grid four mt-3">
-                                            <p>Ads Padding</p>
-                                            <h2>{{ $adsPadding }}</h2>
-                                        </div>
-                                    </div>
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
