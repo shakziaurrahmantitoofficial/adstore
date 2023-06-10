@@ -4840,6 +4840,11 @@ input[type="number"] {
         height: auto;
     }
 }
+@media(max-width: 425px){
+    .card .card-body {
+        padding: 12px 8px;
+    }
+}
 .aiz-editor-data img{
     max-width: 100% !important;
     height: auto !important;

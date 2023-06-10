@@ -3,12 +3,10 @@
 @section('content')
 
 @php
-
     $adsExpired = App\Models\ads::where('customerId', Auth::guard("customer")->id())->where('status',3)->count();
     $adsRuning = App\Models\ads::where('customerId', Auth::guard("customer")->id())->where('status',1)->count();
     $packageOrder = App\Models\package::where('customerId', Auth::guard("customer")->id())->count();
     $adsPadding = App\Models\ads::where('customerId', Auth::guard("customer")->id())->where('status', 0)->count();
-
 @endphp
 
     <div id="all_section_filter_enable">
