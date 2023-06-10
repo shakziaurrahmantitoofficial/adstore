@@ -37,25 +37,25 @@
                                     <p class="m-0 ml-4">{{Auth::guard("customer")->user()->name}}</p>
                                 </div>
                                 <div class="row dash-overview mt-2">
-                                    <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="grid one">
                                             <p>Ads Duration</p>
                                             <h2>{{ $duration }} Days</h2>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="grid two">
                                             <p>Total Package</p>
                                             <h2>{{ $packageOrder }}</h2>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="grid three mt-3">
                                             <p>Ads Runing</p>
                                             <h2>{{ $adsRuning }}</h2>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="grid four mt-3">
                                             <p>Ads Padding</p>
                                             <h2>{{ $adsPadding }}</h2>
@@ -110,6 +110,12 @@
             .dash-overview .grid.four {
                 background-color: #ffb72c;
                 background-image: linear-gradient(315deg, #ffb72c 0%, #f57f59 74%);
+            }
+
+            @media only screen and (max-width: 575px) {
+                .dash-overview .grid.two {
+                    margin-top: 16px;
+                }
             }
         </style>
 
