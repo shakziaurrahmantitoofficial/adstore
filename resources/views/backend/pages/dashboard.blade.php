@@ -2,6 +2,11 @@
 
 
 @section('content')
+@php
+    $joinCustomer = App\Models\customer::count();
+    $adsRuning = App\Models\ads::where('status',1)->count();
+    $packageOrder = App\Models\package::count();
+@endphp
      <!-- page title area end -->
      <div class="main-content-inner">
         <!-- sales report area start -->
@@ -14,7 +19,7 @@
                                 <h4 class="header-title mb-0">Customer</h4>
                             </div>
                             <div class="d-flex justify-content-between pb-2">
-                                <h2>151</h2>
+                                <h2>{{ $joinCustomer }}</h2>
                             </div>
                         </div>
                         <canvas id="coin_sales1" height="100"></canvas>
@@ -24,10 +29,10 @@
                     <div class="single-report mb-xs-30">
                         <div class="s-report-inner pr--20 pt--30 mb-3">
                             <div class="s-report-title d-flex justify-content-between">
-                                <h4 class="header-title mb-0">Order</h4>
+                                <h4 class="header-title mb-0">Package Order</h4>
                             </div>
                             <div class="d-flex justify-content-between pb-2">
-                                <h2>54</h2>
+                                <h2>{{ $packageOrder }}</h2>
                             </div>
                         </div>
                         <canvas id="coin_sales2" height="100"></canvas>
@@ -37,10 +42,10 @@
                     <div class="single-report">
                         <div class="s-report-inner pr--20 pt--30 mb-3">
                             <div class="s-report-title d-flex justify-content-between">
-                                <h4 class="header-title mb-0">Product</h4>
+                                <h4 class="header-title mb-0">Ads Runing</h4>
                             </div>
                             <div class="d-flex justify-content-between pb-2">
-                                <h2>320</h2>
+                                <h2>{{ $adsRuning }}</h2>
                             </div>
                         </div>
                         <canvas id="coin_sales3" height="100"></canvas>

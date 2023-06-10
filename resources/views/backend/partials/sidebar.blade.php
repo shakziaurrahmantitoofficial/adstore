@@ -10,17 +10,17 @@
             <nav>
                 <ul class="metismenu" id="menu">
                     <li class="active">
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
+                        <a href="{{ route('admin.dashboard') }}" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
                        
                     </li>
 
-                    <li>
+                    {{-- <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-money"></i><span>Sales</span></a>
                         <ul class="collapse">
                             <li><a href="{{ route('sale-add.create') }}">Add New Sale Ad</a></li>
                             <li><a href="{{ route('sale-add.index') }}">All Sale Ads</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-money"></i><span>Payment</span></a>
