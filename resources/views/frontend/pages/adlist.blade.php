@@ -72,7 +72,11 @@
                 </td>
                 <td>
                     @if($data->renewstatus == 0)
-                        <a href="{{Route('adslist.customerAdslistPackage')}}?adid={{base64_encode(base64_encode($data->id))}}" style="color:blue;">Upgrade</a>
+                        @if($data->status == 0)
+                            N/A
+                        @else
+                            <a href="{{Route('adslist.customerAdslistPackage')}}?adid={{base64_encode(base64_encode($data->id))}}" style="color:blue;">Upgrade</a>
+                        @endif
                     @else
                         Submitted
                     @endif
