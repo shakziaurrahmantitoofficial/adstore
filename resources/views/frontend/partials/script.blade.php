@@ -14,21 +14,23 @@
 
 {{-- Category Fileter See More/See Less --}}
 <script>
-    let acc = document.querySelector(".categoryAccordion");
-    acc.addEventListener("click", function() {
-        if(acc.innerHTML == 'See More'){
-            acc.innerHTML = 'See Less';
-        }else{
-            acc.innerHTML = 'See More';
-        }
-        this.classList.toggle("active");
-        var panel = document.querySelector(".categoryAccordionShow .ac-show");
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-        } 
-    });
+    let acc = document.querySelectorAll("body .categoryAccordion");
+    for(let i = 0; i < acc.length; i++){
+        acc[i].addEventListener("click", function() {
+            if(acc[i].innerHTML == 'See More'){
+                acc[i].innerHTML = 'See Less';
+            }else{
+                acc[i].innerHTML = 'See More';
+            }
+            var panel = this.closest('.cat-filter').querySelector('.categoryAccordionShow .ac-show');
+            console.log(panel.style.maxHeight);
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+        });
+    }
 </script>
 
 {{-- For product filtering --}}

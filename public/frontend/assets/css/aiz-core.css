@@ -4834,11 +4834,7 @@ input[type="number"] {
 .note-modal .note-group-select-from-files{
     display: none !important;
 }
-@media(max-width: 575px){
-    .note-video-clip{
-        max-width: 100%;
-        height: auto;
-    }
+@media(max-width: 991px){
     nav .d-lg-block {
         margin-left: 0 !important;
     }
@@ -4848,6 +4844,12 @@ input[type="number"] {
     .list-inline-item._lt {
         text-align: center;
         display: block;
+    }
+}
+@media(max-width: 575px){
+    .note-video-clip{
+        max-width: 100%;
+        height: auto;
     }
 }
 @media(max-width: 425px){
