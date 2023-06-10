@@ -136,13 +136,6 @@
                                             </label>
 
                                             <label class="aiz-checkbox">
-                                                <input type="checkbox" name="mycheckbox" value="promotional"
-                                                    class="chbox" data-type="rent">
-                                                <span class="aiz-square-check"></span>
-                                                <span class="fs-13 fs-md-13">Low to High</span>
-                                            </label>
-
-                                            <label class="aiz-checkbox">
                                                 <input type="checkbox" name="member" value="member"
                                                     class="member" data-type="member">
                                                 <span class="aiz-square-check"></span>
