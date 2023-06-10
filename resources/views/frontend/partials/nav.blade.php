@@ -26,87 +26,8 @@
                             <a href="#">Services</a>
                             <a href="#">Clients</a>
                             <a href="#">Contact</a> --}}
-                            <div class="shadow-sm rounded" style="background-color: #f5f7fa;">
-                                <div class="fw-600 px-3 sidebar-subtitle">
-                                    <a class="text-dark" href="#saleAd">Sale Ad</a>
-                                </div>
-                                <div class="px-4">
-                                    <div class="aiz-checkbox-list">
-                                        <label class="aiz-checkbox">
-                                            <input type="checkbox" name="product" class="chbox" value="product">
-                                            <span class="aiz-square-check"></span>
-                                            <a href="#saleProduct"><span class="fs-13 fs-md-13">Product</span></a>
-                                        </label>
+                            @include('frontend.partials.category_filter')
 
-                                        <label class="aiz-checkbox">
-                                            <input type="checkbox" name="property" class="chbox" value="property">
-                                            <span class="aiz-square-check"></span>
-                                            <a href="#saleProperty"><span class="fs-13 fs-md-13">Property</span></a>
-                                        </label>
-                                        <label class="aiz-checkbox">
-                                            <input type="checkbox" name="service" class="chbox" value="service" onchange="filter()">
-                                            <span class="aiz-square-check"></span>
-                                            <a href="#saleService"><span class="fs-13 fs-md-13">Service</span></a>
-
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shadow-sm rounded" style="background-color: #f5f7fa;">
-                                <div class="fw-600 px-3 sidebar-subtitle">
-                                    <a class="text-dark" href="#buyAd">Buy Ad</a>
-                                </div>
-                                <div class="px-4">
-                                    <div class="aiz-checkbox-list">
-                                        <label class="aiz-checkbox">
-                                            <input type="checkbox" name="Product" class="chbox" value="Product" onchange="filter()">
-                                            <span class="aiz-square-check"></span>
-                                            <span class="fs-13 fs-md-13">Product</span>
-                                        </label>
-                                        <label class="aiz-checkbox">
-                                            <input type="checkbox" name="Property" class="chbox" value="Property" onchange="filter()">
-                                            <span class="aiz-square-check"></span>
-                                            <span class="fs-13 fs-md-13">Property</span>
-                                        </label>
-                                        <label class="aiz-checkbox">
-                                            <input type="checkbox" name="Service" class="chbox" value="Service" onchange="filter()">
-                                            <span class="aiz-square-check"></span>
-                                            <span class="fs-13 fs-md-13">Service</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="shadow-sm rounded" style="background-color: #f5f7fa;">
-                                <div class="fw-600 px-3 sidebar-subtitle">
-                                    <a class="text-dark" href="#rentAd">Rent Ad</a>
-                                </div>
-                                <div class="px-4">
-                                    <div class="aiz-checkbox-list">
-                                        <label class="aiz-checkbox">
-                                            <input type="checkbox" name="ForRent" class="chbox" value="ForRent" onchange="filter()">
-                                            <span class="aiz-square-check"></span>
-                                            <span class="fs-13 fs-md-13">For Rent</span>
-                                        </label>
-                                        <label class="aiz-checkbox">
-                                            <input type="checkbox" name="ToRent" class="chbox" value="ToRent" onchange="filter()">
-                                            <span class="aiz-square-check"></span>
-                                            <span class="fs-13 fs-md-13">To Rent</span>
-                                        </label>
-                                        <label class="aiz-checkbox">
-                                            <input type="checkbox" name="CorporateAds" class="chbox" value="CorporateAds"
-                                                onchange="filter()">
-                                            <span class="aiz-square-check"></span>
-                                            <span class="fs-13 fs-md-13">Corporate Ads</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shadow-sm rounded" style="background-color: #f5f7fa;">
-                                <div class="fw-600 px-3 pb-1 sidebar-subtitle">
-                                    <a class="text-dark" href="#allOffer">All Offer</a>
-                                </div>
-                            </div>
                         </div>
                         
                         <div id="main d-none-cat">
