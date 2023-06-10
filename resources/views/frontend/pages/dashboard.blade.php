@@ -5,7 +5,7 @@
 @php
     $adsExpired = App\Models\ads::where('id', Auth::user()->id)->where('renewstatus',1)->count();
 
-    $adsPadding = App\Models\ads::where('id',Auth::user()->id)->where('status',0)->count();
+    $adsPadding = App\Models\ads::where('customerId',Auth::guard('customer')->user()->id)->where('status',0)->count();
     $adsRuning = App\Models\ads::where('id',Auth::user()->id)->where('status',1)->count();
     
     $packageOrder = App\Models\package::where('customerId',Auth::user()->id)->count();
