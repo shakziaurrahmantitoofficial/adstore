@@ -26,7 +26,7 @@
                                 <div class="my-3">
 
 @if($package != null)
-    <table class="table">
+    <table class="table table-responsive">
         <tr>
             <th>SL</th>
             <th>Package</th>
