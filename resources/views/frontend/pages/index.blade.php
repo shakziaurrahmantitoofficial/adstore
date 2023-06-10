@@ -111,7 +111,7 @@
                                                 <input type="checkbox" name="downup" class="downup" data-type="updown"
                                                     value="updown">
                                                 <span class="aiz-square-check"></span>
-                                                <span class="fs-13 fs-md-13">Up-Down</span>
+                                                <span class="fs-13 fs-md-13">Up Down</span>
                                             </label>
 
 
@@ -123,52 +123,34 @@
                                             </label>
 
 
-
-
-
-
-
-
                                             <label class="aiz-checkbox">
-                                                <input type="checkbox" name="mycheckbox" class="chbox" data-type="rent"
-                                                    value="for_rent">
-                                                <span class="aiz-square-check"></span>
-                                                <span class="fs-13 fs-md-13">Up-Down</span>
-                                            </label>
-
-                                            <label class="aiz-checkbox">
-                                                <input type="checkbox" name="mycheckbox" value="to_rent" class="chbox"
-                                                    data-type="rent">
+                                                <input type="checkbox" name="highlow" value="highlow" class="highlow" data-type="highlow">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">High to Low</span>
                                             </label>
                                             <label class="aiz-checkbox">
-                                                <input type="checkbox" name="mycheckbox" value="promotional"
-                                                    class="chbox" data-type="rent">
+                                                <input type="checkbox" name="highlow" value="lowhigh"
+                                                    class="highlow" data-type="lowhigh">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Low to High</span>
                                             </label>
+
                                             <label class="aiz-checkbox">
                                                 <input type="checkbox" name="mycheckbox" value="promotional"
                                                     class="chbox" data-type="rent">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Low to High</span>
                                             </label>
+
                                             <label class="aiz-checkbox">
-                                                <input type="checkbox" name="mycheckbox" value="promotional"
-                                                    class="chbox" data-type="rent">
+                                                <input type="checkbox" name="member" value="member"
+                                                    class="member" data-type="member">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Member</span>
                                             </label>
                                             <label class="aiz-checkbox">
-                                                <input type="checkbox" name="mycheckbox" value="promotional"
-                                                    class="chbox" data-type="rent">
-                                                <span class="aiz-square-check"></span>
-                                                <span class="fs-13 fs-md-13">Agent</span>
-                                            </label>
-                                            <label class="aiz-checkbox">
-                                                <input type="checkbox" name="mycheckbox" value="promotional"
-                                                    class="chbox" data-type="rent">
+                                                <input type="checkbox" name="member" value="non-member"
+                                                    class="member" data-type="non-member">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Non Member</span>
                                             </label>

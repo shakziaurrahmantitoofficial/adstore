@@ -579,6 +579,121 @@
 
     });
 
+
+    // Highlow 
+    $(".highlow").click(function() {
+
+                
+        var highlowdata    = "";
+
+        $("input:checkbox[name=highlow]:checked").each(function() {
+
+            if ($(this).attr("data-type") == "highlow") {
+                highlowdata = $(this).val();
+            } else if ($(this).attr("data-type") == "lowhigh") {
+                highlowdata = $(this).val();
+            }
+
+        });
+
+
+        $.ajax({
+            url: "{{ route('filter.high-low') }}",
+            method: "get",
+            data: {
+                "highlowdata" : highlowdata
+            },
+
+            success: function(data) {
+
+
+                    if (data.status == true && data.filtering == "highlow") {
+
+                            $("#all_section_filter_disable").css("display", "none");
+                            $("#all_section_filter_enable").css("display","block");
+
+                            var htmlData = "";
+                            $("#allAdd").html("");
+
+                        $.each(data.data, function(key, value) {
+                            htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
+                            <div class="mt-4"><a href="">
+                                    <img src="{{ asset( '${value.image}') }}" alt=""
+                                        class="saleimg">
+                                </a>
+                            </div>
+                            </div>`;
+
+                        });
+
+                        $("#allAdd").append(htmlData);
+
+                    }else{
+                        $("#all_section_filter_disable").css("display", "block");
+                        $("#all_section_filter_enable").css("display","none");
+                    }
+            }
+
+        });
+
+    });
+    // Highlow 
+    $(".member").click(function() {
+
+        var memberdata    = "";
+
+        $("input:checkbox[name=member]:checked").each(function() {
+
+            if ($(this).attr("data-type") == "member") {
+                memberdata = $(this).val();
+            } else if ($(this).attr("data-type") == "non-member") {
+                memberdata = $(this).val();
+            }
+
+        });
+
+
+        $.ajax({
+            url: "{{ route('filter.member') }}",
+            method: "get",
+            data: {
+                "memberdata" : memberdata
+            },
+
+            success: function(data) {
+
+
+                    if (data.status == true && data.filtering == "member") {
+
+                            $("#all_section_filter_disable").css("display", "none");
+                            $("#all_section_filter_enable").css("display","block");
+
+                            var htmlData = "";
+                            $("#allAdd").html("");
+
+                        $.each(data.data, function(key, value) {
+                            htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
+                            <div class="mt-4"><a href="">
+                                    <img src="{{ asset( '${value.image}') }}" alt=""
+                                        class="saleimg">
+                                </a>
+                            </div>
+                            </div>`;
+
+                        });
+
+                        $("#allAdd").append(htmlData);
+
+                    }else{
+                        $("#all_section_filter_disable").css("display", "block");
+                        $("#all_section_filter_enable").css("display","none");
+                    }
+            }
+
+        });
+
+        });
+
 </script>
 
 <script>
