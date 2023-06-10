@@ -544,9 +544,9 @@
             success: function(data) {
 
                 if(data.updowndata == "updown"){
-                    $("#downup").prop("checked", false);
+                    $("body #downup").prop("checked", false);
                 }else if(data.updowndata == "downup"){
-                    $("#updown").prop("checked", false);
+                    $("body #updown").prop("checked", false);
                 }
 
                 if (data.status == true && data.filtering == "updown") {
@@ -608,9 +608,9 @@
             success: function(data) {
 
                 if(data.highlowdata == "highlow"){
-                    $("#lowhigh").prop("checked", false);
+                    $("body #lowhigh").prop("checked", false);
                 }else if(data.highlowdata == "lowhigh"){
-                    $("#highlow").prop("checked", false);
+                    $("body #highlow").prop("checked", false);
                 }
 
                 if (data.status == true && data.filtering == "highLow") {
@@ -670,9 +670,9 @@
             success: function(data) {
 
                 if(data.memberdata == "member"){
-                    $("#nonmember").prop("checked", false);
+                    $("body #nonmember").prop("checked", false);
                 }else if(data.memberdata == "non-member"){
-                    $("#member").prop("checked", false);
+                    $("body #member").prop("checked", false);
                 }
 
                 if (data.status == true && data.filtering == "member") {
