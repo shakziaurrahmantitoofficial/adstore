@@ -43,6 +43,7 @@ class FilteringController extends Controller
             return response()->json([
                 "status"    => true,
                 "filtering" => "highLow",
+                "highlowdata" => $req->highlowdata,
                 "data"      => $ads
             ]);
 
@@ -71,6 +72,7 @@ class FilteringController extends Controller
             return response()->json([
                 "status"    => true,
                 "filtering" => "member",
+                "memberdata" => $req->memberdata,
                 "data"      => $ads
             ]);
 

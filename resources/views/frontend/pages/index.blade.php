@@ -122,12 +122,12 @@
 
 
                                             <label class="aiz-checkbox">
-                                                <input type="checkbox" name="highlow" value="highlow" class="highlow" data-type="highlow">
+                                                <input type="checkbox" name="highlow" id="highlow" value="highlow" class="highlow" data-type="highlow">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">High to Low</span>
                                             </label>
                                             <label class="aiz-checkbox">
-                                                <input type="checkbox" name="highlow" value="lowhigh"
+                                                <input type="checkbox" name="highlow" id="lowhigh" value="lowhigh"
                                                     class="highlow" data-type="lowhigh">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Low to High</span>
@@ -135,12 +135,12 @@
 
                                             <label class="aiz-checkbox">
                                                 <input type="checkbox" name="member" value="member"
-                                                    class="member" data-type="member">
+                                                    class="member" id="member" data-type="member">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Member</span>
                                             </label>
                                             <label class="aiz-checkbox">
-                                                <input type="checkbox" name="member" value="non-member"
+                                                <input type="checkbox" name="member" id="nonmember" value="non-member"
                                                     class="member" data-type="non-member">
                                                 <span class="aiz-square-check"></span>
                                                 <span class="fs-13 fs-md-13">Non Member</span>
