@@ -211,7 +211,8 @@
             }
             .as-pf-img .edit-btn {
                 left: auto !important;
-                top: 6px !important;
+                top: auto !important;
+                bottom: 0 !important;
                 right: 6px !important;
                 transform: none;
             }
