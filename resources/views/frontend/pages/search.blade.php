@@ -43,7 +43,7 @@
         </section>
 
         @else
-            <p class="h2 text-center my-5">Sorry! <span class="text-danger">'{{$search}}'</span> not found!</p>
+            <p class="h4 text-center my-5">Sorry! <span class="text-danger">'{{$search}}'</span> not found!</p>
         @endif
 
         <!-- Footer -->
