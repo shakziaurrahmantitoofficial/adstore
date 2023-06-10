@@ -637,15 +637,13 @@
 
         var memberdata    = "";
 
-        $("input:checkbox[name=member]:checked").each(function() {
-
-            if ($(this).attr("data-type") == "member") {
+        if($(this).prop("checked") == true){
+            memberdata = $(this).val();
+        }else{
+            $("input:checkbox[name=member]:checked").each(function() {
                 memberdata = $(this).val();
-            } else if ($(this).attr("data-type") == "non-member") {
-                memberdata = $(this).val();
-            }
-
-        });
+            });
+        }
 
 
         $.ajax({
