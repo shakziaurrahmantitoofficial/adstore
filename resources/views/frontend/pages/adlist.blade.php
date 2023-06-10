@@ -23,7 +23,7 @@
                                     <p class="m-0 ml-4">Ad List</p>
                                 </div>
 
-                                <div class="table-responsive my-3">
+                                <div class="table-responsive-lg my-3">
 
 @if($ads != null)
     <table class="table">
