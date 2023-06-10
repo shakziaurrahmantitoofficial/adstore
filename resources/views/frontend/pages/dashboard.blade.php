@@ -1,7 +1,17 @@
 @extends('frontend.layouts.master')
 
 @section('content')
+@php
+    $joinCustomer = App\Models\ads::where('id',Auth::user()->id)->first()->duration;
+    $adsRuning = App\Models\ads::where('id',Auth::user()->id)->where('status',1)->count();
+    
+    $duration   = ($joinCustomer);
+    $duration   = ($duration * 3600 * 24);
+    $duration   = Round($duration/(3600 * 24));
 
+    $adsPadding = App\Models\ads::where('id',Auth::user()->id)->where('status',0)->count();
+    $packageOrder = App\Models\package::where('customerId',Auth::user()->id)->count();
+@endphp
 
     <div id="all_section_filter_enable">
 
@@ -26,11 +36,32 @@
                                 <div class="ownerName mt-4">
                                     <p class="m-0 ml-4">{{Auth::guard("customer")->user()->name}}</p>
                                 </div>
-                                <div class="my-3">
-                                    <p class="text-center" style="font-size: 20px;">You don't have any ads yet.</p>
+                                <div class="row dash-overview mt-2">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="grid one">
+                                            <p>Ads Duration</p>
+                                            <h2>{{ $duration }} Days</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="grid two">
+                                            <p>Total Package</p>
+                                            <h2>{{ $packageOrder }}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="grid three mt-3">
+                                            <p>Ads Runing</p>
+                                            <h2>{{ $adsRuning }}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="grid four mt-3">
+                                            <p>Ads Padding</p>
+                                            <h2>{{ $adsPadding }}</h2>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                
                             </div>
                         </div>
                     </div>
@@ -39,7 +70,48 @@
             </div>
         </div>
        
-
+        <style>
+            .dash-overview .grid {
+                color: #fff;
+                padding: 30px 24px;
+                border-radius: 4px;
+                position: relative;
+            }
+            .dash-overview .grid::before,
+            .dash-overview .grid::after {
+                position: absolute;
+                content: '';
+                border-radius: 50%;
+                background-color: #ffffff24;
+            }
+            .dash-overview .grid::before {
+                width: 200px;
+                height: 200px;
+                left: 0;
+            }
+            .dash-overview .grid::after {
+                width: 140px;
+                height: 140px;
+                bottom: -100px;
+                right: 0;
+            }
+            .dash-overview .grid.one {
+                background-color: #875fc0;
+                background-image: linear-gradient(315deg, #875fc0 0%, #5346ba 74%);
+            }
+            .dash-overview .grid.two {
+                background-color: #47c5f4;
+                background-image: linear-gradient(315deg, #47c5f4 0%, #6791d9 74%);
+            }
+            .dash-overview .grid.three {
+                background-color: #eb4786;
+                background-image: linear-gradient(315deg, #eb4786 0%, #b854a6 74%);
+            }
+            .dash-overview .grid.four {
+                background-color: #ffb72c;
+                background-image: linear-gradient(315deg, #ffb72c 0%, #f57f59 74%);
+            }
+        </style>
 
 <!-- <div class="pos-f-t">
 
