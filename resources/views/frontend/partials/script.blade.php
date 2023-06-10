@@ -603,11 +603,10 @@
             data: {
                 "highlowdata" : highlowdata
             },
-
             success: function(data) {
 
 
-                    if (data.status == true && data.filtering == "highlow") {
+                    if (data.status == true && data.filtering == "highLow") {
 
                             $("#all_section_filter_disable").css("display", "none");
                             $("#all_section_filter_enable").css("display","block");

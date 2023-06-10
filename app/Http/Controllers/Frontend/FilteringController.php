@@ -30,13 +30,13 @@ class FilteringController extends Controller
 
 
 
-    public function filterHighLow(){
+    public function filterHighLow(Request $req){
 
-        if(isset($req->updowndata)){
+        if(isset($req->highlowdata)){
 
-            if($req->updowndata == "updown"){
+            if($req->highlowdata == "highlow"){
                 $ads = ads::orderBy("duration","ASC")->get();
-            }elseif($req->updowndata == "downup"){
+            }elseif($req->highlowdata == "lowhigh"){
                 $ads = ads::orderBy("duration","DESC")->get();
             }
             return response()->json([
