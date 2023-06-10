@@ -520,7 +520,7 @@
 
     //-------For updown filtering
     $(".downup").click(function() {
-        
+
         var updowndata    = "";
 
         if($(this).prop("checked") == true){
@@ -532,7 +532,6 @@
         }
 
 
-
         $.ajax({
             url: "{{ route('filter.up-down') }}",
             method: "get",
@@ -542,34 +541,39 @@
 
             success: function(data) {
 
+                if(data.updowndata == "updown"){
+                    $("#downup").prop("checked", false);
+                }else if(data.updowndata == "downup"){
+                    $("#updown").prop("checked", false);
+                }
 
-                    if (data.status == true && data.filtering == "updown") {
+                if (data.status == true && data.filtering == "updown") {
 
-                            $("#all_section_filter_disable").css("display", "none");
-                            $("#all_section_filter_enable").css("display","block");
+                        $("#all_section_filter_disable").css("display", "none");
+                        $("#all_section_filter_enable").css("display","block");
 
-                            var htmlData = "";
-                            $("#allAdd").html("");
+                        var htmlData = "";
+                        $("#allAdd").html("");
 
-                           $.each(data.data, function(key, value) {
+                       $.each(data.data, function(key, value) {
 
 
-                                htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
-                                <div class="mt-4"><a href="">
-                                        <img src="{{ asset( '${value.image}') }}" alt=""
-                                            class="saleimg">
-                                    </a>
-                                </div>
-                                </div>`;
+                            htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
+                            <div class="mt-4"><a href="">
+                                    <img src="{{ asset( '${value.image}') }}" alt=""
+                                        class="saleimg">
+                                </a>
+                            </div>
+                            </div>`;
 
-                            });
+                        });
 
-                           $("#allAdd").append(htmlData);
+                       $("#allAdd").append(htmlData);
 
-                    }else{
-                        $("#all_section_filter_disable").css("display", "block");
-                        $("#all_section_filter_enable").css("display","none");
-                    }
+                }else{
+                    $("#all_section_filter_disable").css("display", "block");
+                    $("#all_section_filter_enable").css("display","none");
+                }
             }
 
         });
@@ -601,38 +605,46 @@
             },
             success: function(data) {
 
+                if(data.highlowdata == "highlow"){
+                    $("#lowhigh").prop("checked", false);
+                }else if(data.highlowdata == "lowhigh"){
+                    $("#highlow").prop("checked", false);
+                }
 
-                    if (data.status == true && data.filtering == "highLow") {
+                if (data.status == true && data.filtering == "highLow") {
 
-                            $("#all_section_filter_disable").css("display", "none");
-                            $("#all_section_filter_enable").css("display","block");
+                        $("#all_section_filter_disable").css("display", "none");
+                        $("#all_section_filter_enable").css("display","block");
 
-                            var htmlData = "";
-                            $("#allAdd").html("");
+                        var htmlData = "";
+                        $("#allAdd").html("");
 
-                        $.each(data.data, function(key, value) {
-                            htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
-                            <div class="mt-4"><a href="">
-                                    <img src="{{ asset( '${value.image}') }}" alt=""
-                                        class="saleimg">
-                                </a>
-                            </div>
-                            </div>`;
+                    $.each(data.data, function(key, value) {
+                        htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
+                        <div class="mt-4"><a href="">
+                                <img src="{{ asset( '${value.image}') }}" alt=""
+                                    class="saleimg">
+                            </a>
+                        </div>
+                        </div>`;
 
-                        });
+                    });
 
-                        $("#allAdd").append(htmlData);
+                    $("#allAdd").append(htmlData);
 
-                    }else{
-                        $("#all_section_filter_disable").css("display", "block");
-                        $("#all_section_filter_enable").css("display","none");
-                    }
+                }else{
+                    $("#all_section_filter_disable").css("display", "block");
+                    $("#all_section_filter_enable").css("display","none");
+                }
             }
 
         });
 
     });
-    // Highlow 
+
+
+
+    // member 
     $(".member").click(function() {
 
         var memberdata    = "";
@@ -655,32 +667,37 @@
 
             success: function(data) {
 
+                if(data.memberdata == "member"){
+                    $("#nonmember").prop("checked", false);
+                }else if(data.memberdata == "non-member"){
+                    $("#member").prop("checked", false);
+                }
 
-                    if (data.status == true && data.filtering == "member") {
+                if (data.status == true && data.filtering == "member") {
 
-                            $("#all_section_filter_disable").css("display", "none");
-                            $("#all_section_filter_enable").css("display","block");
+                        $("#all_section_filter_disable").css("display", "none");
+                        $("#all_section_filter_enable").css("display","block");
 
-                            var htmlData = "";
-                            $("#allAdd").html("");
+                        var htmlData = "";
+                        $("#allAdd").html("");
 
-                        $.each(data.data, function(key, value) {
-                            htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
-                            <div class="mt-4"><a href="">
-                                    <img src="{{ asset( '${value.image}') }}" alt=""
-                                        class="saleimg">
-                                </a>
-                            </div>
-                            </div>`;
+                    $.each(data.data, function(key, value) {
+                        htmlData += `<div class="col-lg-4 col-sm-6 col-xs-6 my-2">
+                        <div class="mt-4"><a href="">
+                                <img src="{{ asset( '${value.image}') }}" alt=""
+                                    class="saleimg">
+                            </a>
+                        </div>
+                        </div>`;
 
-                        });
+                    });
 
-                        $("#allAdd").append(htmlData);
+                    $("#allAdd").append(htmlData);
 
-                    }else{
-                        $("#all_section_filter_disable").css("display", "block");
-                        $("#all_section_filter_enable").css("display","none");
-                    }
+                }else{
+                    $("#all_section_filter_disable").css("display", "block");
+                    $("#all_section_filter_enable").css("display","none");
+                }
             }
 
         });
