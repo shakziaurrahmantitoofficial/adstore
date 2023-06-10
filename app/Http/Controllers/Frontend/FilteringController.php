@@ -9,36 +9,62 @@ use App\Models\ads;
 class FilteringController extends Controller
 {
     public function filterUpDown(Request $req){
-
         if(isset($req->updowndata)){
-
             if($req->updowndata == "updown"){
                 $ads = ads::orderBy("id","ASC")->get();
             }elseif($req->updowndata == "downup"){
                 $ads = ads::orderBy("id","DESC")->get();
             }
-
             return response()->json([
                 "status"    => true,
                 "filtering" => "updown",
                 "data"      => $ads
             ]);
-
         }else{
             return response()->json([
                 "status"    => false,
                 "filtering" => false
             ]);
         }
-    
-
     }
+
+
 
     public function filterHighLow(){
-        return 'Ok';
+
+        if(isset($req->updowndata)){
+
+            if($req->updowndata == "updown"){
+                $ads = ads::orderBy("duration","ASC")->get();
+            }elseif($req->updowndata == "downup"){
+                $ads = ads::orderBy("duration","DESC")->get();
+            }
+            return response()->json([
+                "status"    => true,
+                "filtering" => "highLow",
+                "data"      => $ads
+            ]);
+
+        }else{
+
+            return response()->json([
+                "status"    => false,
+                "filtering" => false
+            ]);
+
+        }
+
     }
 
+
+
+
+
+
+
     public function filterMember(){
-        return 'Ok';
+        return 'OK';
     }
+
+
 }
