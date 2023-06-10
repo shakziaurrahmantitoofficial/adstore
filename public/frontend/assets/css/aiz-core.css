@@ -4841,7 +4841,7 @@ input[type="number"] {
     nav .flex-grow-1.mr-5.align-items-center.d-lg-block {
         margin-right: 0 !important;
     }
-    .list-inline-item._lt {
+    nav .list-inline-item._lt {
         text-align: center;
         display: block;
     }
