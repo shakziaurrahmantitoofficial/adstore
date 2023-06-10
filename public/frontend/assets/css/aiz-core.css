@@ -4839,6 +4839,16 @@ input[type="number"] {
         max-width: 100%;
         height: auto;
     }
+    nav .d-lg-block {
+        margin-left: 0 !important;
+    }
+    nav .flex-grow-1.mr-5.align-items-center.d-lg-block {
+        margin-right: 0 !important;
+    }
+    .list-inline-item._lt {
+        text-align: center;
+        display: block;
+    }
 }
 @media(max-width: 425px){
     .card .card-body {

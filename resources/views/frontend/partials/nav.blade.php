@@ -78,7 +78,7 @@
                      </div>
 
                      @if(Auth::guard('customer')->check())
-                         <li class="list-inline-item mr-0 py-1">
+                         <li class="list-inline-item _lt mr-0 py-1">
                             <a
                                 href="{{Route('logout')}}"
                                 class="ad-menu px-2 py-2 d-inline-block text-reset">
