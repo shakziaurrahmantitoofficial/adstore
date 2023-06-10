@@ -16,7 +16,7 @@
             <div class="card-body py-5">
 
                 <div class="text-center">
-                    <img src="http://localhost/AdsStore/public/frontend/assets/images/logo.png" width="120">
+                    <img src="{{ isset(App\Models\Setting::first()->header_logo) ? asset(App\Models\Setting::first()->header_logo) : ''}}" width="120">
                 </div>
                 <p class="text-center my-4" id="errormsg"></p>
                 <form class="my-4" id="customerLoginForm3">
