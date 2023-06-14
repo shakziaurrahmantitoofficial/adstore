@@ -34,6 +34,7 @@
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-money"></i><span>Membership</span></a>
                         <ul class="collapse">
                             <li><a href="{{ route('membership.List') }}">Request List</a></li>
+                            <li><a href="{{ route('membership.paylist') }}">Payment List</a></li>
                         </ul>
                     </li>
 

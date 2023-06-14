@@ -83,6 +83,8 @@ Route::group(["prefix" => "admin"], function(){
     Route::get('/membership-list', [MemberController::class,'MembershipList'])->middleware(['auth', 'verified'])->name('membership.List');
     Route::get('/membership-view/{id}', [MemberController::class,'MembershipView'])->middleware(['auth', 'verified'])->name('membership.view');
     Route::get('/membership-confirm/{id}', [MemberController::class,'MembershipConfirm'])->middleware(['auth', 'verified'])->name('membership.confirm');
+    Route::get('/membership-paylist', [MemberController::class,'MembershipPayList'])->middleware(['auth', 'verified'])->name('membership.paylist');
+    Route::get('/membership-payconfirm', [MemberController::class,'MembershipPayConfirm'])->middleware(['auth', 'verified'])->name('membership.payconfirm');
 
 
     // Site Setting Route
