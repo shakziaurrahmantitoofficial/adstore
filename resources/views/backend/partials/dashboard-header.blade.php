@@ -14,7 +14,7 @@
                 <img class="avatar user-thumb" src="{{ asset('frontend/assets/images/author/avatar.png') }}" alt="avatar">
                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }} <i class="fa fa-angle-down"></i></h4>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a>
+                    <a class="dropdown-item" href="{{ route('settings.page') }}">Profile</a>
                     <a class="dropdown-item" href="{{ route('admin_logout.logout') }}">Logout</a>
                 </div>
             </div>

@@ -22,6 +22,8 @@
                                             <p class="m-0 ml-4">Membership Information</p>
                                         </div>
 
+    @if(App\Models\membership::where("customerId", Auth::guard("customer")->id())->where("payment", 1)->count() > 0)
+
         @if(isset($membershp) && $membershp->profile_status != 1)
                                         <div class="my-3">
                                             <div class="card">
@@ -95,6 +97,11 @@
 
     </table>
 @endif
+@else
+    <p class="h5 text-center my-2">Pending your request.</p>
+@endif
+
+
 
 
 
@@ -103,7 +110,10 @@
 
 
                                     </div>
+
                                 </div>
+
+
                             </div>
                         </div>
 

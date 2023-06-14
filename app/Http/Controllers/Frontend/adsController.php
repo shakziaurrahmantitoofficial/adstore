@@ -10,6 +10,7 @@ use Auth;
 
 class adsController extends Controller
 {
+    
     public function customerAdpublish(Request $req){
 
         /*$packageId = base64_decode(base64_decode($req->package));

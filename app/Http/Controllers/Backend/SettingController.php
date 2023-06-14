@@ -17,8 +17,10 @@ class SettingController extends Controller
     
 
     public function SettingHeaderUpdate(Request $req) {
+        
 
-        if(count(Setting::get()) == 0){
+        if(Setting::where("id", 1)->count() == 0){
+            
             $errors = Validator::make($req->all(),[
                 "header_logo" => "required",
             ]);
@@ -30,6 +32,7 @@ class SettingController extends Controller
                     "data" => $errors->errors()
                 ]);
             }
+            
             $setting = new Setting;
             if($req->header_logo){
                 $path = $req->header_logo;
@@ -38,7 +41,9 @@ class SettingController extends Controller
                 $path_url = 'settingImage/'.$paths;
                 $setting->header_logo = $path_url;
             }
+            
             $setting->save();
+            
         }else{
             $setting = Setting::where('id',1)->first();
             if($req->header_logo){
@@ -65,10 +70,16 @@ class SettingController extends Controller
 
         }
     }
+    
+    
+    
     public function SettingInformationUpdate(Request $req) {
         
         
-        if(count(Setting::get()) == 0){
+ 
+        
+        if(Setting::where("id", 1)->count() == 0){
+            
             $errors = Validator::make($req->all(),[
                 "phone" => "required",
                 "email" => "required",
@@ -109,9 +120,15 @@ class SettingController extends Controller
 
         };
     }
+    
+    
+
+    
+    
     public function SettingSocialUpdate(Request $req) {
         
-        if(count(Setting::get()) == 0){
+        if(Setting::where("id", 1)->count() == 0){
+            
             $errors = Validator::make($req->all(),[
                 "facebook" => "required",
                 "instagram" => "required",
@@ -127,6 +144,7 @@ class SettingController extends Controller
                     "data" => $errors->errors()
                 ]);
             }
+            
             $setting = new Setting;
             $setting->facebook = $req->facebook;
             $setting->instagram = $req->instagram;
@@ -134,8 +152,9 @@ class SettingController extends Controller
             $setting->linkedin = $req->linkedin;
             $setting->youtube = $req->youtube;
             $setting->save();
+            
         }else{
-            $setting = Setting::where('id',1)->first();
+            $setting = Setting::find(1);
             $setting->facebook = $req->facebook;
             $setting->instagram = $req->instagram;
             $setting->twitter = $req->twitter;
@@ -157,10 +176,21 @@ class SettingController extends Controller
             ]);
 
         };
+        
+        
+        
+        
+        
+        
+        
     }
+    
+    
+    
     public function SettingFooterUpdate(Request $req) {
         
-        if(count(Setting::get()) == 0){
+        if(Setting::where("id", 1)->count() == 0){
+            
             $errors = Validator::make($req->all(),[
                 "footer_logo" => "required",
                 "footer_content" => "required",
@@ -214,7 +244,8 @@ class SettingController extends Controller
     }
     public function SettingCopyrightUpdate(Request $req) {
         
-        if(count(Setting::get()) == 0){
+        if(Setting::where("id", 1)->count() == 0){
+            
             $errors = Validator::make($req->all(),[
                 "copyright_image" => "required",
                 "copyright_text" => "required",

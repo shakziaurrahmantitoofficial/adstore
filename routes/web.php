@@ -169,6 +169,13 @@ Route::group(["middleware" => "auth:customer"], function(){
 
 
 
+        //For membership package
+        Route::post('/checkoutMembership',[checkOutController::class,"customerCheckoutMembership"])->name("checkoutMembership.customerCheckout");
+
+        Route::post('/checkoutCompleteMembership',[checkOutController::class,"customerCheckoutMembershipComplete"])->name("checkoutCompleteMembership.customerCheckoutMembershipComplete");
+
+
+
         //For renew package
         Route::post('/checkoutrenew',[checkOutController::class,"customerAdslistPackageCheckout"])->name("checkout.customerAdPackageCheckout");
         Route::post('/checkoutRenewComplete',[checkOutController::class,"customerRenewCheckoutComplete"])->name("checkoutRenewComplete.customerRenewCheckoutComplete");

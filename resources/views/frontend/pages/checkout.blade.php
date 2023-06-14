@@ -21,13 +21,18 @@
 
                             <div class="col-md-9">
 
-                                <form 
+
+                        <form 
                                     method="post"
-                                @if(isset($adid) && $adid != null)
-                                    action="{{Route('checkoutRenewComplete.customerRenewCheckoutComplete')}}"
-                                @else
-                                    action="{{Route('checkoutComplete.customerCheckoutComplete')}}"
-                                @endif
+
+            @if(isset($adid) && $adid != null)
+                action="{{Route('checkoutRenewComplete.customerRenewCheckoutComplete')}}"
+            @elseif(isset($mvalid) && $mvalid == "member")
+                action="{{Route('checkoutCompleteMembership.customerCheckoutMembershipComplete')}}"
+            @else
+                action="{{Route('checkoutComplete.customerCheckoutComplete')}}"
+            @endif
+
                                 >
 
                                     @csrf
