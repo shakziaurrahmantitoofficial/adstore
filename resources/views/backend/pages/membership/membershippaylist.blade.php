@@ -32,8 +32,8 @@
                                         @foreach($membership as $data)
                                         <tr>
                                             <td>{{ $i++ }}</td>
-                                            <td>{{ $data->customer->name }}</td>
-                                            <td>{{ $data->customer->mailPhone }}</td>
+                                            <td>{{ $data->customer?->name }}</td>
+                                            <td>{{ $data->customer?->mailPhone }}</td>
                                             <td>{{ $data->packageName }}</td>
                                             <td>Tk {{ $data->price }}</td>
                                             <td>{{ $data->duration }} Days</td>
