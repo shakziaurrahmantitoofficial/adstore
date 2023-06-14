@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\customer;
+use App\Models\membership;
 use Illuminate\Support\Facades\Session;
 
 class MemberController extends Controller
@@ -37,6 +38,23 @@ class MemberController extends Controller
         }
         if($membership != null){
             return redirect()->back()->with('success','Membership profile Confirm!');
+        }else{
+            return redirect()->back()->with('error','Something Wrong!');
+        }
+    }
+
+    public function MembershipPayList (){
+        $membership = membership::orderBy('id','DESC')->with('customer')->get();
+        return view("backend.pages.membership.membershippaylist", compact('membership'));
+    }
+
+    public function MembershipPayConfirm ($id){
+
+        $membership = membership::where('id',$id)->update([
+            'payment' => 1,
+        ]);
+        if($membership != null){
+            return redirect()->back()->with('success','Membership Payment Confirm!');
         }else{
             return redirect()->back()->with('error','Something Wrong!');
         }
