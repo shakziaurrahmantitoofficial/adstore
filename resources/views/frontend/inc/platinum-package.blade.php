@@ -115,11 +115,11 @@
                         <div class="input-group-text">
                             <input type="radio" name="packDetails"
                                 id="platinum6" aria-label=""
-                                value="365, 54000" required>
+                                value="365, 54750" required>
                         </div>
                     </div>
                     <label class="form-check-label form-control"
-                        for="platinum6">Days : 365 , Price: 54000 Tk</label>
+                        for="platinum6">Days : 365 , Price: 54750 Tk</label>
                 </div>
             @else
 
