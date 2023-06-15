@@ -55,12 +55,13 @@
                     $(document).find(".form-text").text("");
                 },
                 success: function(data){
+                    let message_txt = data.data.message
                     if(data.imagepath != false){
                         $("#messageBody").html(`<img src="${data.imagepath}">
                             <hr>
-                            <p>${data.data.message}<p>`);
+                            <p>${message_txt.replace(/(?:\r\n|\r|\n)/g, "<br>")}<p>`);
                     }else{
-                        $("#messageBody").html(data.data.message);
+                        $("#messageBody").html(message_txt.replace(/(?:\r\n|\r|\n)/g, "<br>"));
                     }
 
                     $("#message_"+id).removeClass('tr_css');

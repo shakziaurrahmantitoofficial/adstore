@@ -30,6 +30,7 @@
                                     <th>SL</th>
                                     <th>Customer Name</th>
                                     <th>Message</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
