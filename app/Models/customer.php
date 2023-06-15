@@ -10,7 +10,6 @@ class customer extends Authenticatable
 {
     use HasFactory;
     protected $hidden = [
-        'password',
         'remember_token',
     ];
 }

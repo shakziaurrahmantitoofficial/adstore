@@ -52,13 +52,13 @@
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" name="email" id="exampleInputEmail1">
                             <i class="ti-email"></i>
-                            <small class="form-text" id="erremail"></small>
+                            <small class="form-text text-danger" id="erremail"></small>
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" name="password" id="exampleInputPassword1">
                             <i class="ti-lock"></i>
-                            <small class="form-text" id="errpassword"></small>
+                            <small class="form-text text-danger" id="errpassword"></small>
                         </div>
                         <div class="row mb-4 rmber-area">
                             <div class="col-6">

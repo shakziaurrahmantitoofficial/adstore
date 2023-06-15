@@ -18,7 +18,7 @@
                 <div class="text-center">
                     <img src="{{ isset(App\Models\Setting::first()->header_logo) ? asset(App\Models\Setting::first()->header_logo) : ''}}" width="120">
                 </div>
-                <p class="text-center my-4" id="errormsg"></p>
+                <p class="text-center text-danger my-4" id="msg"></p>
                 <form class="my-4" id="customerLoginForm3">
                     @csrf
                     <div class="form-group">
@@ -50,22 +50,6 @@
         </section>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
 @endsection

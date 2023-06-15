@@ -9,8 +9,10 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\SaleController;
 use App\Http\Controllers\Backend\paymentController;
 use App\Http\Controllers\Backend\adminLoginController;
+use App\Http\Controllers\Backend\CustomersController;
 use App\Http\Controllers\Backend\MemberController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\customerLoginController;
 use App\Http\Controllers\Frontend\checkOutController;
 use App\Http\Controllers\Frontend\packageController;
@@ -95,6 +97,20 @@ Route::group(["prefix" => "admin"], function(){
     Route::post('/settings-update/social', [SettingController::class,'SettingSocialUpdate'])->middleware(['auth', 'verified'])->name('settings.update.social');
     Route::post('/settings-update/footer', [SettingController::class,'SettingFooterUpdate'])->middleware(['auth', 'verified'])->name('settings.update.footer');
     Route::post('/settings-update/copyright', [SettingController::class,'SettingCopyrightUpdate'])->middleware(['auth', 'verified'])->name('settings.update.copyright');
+
+
+    // User Route 
+    Route::get('/users', [UserController::class,'index'])->middleware(['auth', 'verified'])->name('user.list');
+    Route::get('/user-add', [UserController::class,'create'])->middleware(['auth', 'verified'])->name('user.create');
+    Route::post('/user-store', [UserController::class,'store'])->middleware(['auth', 'verified'])->name('user.store');
+    Route::get('/user-show/{id}', [UserController::class,'show'])->middleware(['auth', 'verified'])->name('user.show');
+    Route::post('/user-update/{id}', [UserController::class,'update'])->middleware(['auth', 'verified'])->name('user.update');
+    Route::get('/user-delete/{id}', [UserController::class,'delete'])->middleware(['auth', 'verified'])->name('user.delete');
+
+    // Customer Route 
+    Route::get('/customers', [CustomersController::class,'index'])->middleware(['auth', 'verified'])->name('customer.list');
+    Route::get('/customer-show/{id}', [CustomersController::class,'show'])->middleware(['auth', 'verified'])->name('customer.show');
+    Route::get('/customer-delete/{id}', [CustomersController::class,'delete'])->middleware(['auth', 'verified'])->name('customer.delete');
 });
 
 
