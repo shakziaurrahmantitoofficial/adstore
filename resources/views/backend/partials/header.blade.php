@@ -21,7 +21,7 @@
                 <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
                 <li class="dropdown">
                     <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
-                        <span>2</span>
+                        <span id="messCount">{{App\Models\message::where("customer_id", Auth::guard("customer")->id())->where("status", 0)->count()}}</span>
                     </i>
                     <div class="dropdown-menu bell-notify-box notify-box">
                         <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>

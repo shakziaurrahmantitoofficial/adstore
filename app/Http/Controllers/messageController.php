@@ -57,13 +57,17 @@ class messageController extends Controller
     }    
 
     public function customerGetmessage(Request $req){
+
         $message = message::find($req->id);
         $message->status = 1;
         $message->save();
+        
+        $count = message::where("customer_id", Auth::guard("customer")->id())->where("status", 0)->count();
         return response()->json([
             "status" => true,
             "data"   => $message,
-            "imagepath"  => isset($message->file) ? asset($message->file) : false
+            "imagepath"  => isset($message->file) ? asset($message->file) : false,
+            "count"  => $count
         ]);
     }
 

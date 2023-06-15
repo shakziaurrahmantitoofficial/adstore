@@ -36,9 +36,9 @@
                                 @foreach($message as $item)
                                 <tr 
                                     @if($item->status == 0)
-                                        style="background: #f3f8fb;color: black;font-weight: bold;"
+                                        class="tr_css"
                                     @else
-                                        style="color: #777;"
+                                        class="tr_csss"
                                     @endif
 
                                     onclick="messageModal({{$item->id}})"
@@ -67,4 +67,15 @@
                
     </div>
 </div>
+
+<style type="text/css">
+    .tr_css {
+        background: #fffaf3 !important;
+        color: black;
+        font-weight: bold;
+    }
+    .tr_csss {
+        color: #777;
+    }
+</style>
 @endsection
