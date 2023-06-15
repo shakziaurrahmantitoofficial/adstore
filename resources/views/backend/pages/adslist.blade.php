@@ -34,8 +34,8 @@
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td>{{ucfirst(substr($data->title, 0, 20))}}</td>
-                                            <td>{{ucfirst($data->customer->customerType)}}</td>
-                                            <td>{{ucfirst($data->package->packageName)}}</td>
+                                            <td>{{ucfirst($data->customer?->customerType)}}</td>
+                                            <td>{{ucfirst($data->package?->packageName)}}</td>
                                             <td>
                                                 @if(isset($data->adstartTime))
                                                     {{date("d.m.Y",$data->adstartTime)}}

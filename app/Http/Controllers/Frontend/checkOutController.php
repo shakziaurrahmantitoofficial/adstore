@@ -97,7 +97,7 @@ class checkOutController extends Controller
                 $membership->paymentMethod = $req->paymentMethod;
                 $membership->paymentgetway = $req->paymentgetway;
                 $membership->save();
-                return redirect("/packagelist")->with("success","Thanks your! Order created.");
+                return redirect(Route('customer.MyMembership'))->with("success","Thanks your! Order created.");
 
             }elseif ($req->paymentMethod == "online") {
                 return "<h2 align='center' style='margin-top:40px;'>Coming soon</h2>";

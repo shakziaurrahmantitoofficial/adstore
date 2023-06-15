@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\adsController;
 use App\Http\Controllers\Frontend\CustomerController;
 use App\Http\Controllers\Frontend\FilteringController;
 use App\Http\Controllers\Frontend\MembershipController;
+use App\Http\Controllers\messageController;
 use App\Models\ads;
 
 /*
@@ -177,8 +178,6 @@ Route::group(["middleware" => "auth:customer"], function(){
     })->name("logout");
 
 
-
-
     //checkOutController controller
 
         //For normal payment
@@ -232,6 +231,14 @@ Route::group(["middleware" => "auth:customer"], function(){
         Route::post('/my-membership',[MembershipController::class,'MyMembershipCreate'])->name("customer.MyMembershipCreate");
 
 
+        //For messageController
+        Route::get('/umessage',function(){
+            return view("frontend.pages.message");
+        })->name("CMessage");
+
+        Route::post('/mess',[messageController::class,'CMessage'])->name("mess.CMessage");
+
+
 });
 
 
@@ -260,21 +267,6 @@ Route::get('/adstore',[HomeController::class,'adstore'])->name('adstore');
 Route::get('/filter/up-down',[FilteringController::class,'filterUpDown'])->name('filter.up-down');
 Route::get('/filter/high-low',[FilteringController::class,'filterHighLow'])->name('filter.high-low');
 Route::get('/filter/member',[FilteringController::class,'filterMember'])->name('filter.member');
-
-
-
-
-Route::get('/testProvider',function(){
-
-    App()->bind("newClass", display::class);
-
-    dd(app());
-
-//     $name = app()->make('newClass');
-
-//    return $name->getName();
-
-});
 
 
 

@@ -302,6 +302,42 @@
     });    
 
 
+    $("#message").submit(function(){
+
+      var form = $("#message").get(0);
+
+      $.ajax({
+        url : "{{route('mess.CMessage')}}",
+        method: "post",
+        data : new FormData(form),
+        contentType : false,
+        processData : false,
+        beforeSend : function(){
+          $(document).find(".form-text").text("");
+        },
+        success: function(data){
+
+
+            if(data.message == "error"){
+                $.each(data.data, function(key, value){
+                    $("#err"+key).text(value).css("color","red");
+                });
+            }
+
+            if(data.message == "success" && data.status == true){
+                window.location.href = "{{Route('CMessage')}}"
+            }
+
+        }
+
+      });
+
+      return false;
+
+    });    
+
+
+
     $("#customerLoginForm3").submit(function(){
 
       var form = $("#customerLoginForm3").get(0);
