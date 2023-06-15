@@ -116,6 +116,11 @@ Route::group(["prefix" => "admin"], function(){
     Route::get('/profile-setting', [adminLoginController::class,'profileSetting'])->middleware(['auth', 'verified'])->name('admin.profile.setting');
     Route::post('/profile-update', [adminLoginController::class,'profileUpdate'])->middleware(['auth', 'verified'])->name('admin.profile.update');
     Route::post('/password-change', [adminLoginController::class,'passwordChange'])->middleware(['auth', 'verified'])->name('admin.password.change');
+
+    //Message Profile
+    Route::get('/messagelist',[messageController::class,"customermessagelist"])->name("messagelist.customermessagelist");
+    Route::get('/getmessage',[messageController::class,"customerGetmessage"])->name("getmessage.customerGetmessage");
+        
 });
 
 
@@ -242,12 +247,6 @@ Route::group(["middleware" => "auth:customer"], function(){
         })->name("CMessage");
 
         Route::post('/mess',[messageController::class,'CMessage'])->name("mess.CMessage");
-        Route::get('/messagelist',[messageController::class,"customermessagelist"])->name("messagelist.customermessagelist");
-
-        Route::get('/getmessage',[messageController::class,"customerGetmessage"])->name("getmessage.customerGetmessage");
-
-
-
 
 });
 
