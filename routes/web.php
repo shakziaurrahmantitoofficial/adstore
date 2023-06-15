@@ -111,6 +111,11 @@ Route::group(["prefix" => "admin"], function(){
     Route::get('/customers', [CustomersController::class,'index'])->middleware(['auth', 'verified'])->name('customer.list');
     Route::get('/customer-show/{id}', [CustomersController::class,'show'])->middleware(['auth', 'verified'])->name('customer.show');
     Route::get('/customer-delete/{id}', [CustomersController::class,'delete'])->middleware(['auth', 'verified'])->name('customer.delete');
+
+    // Profile Route 
+    Route::get('/profile-setting', [adminLoginController::class,'profileSetting'])->middleware(['auth', 'verified'])->name('admin.profile.setting');
+    Route::post('/profile-update', [adminLoginController::class,'profileUpdate'])->middleware(['auth', 'verified'])->name('admin.profile.update');
+    Route::post('/password-change', [adminLoginController::class,'passwordChange'])->middleware(['auth', 'verified'])->name('admin.password.change');
 });
 
 

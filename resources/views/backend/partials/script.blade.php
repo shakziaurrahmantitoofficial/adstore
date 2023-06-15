@@ -39,6 +39,9 @@
 
     {{-- Site Setting --}}
     <script>
+        $('body .imageTigger').on('click',function(){
+            $(this).closest('.imageChange').find( ".imageSelect" ).trigger( "click" );
+        })
         $('body .imageSelect').on('change',function(event){
             let isThis = this;
             let reader = new FileReader();
@@ -195,6 +198,63 @@
             });
             return false;
         });
+    </script>
+
+
+    <script>
+        // Customer setting Form Update
+        $("#adminUserProfile").submit(function(){
+        var form = $("#adminUserProfile").get(0);
+        $.ajax({
+            url : "{{ Route('admin.profile.update') }}",
+            method: "post",
+            data : new FormData(form),
+            contentType : false,
+            processData : false,
+            beforeSend : function(){
+            $(document).find(".form-text").text("");
+            },
+            success: function(data){
+                if(data.message == "error"){
+                    $.each(data.data, function(key, value){
+                        $("#err"+key).text(value).css("color","red");
+                    });
+                }
+                if(data.status == "reload"){
+                    window.location.href = "{{Route('admin.profile.setting')}}"
+                }
+            }
+        });
+        return false;
+        });
+
+
+        /*----Customer password update----*/
+        
+        $("#adminUserPassowrd").submit(function(){
+        var form = $("#adminUserPassowrd").get(0);
+        $.ajax({
+            url : "{{ Route('admin.password.change') }}",
+            method: "post",
+            data : new FormData(form),
+            contentType : false,
+            processData : false,
+            beforeSend : function(){
+            $(document).find(".form-text").text("");
+            },
+            success: function(data){
+                if(data.message == "error"){
+                    $.each(data.data, function(key, value){
+                        $("#err"+key).text(value).css("color","red");
+                    });
+                }
+                if(data.status == "reload"){
+                    window.location.href = "{{Route('admin.profile.setting')}}"
+                }
+            }
+        });
+        return false;
+        }); 
     </script>
 
 
