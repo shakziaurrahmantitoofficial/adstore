@@ -97,6 +97,28 @@
                                                                     <small id="erraddress" class="form-text"></small>
                                                                 </div>
 
+                                                                @if (Auth::guard('customer')->user()->companyName)
+                                                                <div class="form-group">
+                                                                    <label for="rentProduct">Company Name</label>
+                                                                    <input type="text" name="companyName" value="{{ Auth::guard('customer')->user()->companyName }}" class="form-control">
+                                                                    <small id="errcompanyName" class="form-text"></small>
+                                                                </div>
+                                                                @endif
+                                                                @if (Auth::guard('customer')->user()->businessType)
+                                                                <div class="form-group">
+                                                                    <label for="rentProduct">Business Type </label>
+                                                                    <input type="text" name="businessType" value="{{ Auth::guard('customer')->user()->businessType }}" class="form-control">
+                                                                    <small id="errbusinessType" class="form-text"></small>
+                                                                </div>
+                                                                @endif
+                                                                @if (Auth::guard('customer')->user()->tradelince)
+                                                                <div class="form-group">
+                                                                    <label for="rentProduct">Tradelince</label>
+                                                                    <input type="text" name="tradelince" value="{{ Auth::guard('customer')->user()->tradelince }}" class="form-control">
+                                                                    <small id="errtradelince" class="form-text"></small>
+                                                                </div>
+                                                                @endif
+
                                                                 <button type="submit" class="btn btn-primary"
                                                                     style="background-color: #572c84!important;border-color: #572c84!important;">Save
                                                                     Change</button>

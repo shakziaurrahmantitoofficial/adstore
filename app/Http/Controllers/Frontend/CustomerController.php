@@ -72,6 +72,11 @@ class CustomerController extends Controller
             $customer->mailPhone    = $req->mailPhone;
             $customer->nid          = $req->nid;
             $customer->address      = $req->address;
+            if($req->companyName){
+                $customer->companyName  =  $req->companyName;
+                $customer->businessType  =  $req->businessType;
+                $customer->tradelince  =  $req->tradelince;
+            }
             $customer->save();
 
             if($customer){
