@@ -14,27 +14,19 @@
                        
                     </li>
 
-                    {{-- <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-money"></i><span>Sales</span></a>
-                        <ul class="collapse">
-                            <li><a href="{{ route('sale-add.create') }}">Add New Sale Ad</a></li>
-                            <li><a href="{{ route('sale-add.index') }}">All Sale Ads</a></li>
-                        </ul>
-                    </li> --}}
-
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-money"></i><span>Payment</span></a>
                         <ul class="collapse">
                             <li><a href="{{ route('paymentlist.customerPaymentList') }}">Payment List</a></li>
                             <li><a href="{{ route('renewlist.customerRenewList') }}">Renew List</a></li>
+                            <li><a href="{{ route('membership.paylist') }}">Member Payment</a></li>
                         </ul>
                     </li>
 
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-money"></i><span>Membership</span></a>
                         <ul class="collapse">
-                            <li><a href="{{ route('membership.List') }}">Request List</a></li>
-                            <li><a href="{{ route('membership.paylist') }}">Payment List</a></li>
+                            <li><a href="{{ route('membership.List') }}">Membership List</a></li>
                         </ul>
                     </li>
 
@@ -45,15 +37,9 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ route('customer.list') }}" aria-expanded="true"><i class="ti-settings"></i><span>Customer</span></a>
+                        <a href="{{ route('customer.list') }}" aria-expanded="true"><i class="ti-settings"></i><span>Customer List</span></a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>User</span></a>
-                        <ul class="collapse">
-                            <li><a href="{{ route('user.list') }}">User List</a></li>
-                            <li><a href="{{ route('user.create') }}">Add User</a></li>
-                        </ul>
-                    </li>
+
 
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>Message</span></a>
@@ -64,6 +50,13 @@
 
                     <li>
                         <a href="{{ route('admin.profile.setting') }}" aria-expanded="true"><i class="ti-user"></i><span>Profile</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>User</span></a>
+                        <ul class="collapse">
+                            <li><a href="{{ route('user.list') }}">User List</a></li>
+                            <li><a href="{{ route('user.create') }}">Add User</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="{{ route('settings.page') }}" aria-expanded="true"><i class="ti-settings"></i><span>Settings</span></a>
