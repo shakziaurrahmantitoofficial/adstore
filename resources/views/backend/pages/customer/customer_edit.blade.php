@@ -28,22 +28,22 @@
                             <label for="rentProduct">Address</label>
                             <input type="email" name="email" value="{{ $customers->address }}" class="form-control" placeholder="Enter Email">
                         </div>
-                        @if ($customers->companyName)
+                        @if (isset($customers->companyName) && $customers->companyName)
                         <div class="form-group">
                             <label for="rentProduct">Company Name</label>
-                            <input type="email" name="email" value="{{ $customers->companyName }}" class="form-control" placeholder="Enter Email">
+                            <input type="text" name="companyName" value="{{ $customers->companyName }}" class="form-control">
                         </div>
                         @endif
-                        @if ($customers->businessType)
+                        @if (isset($customers->businessType) && $customers->businessType)
                         <div class="form-group">
                             <label for="rentProduct">Business Type </label>
-                            <input type="email" name="email" value="{{ $customers->businessType }}" class="form-control" placeholder="Enter Email">
+                            <input type="text" name="businessType" value="{{ $customers->businessType }}" class="form-control">
                         </div>
                         @endif
-                        @if ($customers->tradelince)
+                        @if (isset($customers->tradelince) && $customers->tradelince)
                         <div class="form-group">
                             <label for="rentProduct">Tradelince</label>
-                            <input type="email" name="email" value="{{ $customers->tradelince }}" class="form-control" placeholder="Enter Email">
+                            <input type="text" name="tradelince" value="{{ $customers->tradelince }}" class="form-control">
                         </div>
                         @endif
                         <div class="form-group imageChange">

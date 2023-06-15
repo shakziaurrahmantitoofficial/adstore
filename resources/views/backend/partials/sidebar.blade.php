@@ -63,9 +63,11 @@
                     </li>
 
                     <li>
+                        <a href="{{ route('admin.profile.setting') }}" aria-expanded="true"><i class="ti-user"></i><span>Profile</span></a>
+                    </li>
+                    <li>
                         <a href="{{ route('settings.page') }}" aria-expanded="true"><i class="ti-settings"></i><span>Settings</span></a>
                     </li>
-                    
                 </ul>
             </nav>
         </div>

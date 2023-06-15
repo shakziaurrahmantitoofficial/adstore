@@ -32,14 +32,6 @@ class CustomerController extends Controller
                 "address" => "required",
             ]);
 
-            if ($errors->fails()) {
-                return response()->json([
-                    "status" => false,
-                    "message" => "error",
-                    "data" => $errors->errors()
-                ]);
-            }
-
             if(is_numeric($req->mailPhone)){
 
                 $errors = Validator::make($req->all(),[
@@ -120,7 +112,7 @@ class CustomerController extends Controller
 
         if (Hash::check($req->oldpassword, $check_data->password)) {
             $customer = customer::where('id',Auth::guard("customer")->user()->id)->first();
-            $customer->password = $req->password;
+            $customer->password = Hash::make($req->password);
             $customer->save();
             if($customer){
                 Session::put("success","Password change successfully");

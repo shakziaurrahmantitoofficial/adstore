@@ -178,9 +178,7 @@ class customerLoginController extends Controller
 
             $customer = customer::where('mailPhone', $req->mailPhone)->first();
             if($customer){
-                
                 if(Hash::check($req->password, $customer->password)){
-
                     if(customer::where('mailPhone', $req->mailPhone)->where('status', 1)->count() > 0){
                         Auth::guard("customer")->attempt(['mailPhone' => $req->mailPhone, 'password' => $req->password],true);
                         // return $customer;
