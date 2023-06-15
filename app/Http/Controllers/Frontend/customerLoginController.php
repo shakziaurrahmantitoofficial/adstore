@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\customer;
 use App\Mail\Forgot\passwordSendMail;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class customerLoginController extends Controller
@@ -175,18 +176,47 @@ class customerLoginController extends Controller
                 ]);
             }
 
-            if(Auth::guard("customer")->attempt(['mailPhone' => $req->mailPhone, 'password' => $req->password], true)){
-                return response()->json([
-                    "status" => true,
-                    "customerlogin" => true,
-                    "message" => "Customer login success"
-                ]);
-            }else{
-                return response()->json([
-                    "status" => false,
-                    "customerlogin" => false,
-                    "message" => "Username or password not match!"
-                ]);
+            // if(Auth::guard("customer")->attempt(['mailPhone' => $req->mailPhone, 'password' => $req->password], true)){
+            //     return response()->json([
+            //         "status" => true,
+            //         "customerlogin" => true,
+            //         "message" => "Customer login success"
+            //     ]);
+            // }else{
+            //     return response()->json([
+            //         "status" => false,
+            //         "customerlogin" => false,
+            //         "message" => "Username or password not match!"
+            //     ]);
+            // }
+
+            $customer = customer::where('mailPhone', $req->mailPhone)->first();
+            if($customer){
+                
+                if(Hash::check($req->password, $customer->password)){
+
+                    if(customer::where('mailPhone', $req->mailPhone)->where('status', 1)->count() > 0){
+                        Auth::guard("customer")->attempt(['mailPhone' => $req->mailPhone, 'password' => $req->password],true);
+                        // return $customer;
+                        return response()->json([
+                            "status" => true,
+                            "login" => true,
+                            "message" => "success"
+                        ]);
+                    }else{
+                        return response()->json([
+                            "status" => false,
+                            "login" => false,
+                            "message" => "Your Account is Deactive. Please Contact!"
+                        ]);
+                    }
+                }else{
+                    return response()->json([
+                        "status" => false,
+                        "login" => false,
+                        "message" => "Email or password not match!"
+                    ]);
+                }
             }
         }
 

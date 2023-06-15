@@ -324,14 +324,14 @@
             }
 
 
-            if(data.customerlogin == false){
+            if(data.login == false){
                 $("#errormsg").text(data.message).css({
                     "color":"red",
                     "font-weight":"bold"
                 });
             }
             
-            if(data.customerlogin == true){
+            if(data.login == true){
                 window.location = "{{url('/dashboard')}}";
             }else if(data.login == false){
                 $("#msg").text(data.message);
