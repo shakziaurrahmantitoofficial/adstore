@@ -29,6 +29,7 @@
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Membership</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -42,6 +43,13 @@
                                     <td><img src="{{ !empty($item->image)?asset($item->image):'/backend/assets/images/no-image.png' }}" alt="Image" style="width: 50px;height:40px"></td>
                                     <td>{{ucfirst(substr($item->name, 0, 20))}}</td>
                                     <td>{{ $item->mailPhone }}</td>
+                                    <td>
+                                        @if($item->profile_status == 1)
+                                            member
+                                        @else
+                                            non-member
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{ route('customer.show',$item->id) }}">Edit</a>
                                         @if($item->status == 1)
