@@ -42,7 +42,11 @@
             <tr>
                 <td>{{$i++}}</td>
                 <td>{{ucwords($data->packageName)}}</td>
-                <td>Tk. {{$data->price}}</td>
+                @if($data->price == "Free")
+                    <td>{{$data->price}}</td>
+                @else
+                    <td>Tk. {{$data->price}}</td>
+                @endif
                 <td>{{$data->duration}} days</td>
                 <td>
                     @if($data->payment == 0)
