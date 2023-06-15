@@ -38,6 +38,44 @@
 
 
     {{-- Site Setting --}}
+
+    <script type="text/javascript">
+
+        function messageModal(id){
+
+            $("#messageModal").modal();
+
+            $.ajax({
+                url         : "{{route('getmessage.customerGetmessage')}}",
+                method      : "get",
+                data        : {
+                    "id" : id
+                },
+                beforeSend  : function(){
+                    $(document).find(".form-text").text("");
+                },
+                success: function(data){
+
+                    if(data.imagepath != false){
+                        $("#messageBody").html(`<img src="${data.imagepath}">
+                            <hr>
+                            <p>${data.data.message}<p>`);
+                    }else{
+                        $("#messageBody").html(data.data.message);
+                    }
+
+                    $("#message_"+id).css({
+                        "color" : "#777",
+                        "background ": "#fff",
+                        "font-weight": "normal"
+                    });
+                }
+            });
+
+        }
+
+    </script>
+
     <script>
         $('body .imageSelect').on('change',function(event){
             let isThis = this;

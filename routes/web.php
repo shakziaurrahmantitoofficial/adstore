@@ -237,6 +237,11 @@ Route::group(["middleware" => "auth:customer"], function(){
         })->name("CMessage");
 
         Route::post('/mess',[messageController::class,'CMessage'])->name("mess.CMessage");
+        Route::get('/messagelist',[messageController::class,"customermessagelist"])->name("messagelist.customermessagelist");
+
+        Route::get('/getmessage',[messageController::class,"customerGetmessage"])->name("getmessage.customerGetmessage");
+
+
 
 
 });

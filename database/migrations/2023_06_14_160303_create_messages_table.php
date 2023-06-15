@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("message");
             $table->string("customer_id");
             $table->string("file")->nullable();
+            $table->integer("status")->default(0);
             $table->timestamps();
         });
     }
