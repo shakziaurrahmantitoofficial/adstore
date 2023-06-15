@@ -61,29 +61,6 @@ class adminLoginController extends Controller
                     ]);
                 }
             }
-
-            // if(Auth::attempt(['email' => $req->email, 'password' => $req->password, 'status'=>1], $req->remember)){
-            //     if(User::where('email', $req->email)->where('status', 1)->count() > 0){
-            //         return response()->json([
-            //             "status" => true,
-            //             "login" => true,
-            //             "message" => "success"
-            //         ]);
-            //     }else{
-            //         return response()->json([
-            //             "status" => false,
-            //             "login" => false,
-            //             "message" => "Your Account is Deactive!Please Contact!"
-            //         ]);
-            //     }
-            // }else{
-            //     return response()->json([
-            //         "status" => false,
-            //         "login" => false,
-            //         "message" => "Email or password not match!"
-            //     ]);
-            // }
-
         }
     }
 

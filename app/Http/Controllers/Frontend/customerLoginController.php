@@ -176,20 +176,6 @@ class customerLoginController extends Controller
                 ]);
             }
 
-            // if(Auth::guard("customer")->attempt(['mailPhone' => $req->mailPhone, 'password' => $req->password], true)){
-            //     return response()->json([
-            //         "status" => true,
-            //         "customerlogin" => true,
-            //         "message" => "Customer login success"
-            //     ]);
-            // }else{
-            //     return response()->json([
-            //         "status" => false,
-            //         "customerlogin" => false,
-            //         "message" => "Username or password not match!"
-            //     ]);
-            // }
-
             $customer = customer::where('mailPhone', $req->mailPhone)->first();
             if($customer){
                 
