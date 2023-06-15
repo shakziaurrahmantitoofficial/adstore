@@ -43,7 +43,7 @@
 
         function messageModal(id){
 
-            $("#messageModal").modal();
+            
 
             $.ajax({
                 url         : "{{route('getmessage.customerGetmessage')}}",
@@ -55,7 +55,6 @@
                     $(document).find(".form-text").text("");
                 },
                 success: function(data){
-
                     if(data.imagepath != false){
                         $("#messageBody").html(`<img src="${data.imagepath}">
                             <hr>
@@ -64,12 +63,15 @@
                         $("#messageBody").html(data.data.message);
                     }
 
-                    $("#message_"+id).css({
-                        "color" : "#777",
-                        "background ": "#fff",
-                        "font-weight": "normal"
-                    });
+                    $("#message_"+id).removeClass('tr_css');
+                    $("#message_"+id).addClass('tr_csss');
+
+                    $("#messCount").text(data.count);
                 }
+            });
+
+            $("#messageModal").modal({
+              backdrop : "static"
             });
 
         }
