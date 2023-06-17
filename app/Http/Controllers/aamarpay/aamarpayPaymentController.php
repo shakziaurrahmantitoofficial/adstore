@@ -4,17 +4,18 @@ namespace App\Http\Controllers\aamarpay;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Http;
+use App\Models\package;
 use Illuminate\Support\Facades\Auth;
 
 class aamarpayPaymentController extends Controller
 {
-    public function index(Request $req){
 
+    public function index(Request $req){
 
         $url = 'https://sandbox.aamarpay.com/request.php';
 
-        $successData = "packageName=".$req->packageName."&duration=".$req->duration."&price=".$req->price;
+        $customerId = base64_encode(Auth::guard("customer")->user()->id);
+        $successData = "customerId=".$customerId."&packageName=".$req->packageName."&duration=".$req->duration."&price=".$req->price;
 
             $fields = array(
                 'store_id' => 'aamarpaytest',
@@ -71,7 +72,17 @@ class aamarpayPaymentController extends Controller
 
     
     public function success(Request $request){
-        return $request->packageName;
+        $package = new package();
+        $package->packageName   = base64_decode($request->packageName);
+        $package->duration      = base64_decode($request->duration);
+        $package->price         = base64_decode($request->price);
+        $package->customerId    = base64_decode($request->customerId);
+        $package->paymentMethod = 'AamarPay';
+        $package->paymentgetway = 'AamarPay';
+        $package->payment = 1;
+        $package->adstatus = 1;
+        $package->save();
+        return redirect("/packagelist")->with("success","Thanks your! Order created.");
     }
 
     public function fail(Request $request){
@@ -81,4 +92,6 @@ class aamarpayPaymentController extends Controller
     public function cancel(Request $request){
         return redirect("/dashboard");
     }
+
+    
 }

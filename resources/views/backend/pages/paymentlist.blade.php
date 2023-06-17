@@ -35,8 +35,8 @@
                                         @foreach($package as $data)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td>{{ucfirst($data->customer->name)}}</td>
-                                            <td>{{ucfirst($data->customer->customerType)}}</td>
+                                            <td>{{ucfirst($data->customer?->name)}}</td>
+                                            <td>{{ucfirst($data->customer?->customerType)}}</td>
                                             <td>{{ucfirst($data->packageName)}}</td>
                                             <td>{{ucfirst($data->duration)}} Day</td>
                                             <td>{{ucfirst($data->paymentMethod)}}</td>
