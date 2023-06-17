@@ -21,6 +21,7 @@ use App\Http\Controllers\Frontend\CustomerController;
 use App\Http\Controllers\Frontend\FilteringController;
 use App\Http\Controllers\Frontend\MembershipController;
 use App\Http\Controllers\messageController;
+use App\Http\Controllers\aamarpay\aamarpayPaymentController;
 use App\Models\ads;
 
 /*
@@ -171,7 +172,7 @@ Route::post('/registerInsertCompany',[customerLoginController::class,'customerCo
 
 
 Route::group(["middleware" => "auth:customer"], function(){
-    
+
     Route::get('/dashboard',function(){
         return view("frontend.pages.dashboard");
     })->name("dashboard");
@@ -247,6 +248,15 @@ Route::group(["middleware" => "auth:customer"], function(){
         })->name("CMessage");
 
         Route::post('/mess',[messageController::class,'CMessage'])->name("mess.CMessage");
+
+
+        /*----------AamarPay-----------*/
+
+            Route::get('/payment',[aamarpayPaymentController::class,"index"]);
+            Route::post('/success',[aamarpayPaymentController::class,"success"])->name('success');
+            Route::post('/fail',[aamarpayPaymentController::class,"fail"])->name('fail');
+
+        /*----------AamarPay-----------*/
 
 });
 
