@@ -9,42 +9,46 @@ use Illuminate\Support\Facades\Auth;
 
 class aamarpayPaymentController extends Controller
 {
-    public function index(){
-      //Auth::user()->mailPhone
-        $url = 'https://sandbox.aamarpay.com/request.php'; // live url https://secure.aamarpay.com/request.php
+    public function index(Request $req){
+
+
+        $url = 'https://sandbox.aamarpay.com/request.php';
+
+        $successData = "packageName=".$req->packageName."&duration=".$req->duration."&price=".$req->price;
+
             $fields = array(
                 'store_id' => 'aamarpaytest',
                 'tran_id' => rand(1111111,9999999),
                 'signature_key' => 'dbb74894e82415a2f7ff0ec3a97e4183',
-                'success_url' => route('success'),
+                'currency' => 'BDT',
+                'desc' => 'There is no description',
+
+                'success_url' => route("success"),
                 'fail_url' => route('fail'),
                 'cancel_url' => 'http://localhost/foldername/cancel.php',
-                'amount' => '400',
-                'currency' => 'BDT',
-                'desc' => 'payment description',
-                'cus_name' => 'customer name',
-                'cus_email' => 'customeremail@mail.com',
-                'cus_add1' => 'Dhaka',
-                'cus_add2' => 'Mohakhali DOHS',
+                
+                'amount' => base64_decode($req->price),
+                'cus_name' => Auth::guard("customer")->user()->name,
+                'cus_email' => 'info@sobkisubazar.com',
+                'cus_phone' => Auth::guard("customer")->user()->mailPhone,
+                'cus_add1' => Auth::guard("customer")->user()->address,
+                'cus_add2' => Auth::guard("customer")->user()->address,
+
                 'cus_city' => 'Dhaka',
                 'cus_state' => 'Dhaka',
-                'cus_postcode' => '1206',
-                'cus_country' => 'Bangladesh',
-                'cus_phone' => '01741571104',
+                'cus_postcode' => '1205',
+                'cus_country' => 'Bangladesh'
                 );
 
-                $fields_string = http_build_query($fields);
-         
+            $fields_string = http_build_query($fields);
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_VERBOSE, true);
             curl_setopt($ch, CURLOPT_URL, $url);  
-      
             curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             $url_forward = str_replace('"', '', stripslashes(curl_exec($ch)));  
             curl_close($ch); 
-
             $this->redirect_to_merchant($url_forward);
     }
 
@@ -66,8 +70,8 @@ class aamarpayPaymentController extends Controller
     } 
 
     
-    public function success(Request $request){
-        return 'Success';
+    public function paymentsuccess(Request $request){
+        return "success";
     }
 
     public function fail(Request $request){

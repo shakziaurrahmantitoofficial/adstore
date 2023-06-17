@@ -253,7 +253,9 @@ Route::group(["middleware" => "auth:customer"], function(){
         /*----------AamarPay-----------*/
 
             Route::get('/payment',[aamarpayPaymentController::class,"index"]);
-            Route::post('/success',[aamarpayPaymentController::class,"success"])->name('success');
+
+            Route::post('/success',[aamarpayPaymentController::class,"success"])->name("success");
+            
             Route::post('/fail',[aamarpayPaymentController::class,"fail"])->name('fail');
 
         /*----------AamarPay-----------*/
