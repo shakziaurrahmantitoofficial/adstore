@@ -23,9 +23,9 @@ class aamarpayPaymentController extends Controller
                 'currency' => 'BDT',
                 'desc' => 'There is no description',
 
-                'success_url' => route("success"),
+                'success_url' => url("/success?".$successData),
                 'fail_url' => route('fail'),
-                'cancel_url' => 'http://localhost/foldername/cancel.php',
+                'cancel_url' => route('cancel'),
                 
                 'amount' => base64_decode($req->price),
                 'cus_name' => Auth::guard("customer")->user()->name,
@@ -70,11 +70,15 @@ class aamarpayPaymentController extends Controller
     } 
 
     
-    public function paymentsuccess(Request $request){
-        return "success";
+    public function success(Request $request){
+        return $request->packageName;
     }
 
     public function fail(Request $request){
-        return 'Fail';
+        return redirect("/dashboard");
+    }
+
+    public function cancel(Request $request){
+        return redirect("/dashboard");
     }
 }

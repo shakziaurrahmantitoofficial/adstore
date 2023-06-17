@@ -249,18 +249,18 @@ Route::group(["middleware" => "auth:customer"], function(){
 
         Route::post('/mess',[messageController::class,'CMessage'])->name("mess.CMessage");
 
+});
+
 
         /*----------AamarPay-----------*/
 
             Route::get('/payment',[aamarpayPaymentController::class,"index"]);
 
             Route::post('/success',[aamarpayPaymentController::class,"success"])->name("success");
-            
             Route::post('/fail',[aamarpayPaymentController::class,"fail"])->name('fail');
+            Route::get('/cancel',[aamarpayPaymentController::class,"cancel"])->name('cancel');
 
         /*----------AamarPay-----------*/
-
-});
 
 
 
