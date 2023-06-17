@@ -17,6 +17,8 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'success',
         'fail',
-        'cancel'
+        'cancel',
+        'membershipsuccess',
+        'membershipfail'
     ];
 }
