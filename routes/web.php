@@ -253,9 +253,15 @@ Route::group(["middleware" => "auth:customer"], function(){
 
 
         /*----------AamarPay-----------*/
-
+            // Normal Package Payment
             Route::get('/payment',[aamarpayPaymentController::class,"index"]);
+            Route::post('/success',[aamarpayPaymentController::class,"success"])->name("success");
+            Route::post('/fail',[aamarpayPaymentController::class,"fail"])->name('fail');
+            Route::get('/cancel',[aamarpayPaymentController::class,"cancel"])->name('cancel');
 
+
+            // Renew Payment
+            Route::get('/renewpayment',[aamarpayPaymentController::class,"renewindex"]);
             Route::post('/success',[aamarpayPaymentController::class,"success"])->name("success");
             Route::post('/fail',[aamarpayPaymentController::class,"fail"])->name('fail');
             Route::get('/cancel',[aamarpayPaymentController::class,"cancel"])->name('cancel');

@@ -167,7 +167,13 @@ class checkOutController extends Controller
 
                 return redirect(Route('adslist.customerAdslist'))->with("success","Thanks! Your update request send.");
             }elseif ($req->paymentMethod == "online") {
-                return "<h2 align='center' style='margin-top:40px;'>Coming soon</h2>";
+
+
+                return redirect("renewpayment?packageName=".base64_encode($req->packageName)."&duration=".base64_encode($req->duration)."&price=".base64_encode($req->price));
+
+
+
+
             }
             
         }else{
