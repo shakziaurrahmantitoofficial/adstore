@@ -1,8 +1,15 @@
-
+@php
+    $setting = App\Models\Setting::where('id',1)->first();
+@endphp
 <div class="sidebar-menu">
     <div class="sidebar-header">
         <div class="logo">
-            <a href="index.html"><img src="{{ asset('frontend/assets/images/logo.png') }}" alt="logo"></a>
+            <a href="{{ route('admin.dashboard') }}">
+                @if(isset($setting->header_logo))
+                 <img src="{{ asset($setting->header_logo) }}" 
+                    alt="Sobkisubazar" class="mw-120 h-30px h-md-60px">
+                @endif
+            </a>
         </div>
     </div>
     <div class="main-menu">
