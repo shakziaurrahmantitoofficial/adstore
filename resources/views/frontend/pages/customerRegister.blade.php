@@ -39,8 +39,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Email or Phone *</label>
-                        <input type="text" name="mailPhone" class="form-control" placeholder="Email or phone">
+                        <label>Phone *</label>
+                        <input type="tel" name="mailPhone" class="form-control" placeholder="Phone number">
                         <small id="errmailPhone" class="form-text"></small>
                     </div>
 
@@ -100,7 +100,7 @@
 
                     <div class="form-group">
                         <label>Phone *</label>
-                        <input type="text" name="mailPhone" class="form-control" placeholder="Phone number">
+                        <input type="tel" name="mailPhone" class="form-control" placeholder="Phone number">
                         <small id="errormailPhone" class="form-text"></small>
                     </div>
 

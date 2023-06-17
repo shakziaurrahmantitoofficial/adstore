@@ -5,43 +5,33 @@ namespace App\Http\Controllers\aamarpay;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Http;
+use Illuminate\Support\Facades\Auth;
 
 class aamarpayPaymentController extends Controller
 {
     public function index(){
+      //Auth::user()->mailPhone
         $url = 'https://sandbox.aamarpay.com/request.php'; // live url https://secure.aamarpay.com/request.php
             $fields = array(
-                'store_id' => 'aamarpaytest', //store id will be aamarpay,  contact integration@aamarpay.com for test/live id
-                 'amount' => '400', //transaction amount
-                'payment_type' => 'VISA', //no need to change
-                'currency' => 'BDT',  //currenct will be USD/BDT
-                'tran_id' => rand(1111111,9999999), //transaction id must be unique from your end
-                'cus_name' => 'customer name',  //customer name
-                'cus_email' => 'customeremail@mail.com', //customer email address
-                'cus_add1' => 'Dhaka',  //customer address
-                'cus_add2' => 'Mohakhali DOHS', //customer address
-                'cus_city' => 'Dhaka',  //customer city
-                'cus_state' => 'Dhaka',  //state
-                'cus_postcode' => '1206', //postcode or zipcode
-                'cus_country' => 'Bangladesh',  //country
-                'cus_phone' => '1231231231231', //customer phone number
-                'cus_fax' => 'Not¬Applicable',  //fax
-                'ship_name' => 'ship name', //ship name
-                'ship_add1' => 'House B-121, Road 21',  //ship address
-                'ship_add2' => 'Mohakhali',
-                'ship_city' => 'Dhaka', 
-                'ship_state' => 'Dhaka',
-                'ship_postcode' => '1212', 
-                'ship_country' => 'Bangladesh',
-                'desc' => 'payment description', 
-                'success_url' => route('success'), //your success route
-                'fail_url' => route('fail'), //your fail route
-                'cancel_url' => 'http://localhost/foldername/cancel.php', //your cancel url
-                'opt_a' => 'Reshad',  //optional paramter
-                'opt_b' => 'Akil',
-                'opt_c' => 'Liza', 
-                'opt_d' => 'Sohel',
-                'signature_key' => 'dbb74894e82415a2f7ff0ec3a97e4183'); //signature key will provided aamarpay, contact integration@aamarpay.com for test/live signature key
+                'store_id' => 'aamarpaytest',
+                'tran_id' => rand(1111111,9999999),
+                'signature_key' => 'dbb74894e82415a2f7ff0ec3a97e4183',
+                'success_url' => route('success'),
+                'fail_url' => route('fail'),
+                'cancel_url' => 'http://localhost/foldername/cancel.php',
+                'amount' => '400',
+                'currency' => 'BDT',
+                'desc' => 'payment description',
+                'cus_name' => 'customer name',
+                'cus_email' => 'customeremail@mail.com',
+                'cus_add1' => 'Dhaka',
+                'cus_add2' => 'Mohakhali DOHS',
+                'cus_city' => 'Dhaka',
+                'cus_state' => 'Dhaka',
+                'cus_postcode' => '1206',
+                'cus_country' => 'Bangladesh',
+                'cus_phone' => '01741571104',
+                );
 
                 $fields_string = http_build_query($fields);
          
@@ -77,10 +67,10 @@ class aamarpayPaymentController extends Controller
 
     
     public function success(Request $request){
-        return $request;
+        return 'Success';
     }
 
     public function fail(Request $request){
-        return $request;
+        return 'Fail';
     }
 }
