@@ -916,7 +916,63 @@
 
 <script>
     $(document).ready(function() {
+        // Ad store offer
+        if ($('.bbbb_main_container .bbbb_viewed_slider').length) {
+            let viewedSlider = $('.bbbb_main_container .bbbb_viewed_slider');
 
+            viewedSlider.owlCarousel({
+
+                loop: true,
+                margin: 30,
+                autoplay:true,
+                autoplayTimeout: 4000,
+                nav: false,
+                dots: false,
+                responsive: {
+                    // 0:{items:1},
+                    // 575:{items:3},
+                    // 767:{items:3},
+                    // 768:{items:4},
+                    // 992:{items:4},
+                    // 1025:{items:5}
+
+                    0: {
+                        items: 2
+                    },
+                    575: {
+                        items: 3
+                    },
+                    767: {
+                        items: 3
+                    },
+                    768: {
+                        items: 4
+                    },
+                    992: {
+                        items: 4
+                    },
+                    1370: {
+                        items: 5
+                    }
+                }
+            });
+
+            if ($('.bbbb_viewed_prev').length) {
+                var prev = $('.bbbb_main_container .bbbb_viewed_prev');
+                prev.on('click', function() {
+                    viewedSlider.trigger('prev.owl.carousel');
+                });
+            }
+
+            if ($('.bbbb_main_container .bbbb_viewed_next').length) {
+                var next = $('.bbbb_viewed_next');
+                next.on('click', function() {
+                    viewedSlider.trigger('next.owl.carousel');
+                });
+            }
+        }
+
+        // All Offer
         if ($('.bbb_viewed_slider').length) {
             var viewedSlider = $('.bbb_viewed_slider');
 
@@ -925,7 +981,7 @@
                 loop: true,
                 margin: 30,
                 autoplay:true,
-                autoplayTimeout: 1500,
+                autoplayTimeout: 2000,
                 nav: false,
                 dots: false,
                 responsive: {
