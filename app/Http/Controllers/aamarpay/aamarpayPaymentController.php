@@ -78,7 +78,7 @@ class aamarpayPaymentController extends Controller
         $package->price         = base64_decode($request->price);
         $package->customerId    = base64_decode($request->customerId);
         $package->paymentMethod = 'AamarPay';
-        $package->paymentgetway = 'AamarPay';
+        $package->paymentgetway = $request->card_type;
         $package->payment = 1;
         $package->adstatus = 1;
         $package->save();

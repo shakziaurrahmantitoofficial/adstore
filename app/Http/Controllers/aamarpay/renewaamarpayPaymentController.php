@@ -74,6 +74,7 @@ class renewaamarpayPaymentController extends Controller
     public function success(Request $request){
 
 
+
         $ads                = ads::find(base64_decode(base64_decode($request->adid)));
         $exipreDate         = $ads->adstartTime + $ads->duration;
         $getoldDate         = $exipreDate - time();
@@ -82,8 +83,10 @@ class renewaamarpayPaymentController extends Controller
         $ads->status        = 1;
         $ads->save();
 
-        $package = package::find($ads->packageId);
-        $package->price = (int) $package->price + (int) base64_decode($request->price);
+        $package            = package::find($ads->packageId);
+        $package->price     = (int) $package->price + (int) base64_decode($request->price);
+        $package->paymentMethod = "aamarpay";
+        $package->paymentGetway = $request->card_type;
         $package->save();
 
         if($package != null){

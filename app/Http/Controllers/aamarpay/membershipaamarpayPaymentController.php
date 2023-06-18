@@ -73,7 +73,7 @@ class membershipaamarpayPaymentController extends Controller
         $membership->price         = base64_decode($request->price);
         $membership->customerId    = base64_decode($request->customerId);
         $membership->paymentMethod = 'AamarPay';
-        $membership->paymentgetway = 'AamarPay';
+        $membership->paymentgetway = $request->card_type;
         $membership->payment       = 1;
         $membership->adstatus      = 1;
         $membership->save();
