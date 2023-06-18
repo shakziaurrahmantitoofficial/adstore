@@ -3,8 +3,8 @@
 @endphp
 <footer>
     <div class="footer-area">
-        @if(isset($setting->header_logo))
-            <p>&copy; {{ asset($setting->copyright_text) }}</p>
+        @if(isset($setting->copyright_text))
+            <p>&copy; {{ $setting->copyright_text }}</p>
         @endif
     </div>
 </footer>
