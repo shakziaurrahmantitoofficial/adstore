@@ -40,96 +40,6 @@ use App\Models\ads;
 
 
 
-
-// Route::get('/test', function () {
-
-//         $adsData    = ads::get();
-//         foreach($adsData as $data){
-//            $expire  = $data->adstartTime + $data->duration;
-//             if($expire <= time()){
-//               $ads  = ads::find($data->id);
-//               $ads->status = 3;
-//               $ads->save();
-//             }
-//         }
-
-// });
-
-
-Route::group(["prefix" => "admin"], function(){
-
-    Route::get('/login',[adminLoginController::class,'index'])->name("index.login");
-    Route::post('/adminlogin',[adminLoginController::class,'admin_login'])->name("admin_login.adminlogin");
-
-    Route::get('/logout',[adminLoginController::class,'admin_logout'])->name("admin_logout.logout");
-
-    //Backend Section
-    Route::get('/dashboard', function () {
-        return view('backend.pages.dashboard');
-    })->middleware(['auth', 'verified'])->name('admin.dashboard');
-
-
-    //paymentController controller
-    Route::get('/paymentlist', [paymentController::class,'customerPaymentList'])->middleware(['auth', 'verified'])->name('paymentlist.customerPaymentList');
-
-    Route::get('/adlist', [paymentController::class,'customerAdList'])->middleware(['auth', 'verified'])->name('adlist.customerAdList');
-
-    Route::get('/payconfirm/{id?}', [paymentController::class,'PayConfirm'])->middleware(['auth', 'verified'])->name('payconfirm.PayConfirm');
-
-
-   Route::get('/adapprove/{id}', [paymentController::class,'customeradapprove'])->middleware(['auth', 'verified'])->name('adapprove.customeradapprove');
-
-   Route::post('/adaccept', [paymentController::class,'customeradaccept'])->middleware(['auth', 'verified'])->name('adaccept.customeradaccept');
-
-   // Renew route
-   Route::get('/renewlist', [paymentController::class,'customerRenewList'])->middleware(['auth', 'verified'])->name('renewlist.customerRenewList');
-   Route::get('/renew/payconfirm/{id?}', [paymentController::class,'renewPayConfirm'])->middleware(['auth', 'verified'])->name('renewPay.renewPayConfirm');
-
-    //Membership Route
-    Route::get('/membership-list', [MemberController::class,'MembershipList'])->middleware(['auth', 'verified'])->name('membership.List');
-    Route::get('/membership-view/{id}', [MemberController::class,'MembershipView'])->middleware(['auth', 'verified'])->name('membership.view');
-    Route::get('/membership-confirm/{id}', [MemberController::class,'MembershipConfirm'])->middleware(['auth', 'verified'])->name('membership.confirm');
-    Route::get('/membership-paylist', [MemberController::class,'MembershipPayList'])->middleware(['auth', 'verified'])->name('membership.paylist');
-    Route::get('/membership-payconfirm/{id}', [MemberController::class,'MembershipPayConfirm'])->middleware(['auth', 'verified'])->name('membership.payconfirm');
-
-
-    // Site Setting Route
-    Route::get('/settings', [SettingController::class,'SettingPage'])->middleware(['auth', 'verified'])->name('settings.page');
-    Route::post('/settings-update/header', [SettingController::class,'SettingHeaderUpdate'])->middleware(['auth', 'verified'])->name('settings.update.header');
-    Route::post('/settings-update/information', [SettingController::class,'SettingInformationUpdate'])->middleware(['auth', 'verified'])->name('settings.update.information');
-    Route::post('/settings-update/social', [SettingController::class,'SettingSocialUpdate'])->middleware(['auth', 'verified'])->name('settings.update.social');
-    Route::post('/settings-update/footer', [SettingController::class,'SettingFooterUpdate'])->middleware(['auth', 'verified'])->name('settings.update.footer');
-    Route::post('/settings-update/copyright', [SettingController::class,'SettingCopyrightUpdate'])->middleware(['auth', 'verified'])->name('settings.update.copyright');
-
-
-    // User Route 
-    Route::get('/users', [UserController::class,'index'])->middleware(['auth', 'verified'])->name('user.list');
-    Route::get('/user-add', [UserController::class,'create'])->middleware(['auth', 'verified'])->name('user.create');
-    Route::post('/user-store', [UserController::class,'store'])->middleware(['auth', 'verified'])->name('user.store');
-    Route::get('/user-show/{id}', [UserController::class,'show'])->middleware(['auth', 'verified'])->name('user.show');
-    Route::post('/user-update/{id}', [UserController::class,'update'])->middleware(['auth', 'verified'])->name('user.update');
-    Route::get('/user-delete/{id}', [UserController::class,'delete'])->middleware(['auth', 'verified'])->name('user.delete');
-
-    // Customer Route 
-    Route::get('/customers', [CustomersController::class,'index'])->middleware(['auth', 'verified'])->name('customer.list');
-    Route::get('/customer-show/{id}', [CustomersController::class,'show'])->middleware(['auth', 'verified'])->name('customer.show');
-    Route::get('/customer-delete/{id}', [CustomersController::class,'delete'])->middleware(['auth', 'verified'])->name('customer.delete');
-
-    // Profile Route 
-    Route::get('/profile-setting', [adminLoginController::class,'profileSetting'])->middleware(['auth', 'verified'])->name('admin.profile.setting');
-    Route::post('/profile-update', [adminLoginController::class,'profileUpdate'])->middleware(['auth', 'verified'])->name('admin.profile.update');
-    Route::post('/password-change', [adminLoginController::class,'passwordChange'])->middleware(['auth', 'verified'])->name('admin.password.change');
-
-    //Message Profile
-    Route::get('/messagelist',[messageController::class,"customermessagelist"])->name("messagelist.customermessagelist");
-    Route::get('/getmessage',[messageController::class,"customerGetmessage"])->name("getmessage.customerGetmessage");
-        
-});
-
-
-
-
-
 Route::get('/login',function(){
     if (Auth::guard("customer")->check()) {
         return redirect("/dashboard");
@@ -137,7 +47,6 @@ Route::get('/login',function(){
         return view("frontend.pages.login");
     }
 })->name("customer.login");
-
 
 
 Route::get('/forgotpassword',function(){
@@ -151,139 +60,10 @@ Route::get('/forgotpassword',function(){
 
 Route::post('/customerforgotpassword',[customerLoginController::class,'customerforgot_password'])->name("customerforgotpassword.customerforgot_password");
 
-
-
 Route::post('/customerLogin',[customerLoginController::class,'customer_login'])->name("customerLogin.customer_login");
 Route::get('/register',[customerLoginController::class,'customerRegistraion'])->name("customerRegistraion.register");
 Route::post('/registerInsert',[customerLoginController::class,'customerRegisstationInsert'])->name("customerRegisstationInsert.registerInsert");
 Route::post('/registerInsertCompany',[customerLoginController::class,'customerCompanyReg'])->name("customerCompanyReg.registerInsertCompany");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::group(["middleware" => "auth:customer"], function(){
-
-    Route::get('/dashboard',function(){
-        return view("frontend.pages.dashboard");
-    })->name("dashboard");
-
-    Route::get('/package',function(){
-        return view("frontend.pages.package");
-    })->name("package");
-
-
-    Route::get('/logout',function(){
-        Auth::guard("customer")->logout();
-        // return redirect("/login");
-        return redirect(route("customer.login"));
-    })->name("logout");
-
-
-    //checkOutController controller
-
-        //For normal payment
-        Route::post('/checkout',[checkOutController::class,"customerCheckout"])->name("checkout.customerCheckout");
-        Route::post('/checkoutComplete',[checkOutController::class,"customerCheckoutComplete"])->name("checkoutComplete.customerCheckoutComplete");
-
-
-
-        //For membership package
-        Route::post('/checkoutMembership',[checkOutController::class,"customerCheckoutMembership"])->name("checkoutMembership.customerCheckout");
-
-        Route::post('/checkoutCompleteMembership',[checkOutController::class,"customerCheckoutMembershipComplete"])->name("checkoutCompleteMembership.customerCheckoutMembershipComplete");
-
-
-
-        //For renew package
-        Route::post('/checkoutrenew',[checkOutController::class,"customerAdslistPackageCheckout"])->name("checkout.customerAdPackageCheckout");
-        Route::post('/checkoutRenewComplete',[checkOutController::class,"customerRenewCheckoutComplete"])->name("checkoutRenewComplete.customerRenewCheckoutComplete");
-
-
-
-
-    //packageController controller
-        Route::get('/packagelist',[packageController::class,"customerPackagelist"])->name("packagelist.customerPackagelist");
-
-        // Route::post('/checkoutComplete',[checkOutController::class,"customerCheckoutComplete"])->name("checkoutComplete.customerCheckoutComplete");
-
-
-        //adsController controller
-        Route::get('/adpublish',[adsController::class,"customerAdpublish"])->name("adpublish.customerAdpublish");
-
-        Route::post('/customeradinsert',[adsController::class,"cusadinsert"])->name("customeradinsert.cusadinsert");
-
-        Route::get('/adslist',[adsController::class,"customerAdslist"])->name("adslist.customerAdslist");
-        Route::get('/adedit',[adsController::class,"customerAdEdit"])->name("adedit.customerAdEdit");
-        Route::post('/adedit',[adsController::class,"customerAdUpdate"])->name("customeradUpdate.cusadupdate");
-        Route::get('/adslist-package',[adsController::class,"customerAdslistPackage"])->name("adslist.customerAdslistPackage");
-        
-
-        // Route::post('/checkoutComplete',[checkOutController::class,"customerCheckoutComplete"])->name("checkoutComplete.customerCheckoutComplete");
-
-
-        Route::get('/settings',[CustomerController::class,'customerSettings'])->name("customer.customerSettings");
-        Route::post('/customer-update',[CustomerController::class,'customerUpdate'])->name("customer.customerUpdate");
-        
-
-        Route::post('/password-change',[CustomerController::class,'customerPasswordChange'])->name("customer.customerPasswordChange");
-
-        // 
-        Route::get('/my-membership',[MembershipController::class,'MyMembership'])->name("customer.MyMembership");
-        Route::post('/my-membership',[MembershipController::class,'MyMembershipCreate'])->name("customer.MyMembershipCreate");
-
-
-        //For messageController
-        Route::get('/umessage',function(){
-            return view("frontend.pages.message");
-        })->name("CMessage");
-
-        Route::post('/mess',[messageController::class,'CMessage'])->name("mess.CMessage");
-
-});
-
-
-
-
-
-/*----------AamarPay-----------*/
-    // Normal Package Payment
-    Route::get('/payment',[aamarpayPaymentController::class,"index"]);
-    Route::post('/success',[aamarpayPaymentController::class,"success"])->name("success");
-    Route::post('/fail',[aamarpayPaymentController::class,"fail"])->name('fail');
-    Route::get('/cancel',[aamarpayPaymentController::class,"cancel"])->name('cancel');
-
-
-    // Renew Payment
-    Route::get('/renewpayment',[renewaamarpayPaymentController::class,"index"]);
-    Route::post('/renewsuccess',[renewaamarpayPaymentController::class,"success"])->name("success");
-    Route::post('/renewfail',[renewaamarpayPaymentController::class,"fail"])->name('fail');
-    Route::get('/renewcancel',[renewaamarpayPaymentController::class,"cancel"])->name('cancel');    
-
-
-    //Membership Payment
-    Route::get('/membershippayment',[membershipaamarpayPaymentController::class,"index"]);
-    Route::post('/membershipsuccess',[membershipaamarpayPaymentController::class,"success"])->name("membershipsuccess");
-    Route::post('/membershipfail',[membershipaamarpayPaymentController::class,"fail"])->name('membershipfail');
-    
-    Route::get('/membershipcancel',[membershipaamarpayPaymentController::class,"cancel"])->name('membershipcancel');
-
-/*----------AamarPay-----------*/
-
-
-
-
 
 
 
