@@ -89,17 +89,49 @@
                     <div class="col-lg-2"></div>
                     <div class="col-lg-10">
 
-                        <div class="bbb_main_container">
-                            <div class="bbb_viewed_nav bbb_viewed_prev"><i class="fas fa-chevron-left"></i></div>
-                            <div class="bbb_viewed_nav bbb_viewed_next"><i class="fas fa-chevron-right"></i></div>
-                            <div class="bbb_viewed_slider_container">
-                                <div class="owl-carousel owl-theme bbb_viewed_slider d-flex">
+                        <div class="bbbb_main_container">
+                            <div class="bbb_viewed_nav bbbb_viewed_prev"><i class="fas fa-chevron-left"></i></div>
+                            <div class="bbb_viewed_nav bbbb_viewed_next"><i class="fas fa-chevron-right"></i></div>
+                            <div class="bbbb_viewed_slider_container">
+                                <div class="owl-carousel owl-theme bbbb_viewed_slider d-flex">
 
                                         <div class="owl-item" style="margin-right: 10px !important">
                                             <div
                                                 class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                 <div class="bbb_viewed_image">
-                                                    <img src="https://sobkisubazar.com/public/uploads/all/FwStWqyBTrrlh8Fw84iY1iqVbg44UhrJQmXWL4qz.jpg" alt="">
+                                                    <img src="{{ asset('frontend/assets/images/ads/20 percent off membership package.jpg') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item" style="margin-right: 10px !important">
+                                            <div
+                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                <div class="bbb_viewed_image">
+                                                    <img src="{{ asset('frontend/assets/images/ads/20 percent discount Plutinam package.jpg') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item" style="margin-right: 10px !important">
+                                            <div
+                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                <div class="bbb_viewed_image">
+                                                    <img src="{{ asset('frontend/assets/images/ads/15 percent discount gold package.jpg') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item" style="margin-right: 10px !important">
+                                            <div
+                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                <div class="bbb_viewed_image">
+                                                    <img src="{{ asset('frontend/assets/images/ads/10 percent discount silver package.jpg') }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="owl-item" style="margin-right: 10px !important">
+                                            <div
+                                                class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                                <div class="bbb_viewed_image">
+                                                    <img src="{{ asset('frontend/assets/images/ads/10 percent discount regular package.jpg') }}" alt="">
                                                 </div>
                                             </div>
                                         </div>
