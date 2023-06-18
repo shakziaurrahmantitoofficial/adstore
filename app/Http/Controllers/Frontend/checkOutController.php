@@ -66,18 +66,10 @@ class checkOutController extends Controller
 
             }elseif ($req->paymentMethod == "online") {
 
-                // {"_token":"3pK6YMt3HU3kynjlfiBXuTI2g70heOuhdrvUpCwj","paymentMethod":"online","packageName":"platinum","duration":"7","price":"1050","agreement":"on"}
-
-
                 $packageName    = $req->packageName;
                 $duration       = $req->duration;
                 $price          = $req->price;
-
-               return redirect("payment?packageName=".base64_encode($packageName)."&duration=".base64_encode($duration)."&price=".base64_encode($price));
-
-
-                //return $req->all();
-               // return "<h2 align='center' style='margin-top:40px;'>Coming soon sss</h2>";
+                return redirect("payment?packageName=".base64_encode($packageName)."&duration=".base64_encode($duration)."&price=".base64_encode($price));
             }
             
         }else{
@@ -123,7 +115,13 @@ class checkOutController extends Controller
                 return redirect(Route('customer.MyMembership'))->with("success","Thanks your! Order created.");
 
             }elseif ($req->paymentMethod == "online") {
-                return "<h2 align='center' style='margin-top:40px;'>Coming soon  Membership</h2>";
+
+
+                $packageName    = $req->packageName;
+                $duration       = $req->duration;
+                $price          = $req->price;
+                return redirect("/membershippayment?packageName=".base64_encode($packageName)."&duration=".base64_encode($duration)."&price=".base64_encode($price));
+
             }
             
         }else{
@@ -166,14 +164,10 @@ class checkOutController extends Controller
                 $ads->save();
 
                 return redirect(Route('adslist.customerAdslist'))->with("success","Thanks! Your update request send.");
+
             }elseif ($req->paymentMethod == "online") {
 
-
                 return redirect("renewpayment?packageName=".base64_encode($req->packageName)."&duration=".base64_encode($req->duration)."&price=".base64_encode($req->price));
-
-
-
-
             }
             
         }else{

@@ -4,30 +4,24 @@ namespace App\Http\Controllers\aamarpay;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\package;
-use Illuminate\Support\Facades\Auth;
+use App\Models\membership;
+use Auth;
 
-class aamarpayPaymentController extends Controller
+class membershipaamarpayPaymentController extends Controller
 {
-
     public function index(Request $req){
-
         $url = env('AAMARPAY_BASEURL').'/request.php';
-
         $customerId = base64_encode(Auth::guard("customer")->user()->id);
         $successData = "customerId=".$customerId."&packageName=".$req->packageName."&duration=".$req->duration."&price=".$req->price;
-
             $fields = array(
                 'store_id' => env('AAMARPAY_STORE_ID'),
                 'tran_id' => rand(1111111,9999999),
                 'signature_key' => env('AAMARPAY_SIGNATURE_KEY'),
                 'currency' => 'BDT',
                 'desc' => 'There is no description',
-
-                'success_url' => url("/success?".$successData),
-                'fail_url' => route('fail'),
-                'cancel_url' => route('cancel'),
-                
+                'success_url' => url("/membershipsuccess?".$successData),
+                'fail_url' => route('membershipfail'),
+                'cancel_url' => route('membershipcancel'),
                 'amount' => base64_decode($req->price),
                 'cus_name' => Auth::guard("customer")->user()->name,
                 'cus_email' => 'info@sobkisubazar.com',
@@ -72,18 +66,21 @@ class aamarpayPaymentController extends Controller
 
     
     public function success(Request $request){
-        $package = new package();
-        $package->packageName   = base64_decode($request->packageName);
-        $package->duration      = base64_decode($request->duration);
-        $package->price         = base64_decode($request->price);
-        $package->customerId    = base64_decode($request->customerId);
-        $package->paymentMethod = 'AamarPay';
-        $package->paymentgetway = 'AamarPay';
-        $package->payment = 1;
-        $package->adstatus = 1;
-        $package->save();
-        return redirect("/packagelist")->with("success","Thanks your! Order created.");
+
+        $membership = new membership();
+        $membership->packageName   = base64_decode($request->packageName);
+        $membership->duration      = base64_decode($request->duration);
+        $membership->price         = base64_decode($request->price);
+        $membership->customerId    = base64_decode($request->customerId);
+        $membership->paymentMethod = 'AamarPay';
+        $membership->paymentgetway = 'AamarPay';
+        $membership->payment       = 1;
+        $membership->adstatus      = 1;
+        $membership->save();
+        return redirect("/my-membership")->with("success","Thanks your! Order created.");
     }
+
+
 
     public function fail(Request $request){
         return redirect("/dashboard");
@@ -92,6 +89,4 @@ class aamarpayPaymentController extends Controller
     public function cancel(Request $request){
         return redirect("/dashboard");
     }
-
-    
 }
