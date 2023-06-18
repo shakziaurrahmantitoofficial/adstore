@@ -68,7 +68,7 @@ Route::post('/registerInsertCompany',[customerLoginController::class,'customerCo
 
 
 //Frontent Section
-Route::get('/',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index'])->name("homepage");
 Route::get('show-sale/{id}',[HomeController::class,'showSale'])->name('show-sale');
 Route::get('show-buy/{id}',[HomeController::class,'showBuy'])->name('show-buy');
 Route::get('show-rent/{id}',[HomeController::class,'showRent'])->name('show-rent');

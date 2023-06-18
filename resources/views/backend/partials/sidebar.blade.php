@@ -4,7 +4,7 @@
 <div class="sidebar-menu">
     <div class="sidebar-header">
         <div class="logo">
-            <a href="{{ route('admin.dashboard') }}">
+            <a href="{{ route('homepage') }}" target="_blank">
                 @if(isset($setting->header_logo))
                  <img src="{{ asset($setting->header_logo) }}" 
                     alt="Sobkisubazar" class="mw-120 h-30px h-md-60px">
