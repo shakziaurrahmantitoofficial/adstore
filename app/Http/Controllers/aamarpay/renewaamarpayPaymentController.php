@@ -4,17 +4,19 @@ namespace App\Http\Controllers\aamarpay;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ads;
+use App\Models\package;
 use Auth;
 
 class renewaamarpayPaymentController extends Controller
 {
 
     public function index(Request $req){
+
         $url = env('AAMARPAY_BASEURL').'/request.php';
 
         $customerId = base64_encode(Auth::guard("customer")->user()->id);
-        $successData = "customerId=".$customerId."&packageName=".$req->packageName."&duration=".$req->duration."&price=".$req->price;
-
+        $successData = "customerId=".$customerId."&packageName=".$req->packageName."&duration=".$req->duration."&price=".$req->price."&adid=".$req->adid;
             $fields = array(
                 'store_id' => env('AAMARPAY_STORE_ID'),
                 'tran_id' => rand(1111111,9999999),
@@ -22,9 +24,9 @@ class renewaamarpayPaymentController extends Controller
                 'currency' => 'BDT',
                 'desc' => 'There is no description',
 
-                'success_url' => url("/success?".$successData),
-                'fail_url' => route('fail'),
-                'cancel_url' => route('cancel'),
+                'success_url' => url("/renewsuccess?".$successData),
+                'fail_url' => route('renewfail'),
+                'cancel_url' => route('renewcancel'),
                 
                 'amount' => base64_decode($req->price),
                 'cus_name' => Auth::guard("customer")->user()->name,
@@ -70,24 +72,38 @@ class renewaamarpayPaymentController extends Controller
 
     
     public function success(Request $request){
-        $package = new package();
-        $package->packageName   = base64_decode($request->packageName);
-        $package->duration      = base64_decode($request->duration);
-        $package->price         = base64_decode($request->price);
-        $package->customerId    = base64_decode($request->customerId);
-        $package->paymentMethod = 'AamarPay';
-        $package->paymentgetway = 'AamarPay';
-        $package->payment = 1;
-        $package->adstatus = 1;
+
+
+        $ads                = ads::find(base64_decode(base64_decode($request->adid)));
+        $exipreDate         = $ads->adstartTime + $ads->duration;
+        $getoldDate         = $exipreDate - time();
+        $ads->duration      = base64_decode($request->duration) * 86400 + $getoldDate;
+        $ads->renewstatus   = 0;
+        $ads->status        = 1;
+        $ads->save();
+
+        $package = package::find($ads->packageId);
+        $package->price = (int) $package->price + (int) base64_decode($request->price);
         $package->save();
-        return redirect("/packagelist")->with("success","Thanks your! Order created.");
+
+        if($package != null){
+            return redirect("/adslist")->with('success','Payment paid successfully!');
+        }else{
+            return redirect("/adslist")->with('error','Something Wrong!');
+        }
+
     }
+
+
+
 
     public function fail(Request $request){
         return redirect("/dashboard");
     }
 
+
     public function cancel(Request $request){
         return redirect("/dashboard");
     }
+
 }

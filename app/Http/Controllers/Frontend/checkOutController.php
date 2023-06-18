@@ -167,7 +167,7 @@ class checkOutController extends Controller
 
             }elseif ($req->paymentMethod == "online") {
 
-                return redirect("renewpayment?packageName=".base64_encode($req->packageName)."&duration=".base64_encode($req->duration)."&price=".base64_encode($req->price));
+                return redirect("renewpayment?packageName=".base64_encode($req->packageName)."&duration=".base64_encode($req->duration)."&price=".base64_encode($req->price)."&adid=".$req->adid);
             }
             
         }else{

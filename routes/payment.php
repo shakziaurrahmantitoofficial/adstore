@@ -37,9 +37,9 @@ use App\Models\ads;
 
     // Renew Payment
     Route::get('/renewpayment',[renewaamarpayPaymentController::class,"index"]);
-    Route::post('/renewsuccess',[renewaamarpayPaymentController::class,"success"])->name("success");
-    Route::post('/renewfail',[renewaamarpayPaymentController::class,"fail"])->name('fail');
-    Route::get('/renewcancel',[renewaamarpayPaymentController::class,"cancel"])->name('cancel');    
+    Route::post('/renewsuccess',[renewaamarpayPaymentController::class,"success"])->name("renewsuccess");
+    Route::post('/renewfail',[renewaamarpayPaymentController::class,"fail"])->name('renewfail');
+    Route::get('/renewcancel',[renewaamarpayPaymentController::class,"cancel"])->name('renewcancel');    
 
 
     //Membership Payment

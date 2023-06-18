@@ -19,6 +19,10 @@ class VerifyCsrfToken extends Middleware
         'fail',
         'cancel',
         'membershipsuccess',
-        'membershipfail'
+        'membershipfail',
+        'membershipcancel',
+        'renewsuccess',
+        'renewfail',
+        'renewcancel',
     ];
 }
