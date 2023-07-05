@@ -69,8 +69,7 @@
                                         <select class="form-control" name="paymentgetway" required>
                                             <option value="">Select One</option>
                                             <option value="Bank">Bank</option>
-                                            <option value="Bkash">Bkash</option>
-                                            <option value="Nagad">Nagad</option>
+                                            <option value="Cash">Cash</option>
                                         </select>
                                     </div>
 

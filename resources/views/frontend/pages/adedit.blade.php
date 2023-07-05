@@ -65,7 +65,7 @@
                                                     <select class="form-control" name="adType" required>
                                                         <option value="">Select Ads Type </option>
                                                         <option value="rent"
-                                                            {{ $AdsData->adType == 'rent' ? 'selected' : '' }}>Rent Ad
+                                                            {{ $AdsData->adType == 'rent' ? 'selected' : '' }}>Promotional Ad
                                                         </option>
                                                         <option value="buy"
                                                             {{ $AdsData->adType == 'buy' ? 'selected' : '' }}>Buy Ad
@@ -92,10 +92,10 @@
                                                         <option value="for_rent"
                                                             {{ $AdsData->adservicetype == 'for_rent' ? 'selected' : '' }}>
                                                             For
-                                                            Rent</option>
+                                                            Promotional</option>
                                                         <option value="to_rent"
                                                             {{ $AdsData->adservicetype == 'to_rent' ? 'selected' : '' }}>To
-                                                            Rent</option>
+                                                            Promotional</option>
                                                         <option value="corporate_ads"
                                                             {{ $AdsData->adservicetype == 'corporate_ads' ? 'selected' : '' }}>
                                                             Corporate Ads</option>
