@@ -59,4 +59,10 @@ class MemberController extends Controller
             return redirect()->back()->with('error','Something Wrong!');
         }
     }
+
+
+
+    public function CustomerOvertview(){
+        
+    }
 }

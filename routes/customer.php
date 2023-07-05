@@ -105,4 +105,7 @@ Route::group(["middleware" => "auth:customer"], function(){
 
         Route::post('/mess',[messageController::class,'CMessage'])->name("mess.CMessage");
 
+        // Member View
+        Route::get('/customer-overview',[MemberController::class,'CustomerOvertview'])->name("customer.overview");
+
 });
