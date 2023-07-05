@@ -15,58 +15,17 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="header-title d-flex justify-content-between">
-                        <span>Customer list</span>
+                        <span>Customer view</span>
                     </h4>
 
-                    <div class="data-tables">
-
-                    @if($customers != null)
-
-                        <table id="dataTable" class="text-center">
-                            <thead class="bg-light text-capitalize">
-                                <tr>
-                                    <th>SL</th>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Membership</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                    $i = 1;
-                                @endphp
-                                @foreach($customers as $item)
-                                <tr>
-                                    <td>{{$i++}}</td>
-                                    <td><img src="{{ !empty($item->image)?asset($item->image):'/backend/assets/images/no-image.png' }}" alt="Image" style="width: 50px;height:40px"></td>
-                                    <td>{{ucfirst(substr($item->name, 0, 20))}}</td>
-                                    <td>{{ $item->mailPhone }}</td>
-                                    <td>
-                                        @if($item->profile_status == 1)
-                                            member
-                                        @else
-                                            non-member
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('customer.show',$item->id) }}">Edit</a>
-                                        @if($item->status == 1)
-                                        | <a href="{{ route('customer.delete',$item->id) }}">Deactive</i></a>
-                                        @else
-                                        | <a href="{{ route('customer.delete',$item->id) }}">Active</i></a>
-                                        @endif
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-
-                    @else
-                        <hr>
-                        <p class="h5 text-center">Data not found!</p>
-                    @endif
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>Name</td>
+                            <td>Md. Ziaur Rahman</td>
+                            <td>Email</td>
+                            <td>shakziaurrahmantito@gmail.com</td>
+                        </tr>
+                    </table>
 
                     </div>
                 </div>

@@ -62,7 +62,7 @@ class MemberController extends Controller
 
 
 
-    public function CustomerOvertview(){
-        
+    public function CustomerOvertview($id){
+        return view("backend.pages.customer.customer_view");
     }
 }

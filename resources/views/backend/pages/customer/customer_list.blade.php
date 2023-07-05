@@ -51,6 +51,9 @@
                                         @endif
                                     </td>
                                     <td>
+
+                                        <a href="{{ route('customer.overview',$item->id) }}">View</a>
+                                        |
                                         <a href="{{ route('customer.show',$item->id) }}">Edit</a>
                                         @if($item->status == 1)
                                         | <a href="{{ route('customer.delete',$item->id) }}">Deactive</i></a>
