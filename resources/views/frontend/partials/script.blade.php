@@ -63,8 +63,8 @@
         if(adType == "rent"){
 
             var rent = `<option value="">Select</option>
-                        <option value="for_rent">For Rent</option>
-                        <option value="to_rent">To Rent</option>
+                        <option value="for_rent">For Promotional</option>
+                        <option value="to_rent">To Promotional</option>
                         <option value="promotional">Corporate Ads</option>`
             $("#adservicetype").html(rent);
 
@@ -137,7 +137,8 @@
 
             $("#inputForm").html(`<select class="form-control" name="paymentgetway" required>
                                             <option value="">Select One</option>
-                                            <option value="bank">Bank</option>
+                                            <option value="Bank">Bank</option>
+                                            <option value="Cash">Cash</option>
                                         </select>`);
 
             $(this).css({

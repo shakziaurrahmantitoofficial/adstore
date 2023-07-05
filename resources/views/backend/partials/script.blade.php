@@ -343,6 +343,21 @@
     
     </script>
 
+    {{-- Sidebar Menu Active --}}
+    <script type="text/javascript">
+        let currentLocation = window.location.pathname;
+        let hrefs = $('body .sidebar-menu nav li a.link-item');
+        // if(window.location.href.split('/')[3] == 'dashboard'){
+        //     $('.tree.dashboard').addClass('active');
+        // }
+        for(let i = 0; i < hrefs.length; i++){
+            if(currentLocation === hrefs[i].pathname){
+                $(hrefs[i]).closest("li.tree").addClass("active");
+                $(hrefs[i]).closest('li.tree').find('ul').addClass('in');
+                $(hrefs[i]).addClass("active");
+            }
+        }
+    </script>
 
 
      

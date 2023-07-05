@@ -57,7 +57,7 @@
                                         <div class="form-group">
                                             <select class="form-control" name="adType" id="adType" required>
                                                 <option value="">Select Ads Type </option>
-                                                <option value="rent">Rent Ad</option>
+                                                <option value="rent">Promotional Ad</option>
                                                 <option value="buy">Buy Ad</option>
                                                 <option value="sale">Sale Ad</option>
                                             </select>
