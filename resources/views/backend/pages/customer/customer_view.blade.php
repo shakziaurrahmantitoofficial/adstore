@@ -31,7 +31,9 @@
                                         <div class="row">
                                             <div class="col-lg-5 col-md-6 col-12">
                                                 <div class="cus-info">
-                                                    <img src="{{asset($customer->image)}}" alt="Image" style="width:180px; height:200px; margin:auto">
+
+                                                    <img src="{{ isset($customer->image) ? asset($customer->image) : asset('images/dummy-image.jpeg')}}" alt="Image" style="width:180px; height:200px; margin:auto">
+
                                                     <h3 class="mt-4 mb-3">{{$customer->name}}</h3>
                                                     <h6 class="mb-3">Phone : {{$customer->mailPhone}}</h6>
                                                     <h6 class="mb-3">NID : {{$customer->nid}}</h6>
