@@ -93,6 +93,9 @@ Route::group(["prefix" => "admin"], function(){
     //Message Profile
     Route::get('/messagelist',[messageController::class,"customermessagelist"])->name("messagelist.customermessagelist");
     Route::get('/getmessage',[messageController::class,"customerGetmessage"])->name("getmessage.customerGetmessage");
+
+    // Member View
+    Route::get('/customer-overview/{id}',[MemberController::class,'CustomerOvertview'])->name("customer.overview");
         
 });
 
