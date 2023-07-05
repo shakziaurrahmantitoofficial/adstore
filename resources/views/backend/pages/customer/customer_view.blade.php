@@ -12,7 +12,7 @@
         @endsection
        
         <!-- Form inputs start -->
-        <div class="col-lg-8 col-md-10 m-auto">
+        <div class="col-lg-10 col-md-10 m-auto">
 
             <div class="card mt-5">
                 <div class="card-body">
@@ -31,11 +31,11 @@
                                         <div class="row">
                                             <div class="col-lg-5 col-md-6 col-12">
                                                 <div class="cus-info">
-                                                    <img src="/customerImage/3f44f83c03.jpg" alt="Image" style="width:180px; height:200px; margin:auto">
-                                                    <h3 class="mt-4 mb-3">Dipankar Biswas</h3>
-                                                    <h6 class="mb-3">Phone : 01741571104</h6>
-                                                    <h6 class="mb-3">NID : 415711048</h6>
-                                                    <h6 class="mb-3">Address : <span class="text-secondary ">SDOuiorrf sdfiohgssdf gfiogfosdghdfs</span></h6>
+                                                    <img src="{{asset($customer->image)}}" alt="Image" style="width:180px; height:200px; margin:auto">
+                                                    <h3 class="mt-4 mb-3">{{$customer->name}}</h3>
+                                                    <h6 class="mb-3">Phone : {{$customer->mailPhone}}</h6>
+                                                    <h6 class="mb-3">NID : {{$customer->nid}}</h6>
+                                                    <h6 class="mb-3">Address : <span class="text-secondary ">{{$customer->address}}</span></h6>
                                                 </div>
                                             </div>
                                             <div class="col-lg-7 col-md-6 col-12">
@@ -43,22 +43,76 @@
                                                     <div class="box">
                                                         <h5>Company Information</h5>
                                                         <hr>
-                                                        <p class="mb-2">Company Type : Phone</p>
-                                                        <p class="mb-2">Company Type : Phone</p>
-                                                        <p class="mb-2">Company Type : Phone</p>
-                                                        <p class="mb-2">Company Type : Phone</p>
-                                                        <p class="mb-2">Company Type : Phone</p>
-                                                        <p class="mb-2">Company Type : Phone</p>
+
+                                                        <p class="mb-2"><strong>Company Name</strong> : {{isset($customer->customerName) ? $customer->customerName : "N/A"}}</p>
+
+                                                        <p class="mb-2"><strong>Company Type</strong> : {{isset($customer->customerType) ? $customer->customerType : "N/A"}}</p>
+
+                                                        <p class="mb-2"><strong>Business Type</strong> : {{isset($customer->businessType) ? $customer->businessType : "N/A"}}</p>
+                                                        <p class="mb-2"><strong>Trade License</strong> : {{isset($customer->tradelince) ? $customer->tradelince : "N/A"}}</p>
                                                     </div>
+
+                                                    <div class="box mt-5">
+                                                        <h5>Account Info</h5>
+                                                        <hr>
+                                                        <p class="mb-2"><strong>Account Status</strong> : 
+                                                            @if($customer->status == 1)
+                                                                <span class="badge badge-pill badge-success">Active</span>
+                                                            @else
+                                                                <span class="badge badge-pill badge-danger">Inactive</span>
+                                                            @endif
+                                                        </p>
+                                                    </div>
+
                                                     <div class="box mt-5">
                                                         <h5>Ads Information</h5>
                                                         <hr>
-                                                        <p class="mb-2">Company Type : Phone</p>
-                                                        <p class="mb-2">Company Type : Phone</p>
-                                                        <p class="mb-2">Company Type : Phone</p>
-                                                        <p class="mb-2">Company Type : Phone</p>
-                                                        <p class="mb-2">Company Type : Phone</p>
-                                                        <p class="mb-2">Company Type : Phone</p>
+                                                @if(App\Models\ads::where('id', $customer->id)->count() > 0)
+                                                        <table class="table">
+                                                            <tr>
+                                                                <th>SL</th>
+                                                                <th>Title</th>
+                                                                <th>Package</th>
+                                                                <th>Start</th>
+                                                                <th>Expire</th>
+                                                                <th>Image</th>
+                                                                <th>Status</th>
+                                                            </tr>
+
+
+                                                        @foreach(App\Models\ads::where('customerId', $customer->id)->get() as $data)
+                                                            <tr>
+                                                                <td>{{$loop->index + 1}}</td>
+                                                                <td>{{substr($data->title, 0 , 20)}}</td>
+
+                                                                <td>{{$data->package?->packageName}}</td>
+
+                                                                <td>{{date("d M Y",$data->adstartTime)}}</td>
+                                                                <td>{{date("d M Y", $data->adstartTime + $data->duration)}}</td>
+                                                                <td>
+                                                                    <a href="{{asset($data->image)}}" target="_blank">
+                                                                    <img src="{{asset($data->image)}}" width="60"></a>
+                                                                </td>
+                                                                <td>
+                                                                    @if($data->status == 0)
+                                                                        <span class="badge badge-pill badge-secondary">Pending</span>
+                                                                    @elseif($data->status == 1)
+                                                                        <span class="badge badge-pill badge-success">Active</span>
+                                                                    @elseif($data->status == 2)
+                                                                        <span class="badge badge-pill badge-danger">Rejected</span>
+                                                                    @elseif($data->status == 3)
+                                                                        <span class="badge badge-pill badge-info">Expired</span>
+                                                                    @else
+                                                                        <span class="badge badge-pill badge-danger">Unknown</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                        </table>
+                                                @else
+                                                    <p class="text-center">Ads not found!</p>
+                                                @endif
+
                                                     </div>
                                                 </div>
                                             </div>

@@ -63,6 +63,7 @@ class MemberController extends Controller
 
 
     public function CustomerOvertview($id){
-        return view("backend.pages.customer.customer_view");
+        $customer = customer::find($id);
+        return view("backend.pages.customer.customer_view", compact('customer'));
     }
 }
