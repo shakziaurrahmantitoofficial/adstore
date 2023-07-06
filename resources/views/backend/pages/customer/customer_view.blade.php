@@ -69,7 +69,7 @@
                                                     <div class="box mt-5">
                                                         <h5>Ads Information</h5>
                                                         <hr>
-                                                @if(App\Models\ads::where('id', $customer->id)->count() > 0)
+                                                @if(App\Models\ads::where('customerId', $customer->id)->count() > 0)
                                                         <table class="table">
                                                             <tr>
                                                                 <th>SL</th>
