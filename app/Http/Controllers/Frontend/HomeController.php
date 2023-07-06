@@ -31,25 +31,12 @@ class HomeController extends Controller
             $gold = ads::where("packageName", "gold")->where("status", 1)->orderby("id","DESC")->get();
         }
 
-
-
         $silver = null;
         if(ads::where("packageName", "silver")->where("status", 1)->count() > 0){
             $silver = ads::where("packageName", "silver")->where("status", 1)->orderby("id","DESC")->get();
         }
 
-
-
-        // $regular = null;
-        // if(ads::where("packageName", "regular")->where("status", 1)->count() > 0){
-
-
-        //     //$regular = ads::where("packageName", "regular")->where("status", 1)->orderby("id","DESC")->get();
-
-        //     
-
-
-        // }
+        $regular = null;
 
         $regular = ads::where("packageName", "regular")->where("status", 1)->orderby("id","DESC")->paginate(4);
 

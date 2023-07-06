@@ -358,8 +358,8 @@
                 </div>
 
                 <div class="text-center my-2">
-                    <button type="button" id="loardmore" class="btn btn-primary">
-                        <div class="spinner-border" id="loadingIcon" style="display:none;"></div>
+                    <button type="button" id="loardmore" class="btn btn-primary mt-4" style="column-gap: 12px;">
+                        <span class="spinner-border" id="loadingIcon" style="display:none; width: 1.5rem; height: 1.5rem;border-color: #ffffff !important;"></span>
                          Load More</button>
                 </div>
 
