@@ -353,45 +353,15 @@
 
                     <h2 class="py-1 text-left w-700" style="font-size:24px; font-family: 'Roboto', sans-serif;">All regular ad</h2>
 
-                    <div class="row">
-
-
-                        @foreach ($regular as $key => $regularData)
-
-                            <div class="col-lg-6 col-sm-6 col-xs-6">
-                                <div class="mt-4">
-
-                                    <a href="{{ $regularData->link }}" class="border border-secondary d-block py-2 px-2">
-
-                                        <div class="row as-ad-card">
-                                            <div class="col-5">
-                                                <img src="{{ asset($regularData->image) }}" alt="{{ $regularData->name }}" class="saleimg" style="height: 160px;">
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="content">
-
-                                                    <h2 class="fw-bold" style="font-size:18px;color:#000">{{ $regularData->title }}</h2>
-
-                                                    <p class="text-secondary">{{ $regularData->description }}</p>
-                                                    <!-- <div class="price" style="font-size: 20px;color:tomato">৳ ৩৫,০০০</div> -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
-                        @endforeach
+                <div class="row" id="addRegularPost">
+                    @include('frontend.pages.loadmore')
                 </div>
 
                 <div class="text-center my-2">
-                    <button type="button" id="loardmore" class="btn btn-primary">Load More</button>
+                    <button type="button" id="loardmore" class="btn btn-primary">
+                        <div class="spinner-border" id="loadingIcon" style="display:none;"></div>
+                         Load More</button>
                 </div>
-
-
-
-
-
 
                 </div>
             </div>

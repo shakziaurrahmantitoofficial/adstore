@@ -14,7 +14,7 @@ use Illuminate\Pagination\Paginator;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
 
         
@@ -40,14 +40,29 @@ class HomeController extends Controller
 
 
 
-        $regular = null;
-        if(ads::where("packageName", "regular")->where("status", 1)->count() > 0){
-            $regular = ads::where("packageName", "regular")->where("status", 1)->orderby("id","DESC")->get();
+        // $regular = null;
+        // if(ads::where("packageName", "regular")->where("status", 1)->count() > 0){
+
+
+        //     //$regular = ads::where("packageName", "regular")->where("status", 1)->orderby("id","DESC")->get();
+
+        //     
+
+
+        // }
+
+        $regular = ads::where("packageName", "regular")->where("status", 1)->orderby("id","DESC")->paginate(4);
+
+        if($request->ajax()){
+            $view = view('frontend.pages.loadmore', compact('regular'))->render();
+            return response()->json([
+                "html" => $view
+            ]);
         }
 
+        return view('frontend.pages.index', compact('platinum','gold', "silver", "regular"));
 
-
-        return view('frontend.pages.index', compact('platinum','gold', "silver", "regular"));}
+    }
 
 
 

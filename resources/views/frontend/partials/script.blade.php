@@ -10,6 +10,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
 <script src="js/main.js"></script>
 
+<script type="text/javascript">
+
+    var pages = 2;
+
+    $("#loardmore").click(function(){
+
+        $.ajax({
+            url : "?page="+pages++,
+            type : "get",
+            beforeSend : function(){
+                $("#loadingIcon").css("display","block");
+            }
+        })
+        .done(function(data){
+            $("#addRegularPost").append(data.html);
+            $("#loadingIcon").css("display","none");
+        });
+
+        if(pages-1 == {{$regular->LastPage()}}){
+            $("#loardmore").hide();
+        }
+
+    });
+
+</script>
+
 
 
 {{-- Category Fileter See More/See Less --}}
