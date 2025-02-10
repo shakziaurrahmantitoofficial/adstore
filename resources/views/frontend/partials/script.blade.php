@@ -378,7 +378,6 @@ integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="ano
                 $(document).find(".form-text").text("");
             },
             success: function(data){
-                console.log("response", data);
                 if(data.message == "error"){
                     $.each(data.data, function(key, value){
                         $("#err"+key).text(value).css("color","red");
