@@ -25,9 +25,7 @@ class customerLoginController extends Controller
 
 
     public function customerRegisstationInsert(Request $req){
-
         if($req->method("POST")){
-
             $errors = Validator::make($req->all(),[
                 "name" => "required",
                 "mailPhone" => "required",
@@ -35,7 +33,6 @@ class customerLoginController extends Controller
                 "password" => "required|min:8",
                 "repassword" => "required|same:password",
             ]);
-
             if ($errors->fails()) {
                 return response()->json([
                     "status" => false,
@@ -43,9 +40,7 @@ class customerLoginController extends Controller
                     "data" => $errors->errors()
                 ]);
             }
-
             if(is_numeric($req->mailPhone)){
-
                 $errors = Validator::make($req->all(),[
                     "mailPhone" => "unique:customers|min:11",
                 ],[
@@ -201,6 +196,12 @@ class customerLoginController extends Controller
                         "message" => "Email or password not match!"
                     ]);
                 }
+            }else{
+                return response()->json([
+                    "status" => false,
+                    "login" => false,
+                    "message" => "Email or password not match!"
+                ]);
             }
         }
 
